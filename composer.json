@@ -1,0 +1,22 @@
+{
+  "name": "u89man/telegram-bot",
+  "version": "0.4.2",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "u89man",
+      "email": "u89man@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "U89Man\\TBot\\": "src"
+    }
+  },
+  "require": {
+    "php": "7.*",
+    "ext-curl": "*",
+    "ext-mbstring": "*",
+    "ext-json": "*"
+  }
+}
