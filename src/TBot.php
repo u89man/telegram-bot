@@ -91,7 +91,7 @@ class TBot
      */
     public static function isAdmin($userId)
     {
-        return in_array($userId, self::$adminUsersId);
+        return in_array($userId, static::$adminUsersId);
     }
 
     /**
