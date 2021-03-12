@@ -1746,6 +1746,27 @@ class Api
     }
 
     /**
+     * Отзывает пригласительную ссылку, созданную ботом.
+     * Если основная ссылка отозвана, автоматически создается новая ссылка.
+     *
+     * @link https://core.telegram.org/bots/api#revokechatinvitelink
+     *
+     * @param int|string $chatId
+     * @param string $inviteLink
+     *
+     * @return ChatInviteLink
+     */
+    public function revokeChatInviteLink(
+        $chatId,
+        $inviteLink
+    ) {
+        return new ChatInviteLink($this->_request('revokeChatInviteLink', [
+            'chat_id' => $chatId,
+            'invite_link' => $inviteLink
+        ]));
+    }
+
+    /**
      * Используется для выхода бота из группы, супергруппы или канала.
      *
      * @link https://core.telegram.org/bots/api#leavechat
