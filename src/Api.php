@@ -1394,18 +1394,21 @@ class Api
      * @param int|string $chatId
      * @param int $userId
      * @param int|null $untilDate
+     * @param bool|null $revokeMessages
      *
      * @return bool
      */
     public function kickChatMember(
         $chatId,
         $userId,
-        $untilDate = null
+        $untilDate = null,
+        $revokeMessages = null
     ) {
         return $this->_request('kickChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
-            'until_date' => $untilDate
+            'until_date' => $untilDate,
+            'revoke_messages' => $revokeMessages
         ]);
     }
 
