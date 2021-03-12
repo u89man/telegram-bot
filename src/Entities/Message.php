@@ -63,6 +63,7 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method                  string|null getConnectedWebsite()
  * @method            PassportData|null getPassportData()
  * @method ProximityAlertTriggered|null getProximityAlertTriggered()
+ * @method        VoiceChatStarted|null getVoiceChatStarted()
  * @method    InlineKeyboardMarkup|null getReplyMarkup()
  */
 class Message extends Entity
@@ -96,6 +97,7 @@ class Message extends Entity
 	const TYPE_INVOICE = 'invoice';
 	const TYPE_SUCCESSFUL_PAYMENT = 'successful_payment';
     const TYPE_SM_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
+    const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
 	const TYPE_UNKNOWN = 'unknown';
 
 
@@ -136,6 +138,7 @@ class Message extends Entity
             'successful_payment' => SuccessfulPayment::class,
             'passport_data' => PassportData::class,
             'proximity_alert_triggered' => ProximityAlertTriggered::class,
+            'voice_chat_started' => VoiceChatStarted::class,
             'reply_markup' => InlineKeyboardMarkup::class
         ];
     }
@@ -174,7 +177,8 @@ class Message extends Entity
             self::TYPE_PINNED_MESSAGE,
             self::TYPE_INVOICE,
             self::TYPE_SUCCESSFUL_PAYMENT,
-            self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED
+            self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED,
+            self::TYPE_VOICE_CHAT_STARTED
 		];
 
 		foreach ($types as $type) {
@@ -434,5 +438,13 @@ class Message extends Entity
     public function isProximityAlertTriggered()
     {
         return $this->getType() == self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isVoiceChatStarted()
+    {
+        return $this->getType() == self::TYPE_VOICE_CHAT_STARTED;
     }
 }
