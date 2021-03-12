@@ -89,16 +89,16 @@ class Message extends Entity
 	const TYPE_LEFT_CHAT_MEMBER = 'left_chat_member';
 	const TYPE_NEW_CHAT_TITLE = 'new_chat_title';
 	const TYPE_NEW_CHAT_PHOTO = 'new_chat_photo';
-	const TYPE_SM_DELETE_CHAT_PHOTO = 'delete_chat_photo';
-	const TYPE_SM_GROUP_CHAT_CREATED = 'group_chat_created';
-	const TYPE_SM_SUPERGROUP_CHAT_CREATED = 'supergroup_chat_created';
-	const TYPE_SM_CHANNEL_CHAT_CREATED = 'channel_chat_created';
+	const TYPE_DELETE_CHAT_PHOTO = 'delete_chat_photo';
+	const TYPE_GROUP_CHAT_CREATED = 'group_chat_created';
+	const TYPE_SUPERGROUP_CHAT_CREATED = 'supergroup_chat_created';
+	const TYPE_CHANNEL_CHAT_CREATED = 'channel_chat_created';
 	const TYPE_MIGRATE_TO_CHAT_ID = 'migrate_to_chat_id';
 	const TYPE_MIGRATE_FROM_CHAT_ID = 'migrate_from_chat_id';
 	const TYPE_PINNED_MESSAGE = 'pinned_message';
 	const TYPE_INVOICE = 'invoice';
 	const TYPE_SUCCESSFUL_PAYMENT = 'successful_payment';
-    const TYPE_SM_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
+    const TYPE_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
     const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
     const TYPE_VOICE_CHAT_ENDED = 'voice_chat_ended';
     const TYPE_VOICE_CHAT_PARTICIPANTS_INVITED = 'voice_chat_participants_invited';
@@ -174,16 +174,16 @@ class Message extends Entity
             self::TYPE_LEFT_CHAT_MEMBER,
             self::TYPE_NEW_CHAT_TITLE,
             self::TYPE_NEW_CHAT_PHOTO,
-            self::TYPE_SM_DELETE_CHAT_PHOTO,
-            self::TYPE_SM_GROUP_CHAT_CREATED,
-            self::TYPE_SM_SUPERGROUP_CHAT_CREATED,
-            self::TYPE_SM_CHANNEL_CHAT_CREATED,
+            self::TYPE_DELETE_CHAT_PHOTO,
+            self::TYPE_GROUP_CHAT_CREATED,
+            self::TYPE_SUPERGROUP_CHAT_CREATED,
+            self::TYPE_CHANNEL_CHAT_CREATED,
             self::TYPE_MIGRATE_TO_CHAT_ID,
             self::TYPE_MIGRATE_FROM_CHAT_ID,
             self::TYPE_PINNED_MESSAGE,
             self::TYPE_INVOICE,
             self::TYPE_SUCCESSFUL_PAYMENT,
-            self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED,
+            self::TYPE_PROXIMITY_ALERT_TRIGGERED,
             self::TYPE_VOICE_CHAT_STARTED,
             self::TYPE_VOICE_CHAT_ENDED,
             self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
@@ -373,7 +373,7 @@ class Message extends Entity
      */
     public function isDeleteChatPhoto()
     {
-        return $this->getType() == self::TYPE_SM_DELETE_CHAT_PHOTO;
+        return $this->getType() == self::TYPE_DELETE_CHAT_PHOTO;
     }
 
     /**
@@ -381,7 +381,7 @@ class Message extends Entity
      */
     public function isGroupChatCreated()
     {
-        return $this->getType() == self::TYPE_SM_GROUP_CHAT_CREATED;
+        return $this->getType() == self::TYPE_GROUP_CHAT_CREATED;
     }
 
     /**
@@ -389,7 +389,7 @@ class Message extends Entity
      */
     public function isSupergroupChatCreated()
     {
-        return $this->getType() == self::TYPE_SM_SUPERGROUP_CHAT_CREATED;
+        return $this->getType() == self::TYPE_SUPERGROUP_CHAT_CREATED;
     }
 
     /**
@@ -397,7 +397,7 @@ class Message extends Entity
      */
     public function isChannelChatCreated()
     {
-        return $this->getType() == self::TYPE_SM_CHANNEL_CHAT_CREATED;
+        return $this->getType() == self::TYPE_CHANNEL_CHAT_CREATED;
     }
 
     /**
@@ -445,7 +445,7 @@ class Message extends Entity
      */
     public function isProximityAlertTriggered()
     {
-        return $this->getType() == self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED;
+        return $this->getType() == self::TYPE_PROXIMITY_ALERT_TRIGGERED;
     }
 
     /**
