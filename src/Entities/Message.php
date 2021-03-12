@@ -13,59 +13,60 @@ use U89Man\TBot\Entities\Stickers\Sticker;
 /**
  * @link https://core.telegram.org/bots/api#message
  *
- * @method                          int getMessageId()
- * @method                    User|null getFrom()
- * @method                          int getDate()
- * @method                         Chat getChat()
- * @method                    Chat|null getSenderChat()
- * @method                    User|null getForwardFrom()
- * @method                    Chat|null getForwardFromChat()
- * @method                     int|null getForwardFromMessageId()
- * @method                  string|null getForwardSignature()
- * @method                  string|null getForwardSenderName()
- * @method                     int|null getForwardDate()
- * @method                 Message|null getReplyToMessage()
- * @method                    User|null getViaBot()
- * @method                     int|null getEditDate()
- * @method                  string|null getMediaGroupId()
- * @method                  string|null getAuthorSignature()
- * @method                  string|null getText()
- * @method         MessageEntity[]|null getEntities()
- * @method                   Audio|null getAudio()
- * @method                Document|null getDocument()
- * @method               Animation|null getAnimation()
- * @method                    Game|null getGame()
- * @method             PhotoSize[]|null getPhoto()
- * @method                 Sticker|null getSticker()
- * @method                   Video|null getVideo()
- * @method                   Voice|null getVoice()
- * @method               VideoNote|null getVideoNote()
- * @method                  string|null getCaption()
- * @method         MessageEntity[]|null getCaptionEntities()
- * @method                 Contact|null getContact()
- * @method                Location|null getLocation()
- * @method                   Venue|null getVenue()
- * @method                    Poll|null getPoll()
- * @method                    Dice|null getDice()
- * @method                  User[]|null getNewChatMembers()
- * @method                    User|null getLeftChatMember()
- * @method                  string|null getNewChatTitle()
- * @method             PhotoSize[]|null getNewChatPhoto()
- * @method                    bool|null getDeleteChatPhoto()
- * @method                    bool|null getGroupChatCreated()
- * @method                    bool|null getSupergroupChatCreated()
- * @method                    bool|null getChannelChatCreated()
- * @method                     int|null getMigrateToChatId()
- * @method                     int|null getMigrateFromChatId()
- * @method                 Message|null getPinnedMessage()
- * @method                 Invoice|null getInvoice()
- * @method       SuccessfulPayment|null getSuccessfulPayment()
- * @method                  string|null getConnectedWebsite()
- * @method            PassportData|null getPassportData()
- * @method ProximityAlertTriggered|null getProximityAlertTriggered()
- * @method        VoiceChatStarted|null getVoiceChatStarted()
- * @method          VoiceChatEnded|null getVoiceChatEnded()
- * @method    InlineKeyboardMarkup|null getReplyMarkup()
+ * @method                               int getMessageId()
+ * @method                         User|null getFrom()
+ * @method                               int getDate()
+ * @method                              Chat getChat()
+ * @method                         Chat|null getSenderChat()
+ * @method                         User|null getForwardFrom()
+ * @method                         Chat|null getForwardFromChat()
+ * @method                          int|null getForwardFromMessageId()
+ * @method                       string|null getForwardSignature()
+ * @method                       string|null getForwardSenderName()
+ * @method                          int|null getForwardDate()
+ * @method                      Message|null getReplyToMessage()
+ * @method                         User|null getViaBot()
+ * @method                          int|null getEditDate()
+ * @method                       string|null getMediaGroupId()
+ * @method                       string|null getAuthorSignature()
+ * @method                       string|null getText()
+ * @method              MessageEntity[]|null getEntities()
+ * @method                        Audio|null getAudio()
+ * @method                     Document|null getDocument()
+ * @method                    Animation|null getAnimation()
+ * @method                         Game|null getGame()
+ * @method                  PhotoSize[]|null getPhoto()
+ * @method                      Sticker|null getSticker()
+ * @method                        Video|null getVideo()
+ * @method                        Voice|null getVoice()
+ * @method                    VideoNote|null getVideoNote()
+ * @method                       string|null getCaption()
+ * @method              MessageEntity[]|null getCaptionEntities()
+ * @method                      Contact|null getContact()
+ * @method                     Location|null getLocation()
+ * @method                        Venue|null getVenue()
+ * @method                         Poll|null getPoll()
+ * @method                         Dice|null getDice()
+ * @method                       User[]|null getNewChatMembers()
+ * @method                         User|null getLeftChatMember()
+ * @method                       string|null getNewChatTitle()
+ * @method                  PhotoSize[]|null getNewChatPhoto()
+ * @method                         bool|null getDeleteChatPhoto()
+ * @method                         bool|null getGroupChatCreated()
+ * @method                         bool|null getSupergroupChatCreated()
+ * @method                         bool|null getChannelChatCreated()
+ * @method                          int|null getMigrateToChatId()
+ * @method                          int|null getMigrateFromChatId()
+ * @method                      Message|null getPinnedMessage()
+ * @method                      Invoice|null getInvoice()
+ * @method            SuccessfulPayment|null getSuccessfulPayment()
+ * @method                       string|null getConnectedWebsite()
+ * @method                 PassportData|null getPassportData()
+ * @method      ProximityAlertTriggered|null getProximityAlertTriggered()
+ * @method             VoiceChatStarted|null getVoiceChatStarted()
+ * @method               VoiceChatEnded|null getVoiceChatEnded()
+ * @method VoiceChatParticipantsInvited|null getVoiceChatParticipantsInvited()
+ * @method         InlineKeyboardMarkup|null getReplyMarkup()
  */
 class Message extends Entity
 {
@@ -100,6 +101,7 @@ class Message extends Entity
     const TYPE_SM_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
     const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
     const TYPE_VOICE_CHAT_ENDED = 'voice_chat_ended';
+    const TYPE_VOICE_CHAT_PARTICIPANTS_INVITED = 'voice_chat_participants_invited';
 	const TYPE_UNKNOWN = 'unknown';
 
 
@@ -142,6 +144,7 @@ class Message extends Entity
             'proximity_alert_triggered' => ProximityAlertTriggered::class,
             'voice_chat_started' => VoiceChatStarted::class,
             'voice_chat_ended' => VoiceChatEnded::class,
+            'voice_chat_participants_invited' => VoiceChatParticipantsInvited::class,
             'reply_markup' => InlineKeyboardMarkup::class
         ];
     }
@@ -182,7 +185,8 @@ class Message extends Entity
             self::TYPE_SUCCESSFUL_PAYMENT,
             self::TYPE_SM_PROXIMITY_ALERT_TRIGGERED,
             self::TYPE_VOICE_CHAT_STARTED,
-            self::TYPE_VOICE_CHAT_ENDED
+            self::TYPE_VOICE_CHAT_ENDED,
+            self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
 		];
 
 		foreach ($types as $type) {
@@ -458,5 +462,13 @@ class Message extends Entity
     public function isVoiceChatEnded()
     {
         return $this->getType() == self::TYPE_VOICE_CHAT_ENDED;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isVoiceChatParticipantsInvited()
+    {
+        return $this->getType() == self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED;
     }
 }
