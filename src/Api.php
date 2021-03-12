@@ -4,6 +4,7 @@ namespace U89Man\TBot;
 
 use U89Man\TBot\Entities\BotCommand;
 use U89Man\TBot\Entities\Chat;
+use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatMember;
 use U89Man\TBot\Entities\ChatPermissions;
 use U89Man\TBot\Entities\File;
@@ -1693,6 +1694,29 @@ class Api
         return $this->_request('exportChatInviteLink', [
             'chat_id' => $chatId
         ]);
+    }
+
+    /**
+     * Создает дополнительную ссылку для приглашения в чат. Ссылку можно отозвать с помощью метода 'revokeChatInviteLink'.
+     *
+     * @link https://core.telegram.org/bots/api#createchatinvitelink
+     *
+     * @param int|string $chatId
+     * @param int|null $expireDate
+     * @param int|null $memberLimit
+     *
+     * @return ChatInviteLink
+     */
+    public function createChatInviteLink(
+        $chatId,
+        $expireDate = null,
+        $memberLimit = null
+    ) {
+        return new ChatInviteLink($this->_request('createChatInviteLink', [
+            'chat_id' => $chatId,
+            'expire_date' => $expireDate,
+            'member_limit' => Utils::checkNum($memberLimit, 1, 99999)
+        ]));
     }
 
     /**
