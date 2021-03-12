@@ -1720,6 +1720,32 @@ class Api
     }
 
     /**
+     * Редактирует дополнительную пригласительную ссылку, созданную ботом.
+     *
+     * @link https://core.telegram.org/bots/api#editchatinvitelink
+     *
+     * @param int|string $chatId
+     * @param string $inviteLink
+     * @param int|null $expireDate
+     * @param int|null $memberLimit
+     *
+     * @return ChatInviteLink
+     */
+    public function editChatInviteLink(
+        $chatId,
+        $inviteLink,
+        $expireDate = null,
+        $memberLimit = null
+    ) {
+        return new ChatInviteLink($this->_request('editChatInviteLink', [
+            'chat_id' => $chatId,
+            'invite_link' => $inviteLink,
+            'expire_date' => $expireDate,
+            'member_limit' => Utils::checkNum($memberLimit, 1, 99999)
+        ]));
+    }
+
+    /**
      * Используется для выхода бота из группы, супергруппы или канала.
      *
      * @link https://core.telegram.org/bots/api#leavechat
