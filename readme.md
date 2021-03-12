@@ -1,4 +1,4 @@
-## Telegram Bot 0.4.3 ([5.1](https://core.telegram.org/bots/api#march-9-2021))
+## Telegram Bot 0.4.4 ([5.1](https://core.telegram.org/bots/api#march-9-2021))
 
 ##### Требования
 
