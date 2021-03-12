@@ -15,4 +15,5 @@ class Dice extends Entity
     const EMOJI_BASKETBALL = '🏀';
     const EMOJI_FOOTBALL = '⚽';
     const EMOJI_SLOT_MACHINE = '🎰';
+    const EMOJI_BOWLING = '🎳';
 }
