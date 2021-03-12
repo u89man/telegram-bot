@@ -26,6 +26,8 @@ use U89Man\TBot\Entities\Poll\PollAnswer;
  * @method       PassportData|null getPassportData()
  * @method               Poll|null getPoll()
  * @method         PollAnswer|null getPollAnswer()
+ * @method  ChatMemberUpdated|null getMyChatMember()
+ * @method  ChatMemberUpdated|null getChatMember()
  */
 class Update extends Entity
 {
@@ -43,6 +45,8 @@ class Update extends Entity
     const TYPE_PASSPORT_DATA = 'passport_data';
 	const TYPE_POLL = 'poll';
 	const TYPE_POLL_ANSWER = 'poll_answer';
+	const TYPE_MY_CHAT_MEMBER = 'my_chat_member';
+	const TYPE_CHAT_MEMBER = 'chat_member';
 
 
     /**
@@ -62,7 +66,9 @@ class Update extends Entity
             'pre_checkout_query' => PreCheckoutQuery::class,
             'passport_data' => PassportData::class,
             'poll' => Poll::class,
-            'poll_answer' => PollAnswer::class
+            'poll_answer' => PollAnswer::class,
+            'my_chat_member' => ChatMemberUpdated::class,
+            'chat_member' => ChatMemberUpdated::class
         ];
     }
 
@@ -83,7 +89,9 @@ class Update extends Entity
             self::TYPE_PRE_CHECKOUT_QUERY,
             self::TYPE_PASSPORT_DATA,
             self::TYPE_POLL,
-            self::TYPE_POLL_ANSWER
+            self::TYPE_POLL_ANSWER,
+            self::TYPE_MY_CHAT_MEMBER,
+            self::TYPE_CHAT_MEMBER
 		];
 
 		foreach ($types as $type) {
@@ -187,5 +195,21 @@ class Update extends Entity
     public function isPollAnswer()
     {
         return $this->getType() == self::TYPE_POLL_ANSWER;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMyChatMember()
+    {
+        return $this->getType() == self::TYPE_MY_CHAT_MEMBER;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isChatMember()
+    {
+        return $this->getType() == self::TYPE_CHAT_MEMBER;
     }
 }
