@@ -14,6 +14,7 @@ namespace U89Man\TBot\Entities;
  * @method   bool|null getCanPostMessages()
  * @method   bool|null getCanEditMessages()
  * @method   bool|null getCanDeleteMessages()
+ * @method   bool|null getCanManageVoiceChats()
  * @method   bool|null getCanRestrictMembers()
  * @method   bool|null getCanPromoteMembers()
  * @method   bool|null getCanChangeInfo()
