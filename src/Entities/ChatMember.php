@@ -11,6 +11,7 @@ namespace U89Man\TBot\Entities;
  * @method   bool|null getIsAnonymous()
  * @method    int|null getUntilDate()
  * @method   bool|null getCanBeEdited()
+ * @method   bool|null getCanManageChat()
  * @method   bool|null getCanPostMessages()
  * @method   bool|null getCanEditMessages()
  * @method   bool|null getCanDeleteMessages()
