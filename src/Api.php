@@ -1315,6 +1315,7 @@ class Api
      * @param int|string $chatId
      * @param int $userId
      * @param bool|null $isAnonymous
+     * @param bool|null $canManageChats
      * @param bool|null $canChangeInfo
      * @param bool|null $canPostMessages
      * @param bool|null $canEditMessages
@@ -1331,6 +1332,7 @@ class Api
         $chatId,
         $userId,
         $isAnonymous = null,
+        $canManageChats = null,
         $canChangeInfo = null,
         $canPostMessages = null,
         $canEditMessages = null,
@@ -1345,6 +1347,7 @@ class Api
             'chat_id' => $chatId,
             'user_id' => $userId,
             'is_anonymous' => $isAnonymous,
+            'can_manage_chat' => $canManageChats,
             'can_change_info' => $canChangeInfo,
             'can_post_messages' => $canPostMessages,
             'can_edit_messages' => $canEditMessages,
