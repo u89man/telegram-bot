@@ -7,6 +7,7 @@ use Throwable;
 use U89Man\TBot\Entities\Update;
 use U89Man\TBot\Exceptions\InputException;
 use U89Man\TBot\Exceptions\JsonException;
+use U89Man\TBot\Exceptions\TelegramException;
 
 class TBot
 {
@@ -199,6 +200,10 @@ class TBot
     protected function handleUpdate(Update $update)
     {
         $type = $update->getType();
+
+        if (empty($this->handlers)) {
+            throw new TelegramException("Не зарегистрировано ни одного обработчика.");
+        }
 
         if (! isset($this->handlers[$type])) {
             return;
