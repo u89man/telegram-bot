@@ -93,6 +93,24 @@ $bot->run();
 ```
 
 
+##### Доступные методы для регистрации обработчиков
+
++ `addMessageHandler()`
++ `addEditedMessageHandler()`
++ `addChannelPostHandler()`
++ `addEditedChannelPostHandler()`
++ `addInlineQueryHandler()`
++ `addChosenInlineResultHandler()`
++ `addCallbackQueryHandler()`
++ `addShippingQueryHandler()`
++ `addPreCheckoutQueryHandler()`
++ `addPassportDataHandler()`
++ `addPollHandler()`
++ `addPollAnswerHandler()`
++ `addMyChatMember()`
++ `addChatMember()`
+
+
 ##### Документация
 
 + [Доступные методы API](docs/Api.md)
