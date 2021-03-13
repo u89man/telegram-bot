@@ -166,6 +166,81 @@ $bot->addMessageHandler(function (Api $api, Message $message) {
 $bot->run();
 ```
 
+При необходимости можно переопределить некоторые методы класса TBot.
+
+```php
+<?php
+
+use U89Man\TBot\Api;
+use U89Man\TBot\Entities\Message;
+use U89Man\TBot\TBot;
+
+require __DIR__.'/vendor/autoload.php';
+
+
+class MyBot extends TBot
+{
+    /**
+     * Выполняется перед обработкой входящего обновления.
+     */
+    protected function boot()
+    {
+        // Регистрируем ID администратора
+        $this->addAdmin(56781234);
+        
+        // Подменяем входные данные (json-строка присылаемая серверами телеграм)
+        // Необходимо для локального тестирования
+        $this->setInput('{"update_id":567801234,"message":{"message_id":234,"from":{"id":56781234,"is_bot":false,"first_name":"Name","username":"User","language_code":"ru"},"chat":{"id":56781234,"first_name":"Name","username":"User","type":"private"},"date":1608061225,"text":"/start","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}');
+
+        // Регистируем обработчик сообщений
+        $this->addMessageHandler(function (Api $api, Message $message) {
+            $chatId = $message->getChat()->getId();
+
+            // Сообщение является командой
+            if ($message->getBotCommand() == '/start') {
+                $userId = $message->getFrom()->getId();
+
+                if (static::isAdmin($userId)) {
+                    $api->sendMessage($chatId, 'Привет, админ.');
+                } else {
+                    $api->sendMessage($chatId, 'Привет, пользователь.');
+                }
+            }
+        });
+    }
+
+    /**
+     * Собственный обработчик ошибок.
+     *
+     * @param Throwable $e
+     */
+    protected function error(Throwable $e)
+    {
+        // [31.12.2020 23:56:18] Сообщение исключения (/Some/Path/File.php:48)
+        $text = '['.date('d.m.Y H:i:s').'] '.$e->getMessage().' ('.$e->getFile().':'.$e->getLine().')'.PHP_EOL;
+
+        // Например: Запись ошибки в лог-файл
+        file_put_contents('error.log', $text, FILE_APPEND);
+    }
+
+    /**
+     * Выполняется после обработки входящего обновления.
+     */
+    protected function terminate()
+    {
+        //
+    }
+}
+
+
+$token = '1351912164:AAE19wXCnuzcZQPloV0t_JLZpSwGsyUBJYY';
+
+$bot = new MyBot($token);
+
+$bot->run();
+```
+
+
 
 ##### Доступные типы обработчиков
 
