@@ -14,6 +14,8 @@ composer require u89man/telegram-bot
 
 ##### Примеры
 
+Обработка команд.
+
 ```php
 <?php
 
@@ -28,7 +30,6 @@ $token = '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11';
 $bot = new TBot($token);
 
 $bot->addMessageHandler(function (Api $api, Message $message) {
-    // Обработка команды 
     if ($message->getBotCommand() == '/start') {
         $api->sendMessage($message->getChat()->getId(), 'Добро пожаловать!');
     }
@@ -36,6 +37,8 @@ $bot->addMessageHandler(function (Api $api, Message $message) {
 
 $bot->run();
 ```
+
+Проверка статуса пользователя.
 
 ```php
 <?php
@@ -54,14 +57,16 @@ $bot->addAdmin(56781234);
 
 $bot->addMessageHandler(function (Api $api, Message $message) {
     if (TBot::isAdmin($message->getFrom()->getId())) {
-        // admin
+        // админ
     } else {
-        // simple user
+        // простой пользователь
     }
 });
 
 $bot->run();
 ```
+
+Регистрация обработчиков через конструктор класса бота.
 
 ```php
 <?php
@@ -91,6 +96,8 @@ $bot = new TBot($token, [
 
 $bot->run();
 ```
+
+Допустимо регистрировать несколько одинаковых обработчиков, они будут выполнены в порядке очереди добавления.
 
 
 ##### Доступные методы для регистрации обработчиков
