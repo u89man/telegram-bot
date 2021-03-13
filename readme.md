@@ -100,6 +100,25 @@ $bot->run();
 Допустимо регистрировать несколько одинаковых обработчиков, они будут выполнены в порядке очереди добавления.
 
 
+##### Доступные типы обработчиков
+
++ `Update::TYPE_MESSAGE`
++ `Update::TYPE_EDITED_MESSAGE`
++ `Update::TYPE_CHANNEL_POST`
++ `Update::TYPE_EDITED_CHANNEL_POST`
++ `Update::TYPE_INLINE_QUERY`
++ `Update::TYPE_CHOSEN_INLINE_RESULT`
++ `Update::TYPE_CALLBACK_QUERY`
++ `Update::TYPE_SHIPPING_QUERY`
++ `Update::TYPE_PRE_CHECKOUT_QUERY`
++ `Update::TYPE_PASSPORT_DATA`
++ `Update::TYPE_POLL`
++ `Update::TYPE_POLL_ANSWER`
++ `Update::TYPE_MY_CHAT_MEMBER`
++ `Update::TYPE_CHAT_MEMBER`
+
+
+
 ##### Доступные методы для регистрации обработчиков
 
 + `addMessageHandler()`
