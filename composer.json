@@ -1,5 +1,6 @@
 {
   "name": "u89man/telegram-bot",
+  "description": "Библиотека для создания телеграм ботов.",
   "version": "0.5.3",
   "license": "MIT",
   "authors": [
