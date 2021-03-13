@@ -3,6 +3,9 @@
 ##### Требования
 
 + `PHP >= 7.0`
++ `ext-curl`
++ `ext-mbstring`
++ `ext-json`
 
 
 ##### Установка
@@ -30,13 +33,47 @@ $token = '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11';
 $bot = new TBot($token);
 
 $bot->addMessageHandler(function (Api $api, Message $message) {
+    $chatId = $message->getChat()->getId();
+
     if ($message->getBotCommand() == '/start') {
-        $api->sendMessage($message->getChat()->getId(), 'Добро пожаловать!');
+        $api->sendMessage($chatId, 'Добро пожаловать!');
     }
 });
 
 $bot->run();
 ```
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use U89Man\TBot\Api;
+use U89Man\TBot\Entities\Message;
+use U89Man\TBot\TBot;
+
+$token = '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11';
+
+$bot = new TBot($token);
+
+$bot->addMessageHandler(function (Api $api, Message $message) {
+    $chatId = $message->getChat()->getId();
+
+    switch ($message->getBotCommand()) {
+        case '/start':
+            $api->sendMessage($chatId, 'Привет');
+            break;
+        case '/stop':
+            $api->sendMessage($chatId, 'Пока');
+            break;
+        default:
+            // сообщение не является командой
+    }
+});
+
+$bot->run();
+```
+
 
 Проверка статуса пользователя.
 
@@ -56,17 +93,19 @@ $bot = new TBot($token);
 $bot->addAdmin(56781234);
 
 $bot->addMessageHandler(function (Api $api, Message $message) {
-    if (TBot::isAdmin($message->getFrom()->getId())) {
+    $userId = $message->getFrom()->getId();
+
+    if (TBot::isAdmin($userId)) {
         // админ
     } else {
-        // простой пользователь
+        // пользователь
     }
 });
 
 $bot->run();
 ```
 
-Регистрация обработчиков через конструктор класса бота.
+Регистрация обработчиков в конструкторе класса бота.
 
 ```php
 <?php
@@ -98,6 +137,34 @@ $bot->run();
 ```
 
 Допустимо регистрировать несколько одинаковых обработчиков, они будут выполнены в порядке очереди добавления.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use U89Man\TBot\Api;
+use U89Man\TBot\Entities\Message;
+use U89Man\TBot\TBot;
+
+$token = '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11';
+
+$bot = new TBot($token);
+
+$bot->addMessageHandler(function (Api $api, Message $message) {
+    // #1
+});
+
+$bot->addMessageHandler(function (Api $api, Message $message) {
+    // #2
+});
+
+$bot->addMessageHandler(function (Api $api, Message $message) {
+    // #3
+});
+
+$bot->run();
+```
 
 
 ##### Доступные типы обработчиков
