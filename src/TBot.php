@@ -243,6 +243,12 @@ class TBot
             case Update::TYPE_POLL_ANSWER:
                 $context = $update->getPollAnswer();
                 break;
+            case Update::TYPE_MY_CHAT_MEMBER:
+                $context = $update->getMyChatMember();
+                break;
+            case Update::TYPE_CHAT_MEMBER:
+                $context = $update->getChatMember();
+                break;
         }
 
         if (! $context) {
@@ -411,5 +417,29 @@ class TBot
     public function addPollAnswerHandler(Closure $handler)
     {
         $this->addHandler(Update::TYPE_POLL_ANSWER, $handler);
+    }
+
+    /**
+     * Добавляет обработчик обновления статуса бота в чате.
+     *
+     * @param Closure $handler
+     *
+     * @return void
+     */
+    public function addMyChatMember(Closure $handler)
+    {
+        $this->addHandler(Update::TYPE_MY_CHAT_MEMBER, $handler);
+    }
+
+    /**
+     * Добавляет обработчик обновления статуса участника чата.
+     *
+     * @param Closure $handler
+     *
+     * @return void
+     */
+    public function addChatMember(Closure $handler)
+    {
+        $this->addHandler(Update::TYPE_CHAT_MEMBER, $handler);
     }
 }
