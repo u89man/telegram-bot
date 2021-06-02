@@ -608,11 +608,11 @@ class Api
      * @param string $description
      * @param string $payload
      * @param string $providerToken
-     * @param string $startParameter
      * @param string $currency
      * @param LabeledPrice[] $prices
      * @param int|null $maxTipAmount
      * @param int[]|null $suggestedTipAmounts
+     * @param string|null $startParameter
      * @param InlineKeyboardMarkup|null $replyMarkup
      * @param string |null $providerData
      * @param string |null $photoUrl
@@ -639,11 +639,11 @@ class Api
         $description,
         $payload,
         $providerToken,
-        $startParameter,
         $currency,
         $prices,
         $maxTipAmount = null,
         $suggestedTipAmounts = null,
+        $startParameter = null,
         $replyMarkup = null,
         $providerData = null,
         $photoUrl = null,
