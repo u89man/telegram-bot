@@ -64,6 +64,7 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method                        string|null getConnectedWebsite()
  * @method                  PassportData|null getPassportData()
  * @method       ProximityAlertTriggered|null getProximityAlertTriggered()
+ * @method            VoiceChatScheduled|null getVoiceChatScheduled()
  * @method              VoiceChatStarted|null getVoiceChatStarted()
  * @method                VoiceChatEnded|null getVoiceChatEnded()
  * @method  VoiceChatParticipantsInvited|null getVoiceChatParticipantsInvited()
@@ -101,6 +102,7 @@ class Message extends Entity
 	const TYPE_INVOICE = 'invoice';
 	const TYPE_SUCCESSFUL_PAYMENT = 'successful_payment';
     const TYPE_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
+    const TYPE_VOICE_CHAT_SCHEDULED = 'voice_chat_scheduled';
     const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
     const TYPE_VOICE_CHAT_ENDED = 'voice_chat_ended';
     const TYPE_VOICE_CHAT_PARTICIPANTS_INVITED = 'voice_chat_participants_invited';
@@ -145,6 +147,7 @@ class Message extends Entity
             'successful_payment' => SuccessfulPayment::class,
             'passport_data' => PassportData::class,
             'proximity_alert_triggered' => ProximityAlertTriggered::class,
+            'voice_chat_scheduled' => VoiceChatScheduled::class,
             'voice_chat_started' => VoiceChatStarted::class,
             'voice_chat_ended' => VoiceChatEnded::class,
             'voice_chat_participants_invited' => VoiceChatParticipantsInvited::class,
@@ -188,6 +191,7 @@ class Message extends Entity
             self::TYPE_INVOICE,
             self::TYPE_SUCCESSFUL_PAYMENT,
             self::TYPE_PROXIMITY_ALERT_TRIGGERED,
+            self::TYPE_VOICE_CHAT_SCHEDULED,
             self::TYPE_VOICE_CHAT_STARTED,
             self::TYPE_VOICE_CHAT_ENDED,
             self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
@@ -458,6 +462,14 @@ class Message extends Entity
     public function isProximityAlertTriggered()
     {
         return $this->getType() == self::TYPE_PROXIMITY_ALERT_TRIGGERED;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isVoiceChatScheduled()
+    {
+        return $this->getType() == self::TYPE_VOICE_CHAT_SCHEDULED;
     }
 
     /**
