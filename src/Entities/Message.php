@@ -204,25 +204,33 @@ class Message extends Entity
 		return self::TYPE_UNKNOWN;
 	}
 
-	/**
-	 * @return string|null
-	 */
-	public function getBotCommand()
+    /**
+     * @return string|null
+     */
+    public function getBotCommand()
     {
+        $fromCaption = false;
         $entities = $this->getEntities();
 
         if ($entities == null) {
-            return null;
-        }
+            $entities = $this->getCaptionEntities();
+            $fromCaption = true;
 
-        foreach ($entities  as $entity) {
-            if ($entity->isBotCommand() && $entity->getOffset() == 0) {
-                return substr($this->getText(), 0, $entity->getLength());
+            if ($entities == null) {
+                return null;
             }
         }
 
-		return null;
-	}
+        foreach ($entities as $entity) {
+            if ($entity->isBotCommand() && $entity->getOffset() == 0) {
+                $string = $fromCaption ? $this->getCaption() : $this->getText();
+
+                return substr($string, 0, $entity->getLength());
+            }
+        }
+
+        return null;
+    }
 
     /**
      * @return bool
