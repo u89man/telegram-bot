@@ -44,6 +44,16 @@ abstract class Entity
     }
 
     /**
+     * @param string $string
+     *
+     * @return static
+     */
+    public static function fromJson($string)
+    {
+        return new static(json_decode($string, true));
+    }
+
+    /**
      * @return array
      */
     public function getRawData()
