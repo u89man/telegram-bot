@@ -611,6 +611,8 @@ class Api
      * @param string $startParameter
      * @param string $currency
      * @param LabeledPrice[] $prices
+     * @param int|null $maxTipAmount
+     * @param int[]|null $suggestedTipAmounts
      * @param InlineKeyboardMarkup|null $replyMarkup
      * @param string |null $providerData
      * @param string |null $photoUrl
@@ -629,6 +631,7 @@ class Api
      * @param bool|null $allowSendingWithoutReply
      *
      * @return Message
+     * @throws Exceptions\ValueException
      */
     public function sendInvoice(
         $chatId,
@@ -639,6 +642,8 @@ class Api
         $startParameter,
         $currency,
         $prices,
+        $maxTipAmount = null,
+        $suggestedTipAmounts = null,
         $replyMarkup = null,
         $providerData = null,
         $photoUrl = null,
@@ -665,6 +670,8 @@ class Api
             'start_parameter' => $startParameter,
             'currency' => $currency,
             'prices' => Utils::toJson($prices),
+            'max_tip_amount' => $maxTipAmount,
+            'suggested_tip_amounts' => $suggestedTipAmounts,
             'provider_data' => $providerData,
             'photo_url' => $photoUrl,
             'photo_size' => $photoSize,
