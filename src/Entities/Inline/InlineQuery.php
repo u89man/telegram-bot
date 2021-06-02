@@ -11,9 +11,10 @@ use U89Man\TBot\Entities\User;
  *
  * @method        string getId()
  * @method          User getFrom()
- * @method Location|null getLocation()
  * @method        string getQuery()
  * @method        string getOffset()
+ * @method   string|null getChatType()
+ * @method Location|null getLocation()
  */
 class InlineQuery extends Entity
 {
