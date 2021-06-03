@@ -207,7 +207,7 @@ class Message extends Entity
     /**
      * @return string|null
      */
-    public function getBotCommand()
+    public function getFirstBotCommand()
     {
         $fromCaption = false;
         $entities = $this->getEntities();
