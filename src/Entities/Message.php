@@ -163,8 +163,8 @@ class Message extends Entity
 		$types = [
             self::TYPE_TEXT,
             self::TYPE_AUDIO,
-            self::TYPE_DOCUMENT,
             self::TYPE_ANIMATION,
+            self::TYPE_DOCUMENT,
             self::TYPE_GAME ,
             self::TYPE_PHOTO,
             self::TYPE_STICKER,
