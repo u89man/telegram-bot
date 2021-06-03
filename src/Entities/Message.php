@@ -222,10 +222,9 @@ class Message extends Entity
         }
 
         foreach ($entities as $entity) {
-            if ($entity->isBotCommand() && $entity->getOffset() == 0) {
+            if ($entity->isBotCommand()) {
                 $string = $fromCaption ? $this->getCaption() : $this->getText();
-
-                return substr($string, 0, $entity->getLength());
+                return mb_substr($string, $entity->getOffset(), $entity->getLength());
             }
         }
 
