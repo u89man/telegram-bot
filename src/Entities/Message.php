@@ -81,7 +81,7 @@ class Message extends Entity
 	const TYPE_STICKER = 'sticker';
 	const TYPE_VIDEO = 'video';
 	const TYPE_VOICE = 'voice';
-	const TYPE_VIDEO_NOTE = 'videoNote';
+	const TYPE_VIDEO_NOTE = 'video_note';
 	const TYPE_CONTACT = 'contact';
 	const TYPE_LOCATION = 'location';
 	const TYPE_VENUE = 'venue';
