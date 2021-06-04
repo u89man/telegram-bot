@@ -18,9 +18,12 @@ namespace U89Man\TBot\Entities;
  * @method         Message|null getPinnedMessage()
  * @method ChatPermissions|null getPermissions()
  * @method             int|null getSlowModeDelay()
+ * @method             int|null getMessageAutoDeleteTime()
  * @method          string|null getStickerSetName()
  * @method            bool|null getCanSetStickerSet()
  * @method             int|null getLinkedChatId()
+ * @method    ChatLocation|null getLocation()
+ * @method            bool|null getAllMembersAreAdministrators()
  */
 class Chat extends Entity
 {
@@ -53,7 +56,8 @@ class Chat extends Entity
         return [
             'photo' => ChatPhoto::class,
             'pinned_message' => Message::class,
-            'permissions' => ChatPermissions::class
+            'permissions' => ChatPermissions::class,
+            'location' => ChatLocation::class
         ];
     }
 
