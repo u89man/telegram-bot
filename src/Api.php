@@ -2251,11 +2251,19 @@ class Api
      *
      * @link https://core.telegram.org/bots/api#getmycommands
      *
+     * @param BotCommandScope $scope
+     * @param string $languageCode
+     *
      * @return BotCommand[]
      */
-    public function getMyCommands()
-    {
-        return Utils::makeArray(BotCommand::class, $this->_request('getMyCommands'));
+    public function getMyCommands(
+        $scope = null,
+        $languageCode = null
+    ) {
+        return Utils::makeArray(BotCommand::class, $this->_request('getMyCommands', [
+            'scope' => Utils::toJsonOrNull($scope),
+            'language_code' => $languageCode
+        ]));
     }
 
     /**
