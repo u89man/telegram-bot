@@ -31,7 +31,7 @@ class PassportElementErrorFile extends PassportElementError
 	) {
 
 	    return new static([
-			'source' => self::SOURCE_FILE,
+			'source' => PassportElementError::SOURCE_FILE,
 			'type' => $type,
 			'file_hash' => $fileHash,
 			'message' => $message

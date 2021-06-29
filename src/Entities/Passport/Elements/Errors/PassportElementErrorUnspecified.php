@@ -30,7 +30,7 @@ class PassportElementErrorUnspecified extends PassportElementError
 		$message
 	) {
 		return new static([
-			'source' => self::SOURCE_UNSPECIFIED,
+			'source' => PassportElementError::SOURCE_UNSPECIFIED,
 			'type' => $type,
 			'element_hash' => $elementHash,
 			'message' => $message

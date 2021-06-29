@@ -30,7 +30,7 @@ class PassportElementErrorTranslationFile extends PassportElementError
 		$message
 	) {
 		return new static([
-			'source' => self::SOURCE_TRANSLATION_FILE,
+			'source' => PassportElementError::SOURCE_TRANSLATION_FILE,
 			'type' => $type,
 			'file_hash' => $fileHash,
 			'message' => $message

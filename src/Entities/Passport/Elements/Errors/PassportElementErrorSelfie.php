@@ -30,7 +30,7 @@ class PassportElementErrorSelfie extends PassportElementError
 		$message
 	) {
 		return new static([
-			'source' => self::SOURCE_SELFIE,
+			'source' => PassportElementError::SOURCE_SELFIE,
 			'type' => $type,
 			'file_hash' => $fileHash,
 			'message' => $message

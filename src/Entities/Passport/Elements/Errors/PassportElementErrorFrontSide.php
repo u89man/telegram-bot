@@ -30,7 +30,7 @@ class PassportElementErrorFrontSide extends PassportElementError
 		$message
 	) {
 		return new static([
-			'source' => self::SOURCE_FRONT_SIDE,
+			'source' => PassportElementError::SOURCE_FRONT_SIDE,
 			'type' => $type,
 			'file_hash' => $fileHash,
 			'message' => $message

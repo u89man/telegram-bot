@@ -34,7 +34,7 @@ class PassportElementErrorDataField extends PassportElementError
 		$message
 	) {
 		return new static([
-			'source' => self::SOURCE_DATA,
+			'source' => PassportElementError::SOURCE_DATA,
 			'type' => $type,
 			'field_name' => $fieldName,
 			'data_hash' => $dataHash,
