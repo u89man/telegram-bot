@@ -16,8 +16,11 @@ class InputFile extends CURLFile
      *
      * @return $this
      */
-    public static function make($filename, $mimetype = '', $postname = '')
-	{
+    public static function make(
+        $filename,
+        $mimetype = '',
+        $postname = ''
+    ) {
 	    return new static($filename, $mimetype, $postname);
 	}
 }
