@@ -3,6 +3,7 @@
 namespace U89Man\TBot;
 
 use U89Man\TBot\Entities\BotCommand;
+use U89Man\TBot\Entities\BotCommands\BotCommandScope;
 use U89Man\TBot\Entities\Chat;
 use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatMember;
@@ -2263,11 +2264,15 @@ class Api
      * @link https://core.telegram.org/bots/api#setmycommands
      *
      * @param BotCommand[]|string[][] $commands
+     * @param BotCommandScope $scope
+     * @param string $languageCode
      *
      * @return bool
      */
     public function setMyCommands(
-        $commands
+        $commands,
+        $scope = null,
+        $languageCode = null
     ) {
         foreach ($commands as $k => $v) {
             if (is_array($v)) {
@@ -2276,7 +2281,9 @@ class Api
         }
 
         return $this->_request('setMyCommands', [
-            'commands' => Utils::toJson($commands)
+            'commands' => Utils::toJson($commands),
+            'scope' => Utils::toJsonOrNull($scope),
+            'language_code' => $languageCode
         ]);
     }
 
