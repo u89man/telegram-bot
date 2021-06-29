@@ -2296,13 +2296,21 @@ class Api
     }
 
     /**
-     * (*) Удаляет список команд бота.
+     * Удаляет список команд бота.
+     *
+     * @param BotCommandScope $scope
+     * @param string $languageCode
      *
      * @return bool
      */
-    public function deleteMyCommands()
-    {
-        return $this->_request('setMyCommands');
+    public function deleteMyCommands(
+        $scope = null,
+        $languageCode = null
+    ) {
+        return $this->_request('deleteMyCommands', [
+            'scope' => Utils::toJsonOrNull($scope),
+            'language_code' => $languageCode
+        ]);
     }
 
     /**
