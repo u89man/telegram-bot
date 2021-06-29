@@ -64,7 +64,7 @@ class InputMediaAudio extends InputMedia
         $title = null
     ) {
         return new static([
-            'type' => self::TYPE_AUDIO,
+            'type' => InputMedia::TYPE_AUDIO,
             'media' => $media,
             'thumb' => $thumb,
             'caption' => $caption,

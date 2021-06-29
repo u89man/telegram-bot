@@ -56,7 +56,7 @@ class InputMediaDocument extends InputMedia
         $disableContentTypeDetection = null
     ) {
         return new static([
-            'type' => self::TYPE_DOCUMENT,
+            'type' => InputMedia::TYPE_DOCUMENT,
             'media' => $media,
             'thumb' => $thumb,
             'caption' => $caption,

@@ -64,7 +64,7 @@ class InputMediaAnimation extends InputMedia
         $duration = null
     ) {
         return new static([
-            'type' => self::TYPE_ANIMATION,
+            'type' => InputMedia::TYPE_ANIMATION,
             'media' => $media,
             'thumb' => $thumb,
             'caption' => $caption,

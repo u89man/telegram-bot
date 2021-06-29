@@ -68,7 +68,7 @@ class InputMediaVideo extends InputMedia
         $supportsStreaming = null
     ) {
         return new static([
-            'type' => self::TYPE_VIDEO,
+            'type' => InputMedia::TYPE_VIDEO,
             'media' => $media,
             'thumb' => $thumb,
             'caption' => $caption,

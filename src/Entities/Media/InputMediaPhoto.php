@@ -47,7 +47,7 @@ class InputMediaPhoto extends InputMedia
         $captionEntities = null
     ) {
         return new static([
-            'type' => self::TYPE_PHOTO,
+            'type' => InputMedia::TYPE_PHOTO,
             'media' => $media,
             'caption' => $caption,
             'parse_mode' => $parseMode,
