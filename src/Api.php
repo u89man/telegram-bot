@@ -1703,14 +1703,30 @@ class Api
 
     /**
      * Получает количество участников чата.
+     * Переименован в getChatMemberCount() [5.3]
      *
-     * @link https://core.telegram.org/bots/api#getchatmemberscount
+     * @deprecated
      *
      * @param int|string $chatId
      *
      * @return int
      */
     public function getChatMembersCount(
+        $chatId
+    ) {
+        return $this->getChatMemberCount($chatId);
+    }
+
+    /**
+     * Получает количество участников чата.
+     *
+     * @link https://core.telegram.org/bots/api#getchatmembercount
+     *
+     * @param int|string $chatId
+     *
+     * @return int
+     */
+    public function getChatMemberCount(
         $chatId
     ) {
         return $this->_request('getChatMembersCount', [
