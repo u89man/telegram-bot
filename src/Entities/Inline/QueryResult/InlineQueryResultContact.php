@@ -72,7 +72,7 @@ class InlineQueryResultContact extends InlineQueryResult
 		$thumbHeight = null
 	) {
 		return new static([
-			'type' => self::TYPE_CONTACT,
+			'type' => InlineQueryResult::TYPE_CONTACT,
 			'id' => $id,
 			'phone_number' => $phoneNumber,
 			'first_name' => $firstName,

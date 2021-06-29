@@ -66,7 +66,7 @@ class InlineQueryResultCachedVoice extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_VOICE,
+			'type' => InlineQueryResult::TYPE_VOICE,
 			'id' => $id,
 			'voice_file_id' => $voiceFileId,
 			'title' => $title,

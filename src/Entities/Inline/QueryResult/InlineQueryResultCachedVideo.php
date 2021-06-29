@@ -70,7 +70,7 @@ class InlineQueryResultCachedVideo extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_VIDEO,
+			'type' => InlineQueryResult::TYPE_VIDEO,
 			'id' => $id,
 			'video_file_id' => $videoFileId,
 			'title' => $title,

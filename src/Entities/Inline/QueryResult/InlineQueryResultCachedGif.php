@@ -66,7 +66,7 @@ class InlineQueryResultCachedGif extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_GIF,
+			'type' => InlineQueryResult::TYPE_GIF,
 			'id' => $id,
 			'gif_file_id' => $gifFileId,
 			'title' => $title,

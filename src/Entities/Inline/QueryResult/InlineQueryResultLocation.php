@@ -84,7 +84,7 @@ class InlineQueryResultLocation extends InlineQueryResult
 		$thumbHeight = null
 	) {
 		return new static([
-			'type' => self::TYPE_LOCATION,
+			'type' => InlineQueryResult::TYPE_LOCATION,
 			'id' => $id,
 			'latitude' => $latitude,
 			'longitude' => $longitude,

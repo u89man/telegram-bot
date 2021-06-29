@@ -44,7 +44,7 @@ class InlineQueryResultGame extends InlineQueryResult
 		$replyMarkup = null
 	) {
 	    return new static([
-			'type' => self::TYPE_GAME,
+			'type' => InlineQueryResult::TYPE_GAME,
 			'id' => $id,
 			'game_short_name' => $gameShortName,
 			'reply_markup' => $replyMarkup

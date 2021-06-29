@@ -48,7 +48,7 @@ class InlineQueryResultCachedSticker extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_STICKER,
+			'type' => InlineQueryResult::TYPE_STICKER,
 			'id' => $id,
 			'sticker_file_id' => $stickerFileIid,
 			'reply_markup' => $replyMarkup,

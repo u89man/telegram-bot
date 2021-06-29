@@ -82,7 +82,7 @@ class InlineQueryResultPhoto extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_PHOTO,
+			'type' => InlineQueryResult::TYPE_PHOTO,
 			'id' => $id,
 			'photo_url' => $photoUrl,
 			'thumb_url' => $thumbUrl,

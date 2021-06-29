@@ -90,7 +90,7 @@ class InlineQueryResultVideo extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_VIDEO,
+			'type' => InlineQueryResult::TYPE_VIDEO,
 			'id' => $id,
 			'video_url' => $videoUrl,
 			'mime_type' => $mimeType,

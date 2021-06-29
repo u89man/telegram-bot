@@ -86,7 +86,7 @@ class InlineQueryResultDocument extends InlineQueryResult
 		$thumbHeight = null
 	) {
 		return new static([
-			'type' => self::TYPE_DOCUMENT,
+			'type' => InlineQueryResult::TYPE_DOCUMENT,
 			'id' => $id,
 			'title' => $title,
 			'document_url' => $documentUrl,

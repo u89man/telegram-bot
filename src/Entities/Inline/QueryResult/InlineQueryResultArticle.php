@@ -72,7 +72,7 @@ class InlineQueryResultArticle extends InlineQueryResult
 	    	$thumbHeight = null
 	) {
 	    return new static([
-	    	'type' => self::TYPE_ARTICLE,
+	    	'type' => InlineQueryResult::TYPE_ARTICLE,
 	    	'id' => $id,
 	    	'title' => $title,
 	    	'input_message_content' => $inputMessageContent,

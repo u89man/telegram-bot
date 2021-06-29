@@ -70,7 +70,7 @@ class InlineQueryResultVoice extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_VOICE,
+			'type' => InlineQueryResult::TYPE_VOICE,
 			'id' => $id,
 			'voice_url' => $voiceUrl,
 			'title' => $title,

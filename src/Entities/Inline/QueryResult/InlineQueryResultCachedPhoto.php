@@ -70,7 +70,7 @@ class InlineQueryResultCachedPhoto extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_PHOTO,
+			'type' => InlineQueryResult::TYPE_PHOTO,
 			'id' => $id,
 			'photo_file_id' => $photoFileId,
 			'title' => $title,

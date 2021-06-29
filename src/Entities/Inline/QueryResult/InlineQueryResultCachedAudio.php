@@ -62,7 +62,7 @@ class InlineQueryResultCachedAudio extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_AUDIO,
+			'type' => InlineQueryResult::TYPE_AUDIO,
 			'id' => $id,
 			'audio_file_id' => $audioFileId,
 			'caption' => $caption,

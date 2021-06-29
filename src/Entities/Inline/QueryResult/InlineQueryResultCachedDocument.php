@@ -70,7 +70,7 @@ class InlineQueryResultCachedDocument extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_DOCUMENT,
+			'type' => InlineQueryResult::TYPE_DOCUMENT,
 			'id' => $id,
 			'title' => $title,
 			'document_file_id' => $documentFileId,

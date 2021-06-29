@@ -74,7 +74,7 @@ class InlineQueryResultAudio extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_AUDIO,
+			'type' => InlineQueryResult::TYPE_AUDIO,
 			'id' => $id,
 			'audio_url' => $audioUrl,
 			'title' => $title,

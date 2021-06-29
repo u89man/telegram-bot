@@ -86,7 +86,7 @@ class InlineQueryResultMpeg4Gif extends InlineQueryResult
 		$inputMessageContent = null
 	) {
 		return new static([
-			'type' => self::TYPE_MPEG4_GIF,
+			'type' => InlineQueryResult::TYPE_MPEG4_GIF,
 			'id' => $id,
 			'mpeg4_url' => $mpeg4Url,
             'mpeg4_width' => $mpeg4Width,
