@@ -1396,8 +1396,9 @@ class Api
 
     /**
      * Исключает пользователя из группы, супергруппы или канала.
+     * Переименован в banChatMember(). [5.3]
      *
-     * @link https://core.telegram.org/bots/api#kickchatmember
+     * @deprecated
      *
      * @param int|string $chatId
      * @param int $userId
@@ -1412,7 +1413,28 @@ class Api
         $untilDate = null,
         $revokeMessages = null
     ) {
-        return $this->_request('kickChatMember', [
+        return $this->banChatMember($chatId, $userId, $untilDate, $revokeMessages);
+    }
+
+    /**
+     * Исключает пользователя из группы, супергруппы или канала.
+     *
+     * @link https://core.telegram.org/bots/api#banchatmember
+     *
+     * @param int|string $chatId
+     * @param int $userId
+     * @param int|null $untilDate
+     * @param bool|null $revokeMessages
+     *
+     * @return bool
+     */
+    public function banChatMember(
+        $chatId,
+        $userId,
+        $untilDate = null,
+        $revokeMessages = null
+    ) {
+        return $this->_request('banChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'until_date' => $untilDate,
