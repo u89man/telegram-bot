@@ -8,28 +8,8 @@ use U89Man\TBot\Entities\User;
 /**
  * @link https://core.telegram.org/bots/api#chatmember
  *
- * @method        User getUser()
- * @method      string getStatus()
- * @method string|null getCustomTitle()
- * @method   bool|null getIsAnonymous()
- * @method   bool|null getCanBeEdited()
- * @method   bool|null getCanManageChat()
- * @method   bool|null getCanPostMessages()
- * @method   bool|null getCanEditMessages()
- * @method   bool|null getCanDeleteMessages()
- * @method   bool|null getCanManageVoiceChats()
- * @method   bool|null getCanRestrictMembers()
- * @method   bool|null getCanPromoteMembers()
- * @method   bool|null getCanChangeInfo()
- * @method   bool|null getCanInviteUsers()
- * @method   bool|null getCanPinMessages()
- * @method   bool|null getIsMember()
- * @method   bool|null getCanSendMessages()
- * @method   bool|null getCanSendMediaMessages()
- * @method   bool|null getCanSendPolls()
- * @method   bool|null getCanSendOtherMessages()
- * @method   bool|null getCanAddWebPagePreviews()
- * @method    int|null getUntilDate()
+ * @method string getStatus()
+ * @method   User getUser()
  */
 class ChatMember extends Entity
 {
@@ -56,7 +36,7 @@ class ChatMember extends Entity
      */
     public function isCreator()
     {
-        return $this->getStatus() == self::STATUS_CREATOR;
+        return $this->getStatus() == ChatMember::STATUS_CREATOR;
     }
 
     /**
@@ -64,7 +44,7 @@ class ChatMember extends Entity
      */
     public function isAdministrator()
     {
-        return $this->getStatus() == self::STATUS_ADMINISTRATOR;
+        return $this->getStatus() == ChatMember::STATUS_ADMINISTRATOR;
     }
 
     /**
@@ -72,7 +52,7 @@ class ChatMember extends Entity
      */
     public function isMember()
     {
-        return $this->getStatus() == self::STATUS_MEMBER;
+        return $this->getStatus() == ChatMember::STATUS_MEMBER;
     }
 
     /**
@@ -80,7 +60,7 @@ class ChatMember extends Entity
      */
     public function isRestricted()
     {
-        return $this->getStatus() == self::STATUS_RESTRICTED;
+        return $this->getStatus() == ChatMember::STATUS_RESTRICTED;
     }
 
     /**
@@ -88,7 +68,7 @@ class ChatMember extends Entity
      */
     public function isLeft()
     {
-        return $this->getStatus() == self::STATUS_LEFT;
+        return $this->getStatus() == ChatMember::STATUS_LEFT;
     }
 
     /**
@@ -96,6 +76,6 @@ class ChatMember extends Entity
      */
     public function isKicked()
     {
-        return $this->getStatus() == self::STATUS_KICKED;
+        return $this->getStatus() == ChatMember::STATUS_KICKED;
     }
 }
