@@ -82,9 +82,19 @@ class ChatMember extends Entity
     }
 
     /**
+     * @deprecated
+     *
      * @return bool
      */
     public function isKicked()
+    {
+        return $this->getStatus() == ChatMember::STATUS_KICKED;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isBanned()
     {
         return $this->getStatus() == ChatMember::STATUS_KICKED;
     }
