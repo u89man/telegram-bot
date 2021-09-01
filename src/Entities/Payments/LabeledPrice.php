@@ -25,7 +25,7 @@ class LabeledPrice extends Entity
 	{
 	    return new static([
             'label' => $label,
-            'amount' => $amount,
+            'amount' => $amount
         ]);
 	}
 }
