@@ -1678,7 +1678,7 @@ class Api
         $chatId,
         $userId
     ) {
-        return new ChatMember($this->_request('getChatMember', [
+        return ChatMember::getConcreteEntity($this->_request('getChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId
         ]));
