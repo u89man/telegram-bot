@@ -32,9 +32,19 @@ class ChatMember extends Entity
     }
 
     /**
+     * @deprecated
+     *
      * @return bool
      */
     public function isCreator()
+    {
+        return $this->getStatus() == ChatMember::STATUS_CREATOR;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOwner()
     {
         return $this->getStatus() == ChatMember::STATUS_CREATOR;
     }
