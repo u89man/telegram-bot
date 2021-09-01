@@ -1,6 +1,9 @@
 <?php
 
-namespace U89Man\TBot\Entities;
+namespace U89Man\TBot\Entities\Members;
+
+use U89Man\TBot\Entities\Entity;
+use U89Man\TBot\Entities\User;
 
 /**
  * @link https://core.telegram.org/bots/api#chatmember

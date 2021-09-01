@@ -2,6 +2,8 @@
 
 namespace U89Man\TBot\Entities;
 
+use U89Man\TBot\Entities\Members\ChatMember;
+
 /**
  * @link https://core.telegram.org/bots/api#chatmemberupdated
  *
