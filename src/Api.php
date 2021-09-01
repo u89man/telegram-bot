@@ -1696,9 +1696,17 @@ class Api
     public function getChatAdministrators(
         $chatId
     ) {
-        return Utils::makeArray(ChatMember::class, $this->_request('getChatAdministrators', [
+        $data = $this->_request('getChatAdministrators', [
             'chat_id' => $chatId
-        ]));
+        ]);
+
+        $arr = array();
+
+        foreach ($data as $d) {
+            $arr[] = ChatMember::getConcreteEntity($d);
+        }
+
+        return $arr;
     }
 
     /**
