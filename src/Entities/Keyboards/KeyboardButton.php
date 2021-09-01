@@ -36,7 +36,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestContact()
     {
-        return $this->setRequest(self::REQUEST_CONTACT, true);
+        return $this->setRequest(KeyboardButton::REQUEST_CONTACT, true);
     }
 
     /**
@@ -44,7 +44,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestLocation()
     {
-        return $this->setRequest(self::REQUEST_LOCATION, true);
+        return $this->setRequest(KeyboardButton::REQUEST_LOCATION, true);
     }
 
     /**
@@ -54,7 +54,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestPool($pollType)
     {
-        return $this->setRequest(self::REQUEST_POLL, $pollType);
+        return $this->setRequest(KeyboardButton::REQUEST_POLL, $pollType);
     }
 
     /**
@@ -114,9 +114,9 @@ class KeyboardButton extends Keyboard
     public function getRequest()
     {
         $requests = [
-            self::REQUEST_CONTACT,
-            self::REQUEST_LOCATION,
-            self::REQUEST_POLL
+            KeyboardButton::REQUEST_CONTACT,
+            KeyboardButton::REQUEST_LOCATION,
+            KeyboardButton::REQUEST_POLL
         ];
 
         foreach ($requests as $request) {
@@ -135,9 +135,9 @@ class KeyboardButton extends Keyboard
     public function setRequest($request, $value)
     {
         $requests = [
-            self::REQUEST_CONTACT,
-            self::REQUEST_LOCATION,
-            self::REQUEST_POLL
+            KeyboardButton::REQUEST_CONTACT,
+            KeyboardButton::REQUEST_LOCATION,
+            KeyboardButton::REQUEST_POLL
         ];
 
         if (! in_array($request, $requests)) {
@@ -154,7 +154,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestContact()
     {
-        return $this->getRequest() == self::REQUEST_CONTACT;
+        return $this->getRequest() == KeyboardButton::REQUEST_CONTACT;
     }
 
     /**
@@ -162,7 +162,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestLocation()
     {
-        return $this->getRequest() == self::REQUEST_LOCATION;
+        return $this->getRequest() == KeyboardButton::REQUEST_LOCATION;
     }
 
     /**
@@ -170,6 +170,6 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestPool()
     {
-        return $this->getRequest() == self::REQUEST_POLL;
+        return $this->getRequest() == KeyboardButton::REQUEST_POLL;
     }
 }

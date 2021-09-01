@@ -161,47 +161,47 @@ class Message extends Entity
 	public function getType()
     {
 		$types = [
-            self::TYPE_TEXT,
-            self::TYPE_AUDIO,
-            self::TYPE_ANIMATION,
-            self::TYPE_DOCUMENT,
-            self::TYPE_GAME ,
-            self::TYPE_PHOTO,
-            self::TYPE_STICKER,
-            self::TYPE_VIDEO,
-            self::TYPE_VOICE,
-            self::TYPE_VIDEO_NOTE,
-            self::TYPE_CONTACT,
-            self::TYPE_VENUE,
-            self::TYPE_LOCATION,
-            self::TYPE_POLL,
-            self::TYPE_DICE,
-            self::TYPE_NEW_CHAT_MEMBERS,
-            self::TYPE_LEFT_CHAT_MEMBER,
-            self::TYPE_NEW_CHAT_TITLE,
-            self::TYPE_NEW_CHAT_PHOTO,
-            self::TYPE_DELETE_CHAT_PHOTO,
-            self::TYPE_GROUP_CHAT_CREATED,
-            self::TYPE_SUPERGROUP_CHAT_CREATED,
-            self::TYPE_CHANNEL_CHAT_CREATED,
-            self::TYPE_MESSAGE_AUTO_DELETE_TIMER_CHANGED,
-            self::TYPE_MIGRATE_TO_CHAT_ID,
-            self::TYPE_MIGRATE_FROM_CHAT_ID,
-            self::TYPE_PINNED_MESSAGE,
-            self::TYPE_INVOICE,
-            self::TYPE_SUCCESSFUL_PAYMENT,
-            self::TYPE_PROXIMITY_ALERT_TRIGGERED,
-            self::TYPE_VOICE_CHAT_SCHEDULED,
-            self::TYPE_VOICE_CHAT_STARTED,
-            self::TYPE_VOICE_CHAT_ENDED,
-            self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
+            Message::TYPE_TEXT,
+            Message::TYPE_AUDIO,
+            Message::TYPE_ANIMATION,
+            Message::TYPE_DOCUMENT,
+            Message::TYPE_GAME ,
+            Message::TYPE_PHOTO,
+            Message::TYPE_STICKER,
+            Message::TYPE_VIDEO,
+            Message::TYPE_VOICE,
+            Message::TYPE_VIDEO_NOTE,
+            Message::TYPE_CONTACT,
+            Message::TYPE_VENUE,
+            Message::TYPE_LOCATION,
+            Message::TYPE_POLL,
+            Message::TYPE_DICE,
+            Message::TYPE_NEW_CHAT_MEMBERS,
+            Message::TYPE_LEFT_CHAT_MEMBER,
+            Message::TYPE_NEW_CHAT_TITLE,
+            Message::TYPE_NEW_CHAT_PHOTO,
+            Message::TYPE_DELETE_CHAT_PHOTO,
+            Message::TYPE_GROUP_CHAT_CREATED,
+            Message::TYPE_SUPERGROUP_CHAT_CREATED,
+            Message::TYPE_CHANNEL_CHAT_CREATED,
+            Message::TYPE_MESSAGE_AUTO_DELETE_TIMER_CHANGED,
+            Message::TYPE_MIGRATE_TO_CHAT_ID,
+            Message::TYPE_MIGRATE_FROM_CHAT_ID,
+            Message::TYPE_PINNED_MESSAGE,
+            Message::TYPE_INVOICE,
+            Message::TYPE_SUCCESSFUL_PAYMENT,
+            Message::TYPE_PROXIMITY_ALERT_TRIGGERED,
+            Message::TYPE_VOICE_CHAT_SCHEDULED,
+            Message::TYPE_VOICE_CHAT_STARTED,
+            Message::TYPE_VOICE_CHAT_ENDED,
+            Message::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
 		];
 
 		foreach ($types as $type) {
 			if ($this->has($type)) return $type;
 		}
 
-		return self::TYPE_UNKNOWN;
+		return Message::TYPE_UNKNOWN;
 	}
 
     /**
@@ -236,7 +236,7 @@ class Message extends Entity
      */
     public function isText()
     {
-        return $this->getType() == self::TYPE_TEXT;
+        return $this->getType() == Message::TYPE_TEXT;
     }
 
     /**
@@ -244,7 +244,7 @@ class Message extends Entity
      */
     public function isAudio()
     {
-        return $this->getType() == self::TYPE_AUDIO;
+        return $this->getType() == Message::TYPE_AUDIO;
     }
 
     /**
@@ -252,7 +252,7 @@ class Message extends Entity
      */
     public function isDocument()
     {
-        return $this->getType() == self::TYPE_DOCUMENT;
+        return $this->getType() == Message::TYPE_DOCUMENT;
     }
 
     /**
@@ -260,7 +260,7 @@ class Message extends Entity
      */
     public function isAnimation()
     {
-        return $this->getType() == self::TYPE_ANIMATION;
+        return $this->getType() == Message::TYPE_ANIMATION;
     }
 
     /**
@@ -268,7 +268,7 @@ class Message extends Entity
      */
     public function isGame()
     {
-        return $this->getType() == self::TYPE_GAME;
+        return $this->getType() == Message::TYPE_GAME;
     }
 
     /**
@@ -276,7 +276,7 @@ class Message extends Entity
      */
     public function isPhoto()
     {
-        return $this->getType() == self::TYPE_PHOTO;
+        return $this->getType() == Message::TYPE_PHOTO;
     }
 
     /**
@@ -284,7 +284,7 @@ class Message extends Entity
      */
     public function isSticker()
     {
-        return $this->getType() == self::TYPE_STICKER;
+        return $this->getType() == Message::TYPE_STICKER;
     }
 
     /**
@@ -292,7 +292,7 @@ class Message extends Entity
      */
     public function isVideo()
     {
-        return $this->getType() == self::TYPE_VIDEO;
+        return $this->getType() == Message::TYPE_VIDEO;
     }
 
     /**
@@ -300,7 +300,7 @@ class Message extends Entity
      */
     public function isVoice()
     {
-        return $this->getType() == self::TYPE_VOICE;
+        return $this->getType() == Message::TYPE_VOICE;
     }
 
     /**
@@ -308,7 +308,7 @@ class Message extends Entity
      */
     public function isVideoNote()
     {
-        return $this->getType() == self::TYPE_VIDEO_NOTE;
+        return $this->getType() == Message::TYPE_VIDEO_NOTE;
     }
 
     /**
@@ -316,7 +316,7 @@ class Message extends Entity
      */
     public function isContact()
     {
-        return $this->getType() == self::TYPE_CONTACT;
+        return $this->getType() == Message::TYPE_CONTACT;
     }
 
     /**
@@ -324,7 +324,7 @@ class Message extends Entity
      */
     public function isLocation()
     {
-        return $this->getType() == self::TYPE_LOCATION;
+        return $this->getType() == Message::TYPE_LOCATION;
     }
 
     /**
@@ -332,7 +332,7 @@ class Message extends Entity
      */
     public function isVenue()
     {
-        return $this->getType() == self::TYPE_VENUE;
+        return $this->getType() == Message::TYPE_VENUE;
     }
 
     /**
@@ -340,7 +340,7 @@ class Message extends Entity
      */
     public function isPoll()
     {
-        return $this->getType() == self::TYPE_POLL;
+        return $this->getType() == Message::TYPE_POLL;
     }
 
     /**
@@ -348,7 +348,7 @@ class Message extends Entity
      */
     public function isDice()
     {
-        return $this->getType() == self::TYPE_DICE;
+        return $this->getType() == Message::TYPE_DICE;
     }
 
     /**
@@ -356,7 +356,7 @@ class Message extends Entity
      */
     public function isNewChatMembers()
     {
-        return $this->getType() == self::TYPE_NEW_CHAT_MEMBERS;
+        return $this->getType() == Message::TYPE_NEW_CHAT_MEMBERS;
     }
 
     /**
@@ -364,7 +364,7 @@ class Message extends Entity
      */
     public function isLeftChatMember()
     {
-        return $this->getType() == self::TYPE_LEFT_CHAT_MEMBER;
+        return $this->getType() == Message::TYPE_LEFT_CHAT_MEMBER;
     }
 
     /**
@@ -372,7 +372,7 @@ class Message extends Entity
      */
     public function isNewChatTitle()
     {
-        return $this->getType() == self::TYPE_NEW_CHAT_TITLE;
+        return $this->getType() == Message::TYPE_NEW_CHAT_TITLE;
     }
 
     /**
@@ -380,7 +380,7 @@ class Message extends Entity
      */
     public function isnNewChatPhoto()
     {
-        return $this->getType() == self::TYPE_NEW_CHAT_PHOTO;
+        return $this->getType() == Message::TYPE_NEW_CHAT_PHOTO;
     }
 
     /**
@@ -388,7 +388,7 @@ class Message extends Entity
      */
     public function isDeleteChatPhoto()
     {
-        return $this->getType() == self::TYPE_DELETE_CHAT_PHOTO;
+        return $this->getType() == Message::TYPE_DELETE_CHAT_PHOTO;
     }
 
     /**
@@ -396,7 +396,7 @@ class Message extends Entity
      */
     public function isGroupChatCreated()
     {
-        return $this->getType() == self::TYPE_GROUP_CHAT_CREATED;
+        return $this->getType() == Message::TYPE_GROUP_CHAT_CREATED;
     }
 
     /**
@@ -404,7 +404,7 @@ class Message extends Entity
      */
     public function isSupergroupChatCreated()
     {
-        return $this->getType() == self::TYPE_SUPERGROUP_CHAT_CREATED;
+        return $this->getType() == Message::TYPE_SUPERGROUP_CHAT_CREATED;
     }
 
     /**
@@ -412,7 +412,7 @@ class Message extends Entity
      */
     public function isChannelChatCreated()
     {
-        return $this->getType() == self::TYPE_CHANNEL_CHAT_CREATED;
+        return $this->getType() == Message::TYPE_CHANNEL_CHAT_CREATED;
     }
 
     /**
@@ -420,7 +420,7 @@ class Message extends Entity
      */
     public function isMessageAutoDeleteTimerChanged()
     {
-        return $this->getType() == self::TYPE_MESSAGE_AUTO_DELETE_TIMER_CHANGED;
+        return $this->getType() == Message::TYPE_MESSAGE_AUTO_DELETE_TIMER_CHANGED;
     }
 
     /**
@@ -428,7 +428,7 @@ class Message extends Entity
      */
     public function isMigrateToChatId()
     {
-        return $this->getType() == self::TYPE_MIGRATE_TO_CHAT_ID;
+        return $this->getType() == Message::TYPE_MIGRATE_TO_CHAT_ID;
     }
 
     /**
@@ -436,7 +436,7 @@ class Message extends Entity
      */
     public function isMigrateFromChatId()
     {
-        return $this->getType() == self::TYPE_MIGRATE_FROM_CHAT_ID;
+        return $this->getType() == Message::TYPE_MIGRATE_FROM_CHAT_ID;
     }
 
     /**
@@ -444,7 +444,7 @@ class Message extends Entity
      */
     public function isPinnedMessage()
     {
-        return $this->getType() == self::TYPE_PINNED_MESSAGE;
+        return $this->getType() == Message::TYPE_PINNED_MESSAGE;
     }
 
     /**
@@ -452,7 +452,7 @@ class Message extends Entity
      */
     public function isInvoice()
     {
-        return $this->getType() == self::TYPE_INVOICE;
+        return $this->getType() == Message::TYPE_INVOICE;
     }
 
     /**
@@ -460,7 +460,7 @@ class Message extends Entity
      */
     public function isSuccessfulPayment()
     {
-        return $this->getType() == self::TYPE_SUCCESSFUL_PAYMENT;
+        return $this->getType() == Message::TYPE_SUCCESSFUL_PAYMENT;
     }
 
     /**
@@ -468,7 +468,7 @@ class Message extends Entity
      */
     public function isProximityAlertTriggered()
     {
-        return $this->getType() == self::TYPE_PROXIMITY_ALERT_TRIGGERED;
+        return $this->getType() == Message::TYPE_PROXIMITY_ALERT_TRIGGERED;
     }
 
     /**
@@ -476,7 +476,7 @@ class Message extends Entity
      */
     public function isVoiceChatScheduled()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_SCHEDULED;
+        return $this->getType() == Message::TYPE_VOICE_CHAT_SCHEDULED;
     }
 
     /**
@@ -484,7 +484,7 @@ class Message extends Entity
      */
     public function isVoiceChatStarted()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_STARTED;
+        return $this->getType() == Message::TYPE_VOICE_CHAT_STARTED;
     }
 
     /**
@@ -492,7 +492,7 @@ class Message extends Entity
      */
     public function isVoiceChatEnded()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_ENDED;
+        return $this->getType() == Message::TYPE_VOICE_CHAT_ENDED;
     }
 
     /**
@@ -500,6 +500,6 @@ class Message extends Entity
      */
     public function isVoiceChatParticipantsInvited()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED;
+        return $this->getType() == Message::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED;
     }
 }

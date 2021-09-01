@@ -25,7 +25,7 @@ class MaskPosition extends Entity
      */
     public function isForehead()
     {
-        return $this->getPoint() == self::POINT_FOREHEAD;
+        return $this->getPoint() == MaskPosition::POINT_FOREHEAD;
     }
 
     /**
@@ -33,7 +33,7 @@ class MaskPosition extends Entity
      */
     public function isEyes()
     {
-        return $this->getPoint() == self::POINT_EYES;
+        return $this->getPoint() == MaskPosition::POINT_EYES;
     }
 
     /**
@@ -41,7 +41,7 @@ class MaskPosition extends Entity
      */
     public function isMouth()
     {
-        return $this->getPoint() == self::POINT_MOUTH;
+        return $this->getPoint() == MaskPosition::POINT_MOUTH;
     }
 
     /**
@@ -49,6 +49,6 @@ class MaskPosition extends Entity
      */
     public function isChin()
     {
-        return $this->getPoint() == self::POINT_CHIN;
+        return $this->getPoint() == MaskPosition::POINT_CHIN;
     }
 }

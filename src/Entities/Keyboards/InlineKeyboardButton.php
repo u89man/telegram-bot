@@ -47,7 +47,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setLoginUrl(LoginUrl $loginUrl)
     {
-        return $this->setAction(self::TYPE_LOGIN_URL, $loginUrl);
+        return $this->setAction(InlineKeyboardButton::TYPE_LOGIN_URL, $loginUrl);
     }
 
     /**
@@ -57,7 +57,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setCallbackData($callbackData)
     {
-        return $this->setAction(self::TYPE_CALLBACK_DATA, $callbackData);
+        return $this->setAction(InlineKeyboardButton::TYPE_CALLBACK_DATA, $callbackData);
     }
 
     /**
@@ -67,7 +67,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setSwitchInlineQuery($switchInlineQuery)
     {
-        return $this->setAction(self::TYPE_SWITCH_INLINE_QUERY, $switchInlineQuery);
+        return $this->setAction(InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY, $switchInlineQuery);
     }
 
     /**
@@ -77,7 +77,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setSwitchInlineQueryCurrentChat($switchInlineQueryCurrentChat)
     {
-        return $this->setAction(self::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT, $switchInlineQueryCurrentChat);
+        return $this->setAction(InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT, $switchInlineQueryCurrentChat);
     }
 
     /**
@@ -87,7 +87,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setCallbackGame(CallbackGame $callbackGame)
     {
-        return $this->setAction(self::TYPE_CALLBACK_GAME, $callbackGame);
+        return $this->setAction(InlineKeyboardButton::TYPE_CALLBACK_GAME, $callbackGame);
     }
 
     /**
@@ -97,7 +97,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function setPay($pay)
     {
-        return $this->setAction(self::TYPE_PAY, $pay);
+        return $this->setAction(InlineKeyboardButton::TYPE_PAY, $pay);
     }
 
     /**
@@ -106,12 +106,12 @@ class InlineKeyboardButton extends Keyboard
     public function getType()
     {
         $types = [
-            self::TYPE_LOGIN_URL,
-            self::TYPE_CALLBACK_DATA,
-            self::TYPE_SWITCH_INLINE_QUERY,
-            self::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
-            self::TYPE_CALLBACK_GAME,
-            self::TYPE_PAY
+            InlineKeyboardButton::TYPE_LOGIN_URL,
+            InlineKeyboardButton::TYPE_CALLBACK_DATA,
+            InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY,
+            InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
+            InlineKeyboardButton::TYPE_CALLBACK_GAME,
+            InlineKeyboardButton::TYPE_PAY
         ];
 
         foreach ($types as $type) {
@@ -130,12 +130,12 @@ class InlineKeyboardButton extends Keyboard
     protected function setAction($type, $value)
     {
         $types = [
-            self::TYPE_LOGIN_URL,
-            self::TYPE_CALLBACK_DATA,
-            self::TYPE_SWITCH_INLINE_QUERY,
-            self::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
-            self::TYPE_CALLBACK_GAME,
-            self::TYPE_PAY
+            InlineKeyboardButton::TYPE_LOGIN_URL,
+            InlineKeyboardButton::TYPE_CALLBACK_DATA,
+            InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY,
+            InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
+            InlineKeyboardButton::TYPE_CALLBACK_GAME,
+            InlineKeyboardButton::TYPE_PAY
         ];
 
         if (! in_array($type, $types)) {
@@ -238,7 +238,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isLoginUrl()
     {
-        return $this->getType() == self::TYPE_LOGIN_URL;
+        return $this->getType() == InlineKeyboardButton::TYPE_LOGIN_URL;
     }
 
     /**
@@ -246,7 +246,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isCallbackData()
     {
-        return $this->getType() == self::TYPE_CALLBACK_DATA;
+        return $this->getType() == InlineKeyboardButton::TYPE_CALLBACK_DATA;
     }
 
     /**
@@ -254,7 +254,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isSwitchInlineQuery()
     {
-        return $this->getType() == self::TYPE_SWITCH_INLINE_QUERY;
+        return $this->getType() == InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY;
     }
 
     /**
@@ -262,7 +262,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isSwitchInlineQueryCurrentChat()
     {
-        return $this->getType() == self::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT;
+        return $this->getType() == InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT;
     }
 
     /**
@@ -270,7 +270,7 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isCallbackGame()
     {
-        return $this->getType() == self::TYPE_CALLBACK_GAME;
+        return $this->getType() == InlineKeyboardButton::TYPE_CALLBACK_GAME;
     }
 
     /**
@@ -278,6 +278,6 @@ class InlineKeyboardButton extends Keyboard
      */
     public function isPay()
     {
-        return $this->getType() == self::TYPE_PAY;
+        return $this->getType() == InlineKeyboardButton::TYPE_PAY;
     }
 }
