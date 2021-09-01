@@ -32,6 +32,31 @@ class ChatMember extends Entity
     }
 
     /**
+     * @param array $data
+     *
+     * @return ChatMember
+     */
+    public static function getConcreteEntity($data)
+    {
+        switch ($data['status']) {
+            case ChatMember::STATUS_CREATOR:
+                return new ChatMemberOwner($data);
+            case ChatMember::STATUS_ADMINISTRATOR:
+                return new ChatMemberAdministrator($data);
+            case ChatMember::STATUS_MEMBER:
+                return new ChatMemberMember($data);
+            case ChatMember::STATUS_RESTRICTED:
+                return new ChatMemberRestricted($data);
+            case ChatMember::STATUS_LEFT:
+                return new ChatMemberLeft($data);
+            case ChatMember::STATUS_KICKED:
+                return new ChatMemberBanned($data);
+            default:
+                return new ChatMember($data);
+        }
+    }
+
+    /**
      * @deprecated
      *
      * @return bool
