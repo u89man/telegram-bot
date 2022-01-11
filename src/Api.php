@@ -52,6 +52,11 @@ class Api
      */
     protected $url = 'https://api.telegram.org/bot';
 
+    /**
+     * @var string
+     */
+    protected $fileUrl = 'https://api.telegram.org/file/bot';
+
 
     /**
      * @param string $token
@@ -2395,7 +2400,7 @@ class Api
     public function getFileUrl(
         $filePath
     ) {
-        return 'https://api.telegram.org/file/bot'.$this->token.'/'.$filePath;
+        return $this->fileUrl.$this->token.'/'.$filePath;
     }
 
     /**
