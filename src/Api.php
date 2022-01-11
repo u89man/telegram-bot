@@ -47,6 +47,11 @@ class Api
      */
     protected $token;
 
+    /**
+     * @var string
+     */
+    protected $url = 'https://api.telegram.org/bot';
+
 
     /**
      * @param string $token
@@ -64,7 +69,7 @@ class Api
      */
     protected function _request($method, array $data = array())
     {
-        $request = new Request('https://api.telegram.org/bot'.$this->token.'/'.$method, $data);
+        $request = new Request($this->url.$this->token.'/'.$method, $data);
 
         return $request->send()->getResult();
     }
