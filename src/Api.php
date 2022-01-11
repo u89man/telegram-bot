@@ -67,7 +67,7 @@ class Api
      *
      * @return mixed
      */
-    protected function _request($method, array $data = array())
+    protected function call($method, array $data = array())
     {
         $request = new Request($this->url.$this->token.'/'.$method, $data);
 
@@ -98,7 +98,7 @@ class Api
             $allowedUpdates = Utils::toJson(Utils::wrap($allowedUpdates));
         }
 
-        return Utils::makeArray(Update::class, $this->_request('getUpdates', [
+        return Utils::makeArray(Update::class, $this->call('getUpdates', [
             'offset' => $offset,
             'limit' => Utils::checkNum($limit, 1, 100, false, 100),
             'timeout' => $timeout,
@@ -132,7 +132,7 @@ class Api
             $allowedUpdates = Utils::toJson(Utils::wrap($allowedUpdates));
         }
 
-        return $this->_request('setWebhook', [
+        return $this->call('setWebhook', [
             'url' => $url,
             'ip_address ' => $ipAddress,
             'certificate' => $certificate,
@@ -154,7 +154,7 @@ class Api
     public function deleteWebhook(
         $dropPendingUpdates = null
     ) {
-        return $this->_request('deleteWebhook', [
+        return $this->call('deleteWebhook', [
             'drop_pending_updates' => $dropPendingUpdates
         ]);
     }
@@ -168,7 +168,7 @@ class Api
      */
     public function getWebhookInfo()
     {
-        return new WebhookInfo($this->_request('getWebhookInfo'));
+        return new WebhookInfo($this->call('getWebhookInfo'));
     }
 
     /* ------------------------ Сообщения ------------------------ */
@@ -181,7 +181,7 @@ class Api
      */
     protected function _message($method, array $data = array())
     {
-        $res = $this->_request($method, $data);
+        $res = $this->call($method, $data);
 
         return is_array($res) ? new Message($res) : (is_bool($res) ? $res : null);
     }
@@ -217,7 +217,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new MessageId($this->_request('copyMessage', [
+        return new MessageId($this->call('copyMessage', [
             'chat_id' => $chatId,
             'from_chat_id' => $fromChatId,
             'message_id' => $messageId,
@@ -259,7 +259,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendMessage', [
+        return new Message($this->call('sendMessage', [
             'chat_id' => $chatId,
             'text' => Utils::checkStr($text, 1, 4096, true),
             'parse_mode' => $parseMode,
@@ -308,7 +308,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendAudio', [
+        return new Message($this->call('sendAudio', [
             'chat_id' => $chatId,
             'audio' => $audio,
             'caption' => Utils::checkStr($caption, 0, 1024),
@@ -361,7 +361,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendAnimation', [
+        return new Message($this->call('sendAnimation', [
             'chat_id' => $chatId,
             'animation' => $animation,
             'duration' => $duration,
@@ -416,7 +416,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendVideo', [
+        return new Message($this->call('sendVideo', [
             'chat_id' => $chatId,
             'video' => $video,
             'duration' => $duration,
@@ -462,7 +462,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendVideoNote', [
+        return new Message($this->call('sendVideoNote', [
             'chat_id' => $chatId,
             'video_note' => $videoNote,
             'duration' => $duration,
@@ -505,7 +505,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendVoice', [
+        return new Message($this->call('sendVoice', [
             'chat_id' => $chatId,
             'voice' => $voice,
             'duration' => $duration,
@@ -555,7 +555,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendVenue', [
+        return new Message($this->call('sendVenue', [
             'chat_id' => $chatId,
             'latitude' => $latitude,
             'longitude' => $longitude,
@@ -594,7 +594,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendSticker', [
+        return new Message($this->call('sendSticker', [
             'chat_id' => $chatId,
             'sticker' => $sticker,
             'disable_notification' => $disableNotification,
@@ -667,7 +667,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendInvoice', [
+        return new Message($this->call('sendInvoice', [
             'chat_id' => $chatId,
             'title' => Utils::checkStr($title, 1, 32, true),
             'description' => Utils::checkStr($description, 1, 255, true),
@@ -725,7 +725,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendContact', [
+        return new Message($this->call('sendContact', [
             'chat_id' => $chatId,
             'phone_number' => $phoneNumber,
             'first_name' => $firstName,
@@ -770,7 +770,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendDocument', [
+        return new Message($this->call('sendDocument', [
             'chat_id' => $chatId,
             'document' => $document,
             'thumb' => $thumb,
@@ -813,7 +813,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendPhoto', [
+        return new Message($this->call('sendPhoto', [
             'chat_id' => $chatId,
             'photo' => $photo,
             'caption' => Utils::checkStr($caption, 0, 1024),
@@ -848,7 +848,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendGame', [
+        return new Message($this->call('sendGame', [
             'chat_id' => $chatId,
             'game_short_name' => $gameShortName,
             'disable_notification' => $disableNotification,
@@ -880,7 +880,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendDice', [
+        return new Message($this->call('sendDice', [
             'chat_id' => $chatId,
             'emoji' => $emoji,
             'disable_notification' => $disableNotification,
@@ -934,7 +934,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendPoll', [
+        return new Message($this->call('sendPoll', [
             'chat_id' => $chatId,
             'question' => Utils::checkStr($question, 1, 300, true),
             'options' => Utils::toJson($options),
@@ -971,7 +971,7 @@ class Api
         $messageId,
         $replyMarkup = null
     ) {
-        return new Poll($this->_request('stopPoll', [
+        return new Poll($this->call('stopPoll', [
             'chat_id' => $chatId,
             'message_id' => $messageId,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -1010,7 +1010,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return new Message($this->_request('sendLocation', [
+        return new Message($this->call('sendLocation', [
             'chat_id' => $chatId,
             'latitude' => $latitude,
             'longitude' => $longitude,
@@ -1112,7 +1112,7 @@ class Api
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
-        return Utils::makeArray(Message::class, $this->_request('sendMediaGroup', [
+        return Utils::makeArray(Message::class, $this->call('sendMediaGroup', [
             'chat_id' => $chatId,
             'media' => Utils::toJson($media),
             'disable_notification' => $disableNotification,
@@ -1168,7 +1168,7 @@ class Api
         $messageId,
         $disableNotification = null
     ) {
-        return new Message($this->_request('forwardMessage', [
+        return new Message($this->call('forwardMessage', [
             'chat_id' => $chatId,
             'from_chat_id' => $fromChatId,
             'disable_notification' => $disableNotification,
@@ -1289,7 +1289,7 @@ class Api
         $chatId,
         $messageId
     ) {
-        return $this->_request('deleteMessage', [
+        return $this->call('deleteMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId
         ]);
@@ -1313,7 +1313,7 @@ class Api
         $userId,
         $customTitle
     ) {
-        return $this->_request('setChatAdministratorCustomTitle', [
+        return $this->call('setChatAdministratorCustomTitle', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'custom_title' => Utils::checkStr($customTitle, 0, 16, true),
@@ -1356,7 +1356,7 @@ class Api
         $canPinMessages = null,
         $canPromoteMembers = null
     ) {
-        return $this->_request('promoteChatMember', [
+        return $this->call('promoteChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'is_anonymous' => $isAnonymous,
@@ -1391,7 +1391,7 @@ class Api
         $permissions,
         $untilDate = null
     ) {
-        return $this->_request('restrictChatMember', [
+        return $this->call('restrictChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'permissions' => Utils::toJson($permissions),
@@ -1439,7 +1439,7 @@ class Api
         $untilDate = null,
         $revokeMessages = null
     ) {
-        return $this->_request('banChatMember', [
+        return $this->call('banChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'until_date' => $untilDate,
@@ -1465,7 +1465,7 @@ class Api
         $userId,
         $onlyIfBanned = null
     ) {
-        return $this->_request('unbanChatMember', [
+        return $this->call('unbanChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'only_if_banned' => $onlyIfBanned
@@ -1486,7 +1486,7 @@ class Api
         $chatId,
         $title
     ) {
-        return $this->_request('setChatTitle', [
+        return $this->call('setChatTitle', [
             'chat_id' => $chatId,
             'title' => Utils::checkStr($title, 1, 255, true),
         ]);
@@ -1506,7 +1506,7 @@ class Api
         $chatId,
         $photo
     ) {
-        return $this->_request('setChatPhoto', [
+        return $this->call('setChatPhoto', [
             'chat_id' => $chatId,
             'photo' => $photo
         ]);
@@ -1524,7 +1524,7 @@ class Api
     public function deleteChatPhoto(
         $chatId
     ) {
-        return $this->_request('deleteChatPhoto', [
+        return $this->call('deleteChatPhoto', [
             'chat_id' => $chatId
         ]);
     }
@@ -1543,7 +1543,7 @@ class Api
         $chatId,
         $description
     ) {
-        return $this->_request('setChatDescription', [
+        return $this->call('setChatDescription', [
             'chat_id' => $chatId,
             'description' => Utils::checkStr($description, 0, 255)
         ]);
@@ -1563,7 +1563,7 @@ class Api
         $chatId,
         $permissions
     ) {
-        return $this->_request('setChatPermissions', [
+        return $this->call('setChatPermissions', [
             'chat_id' => $chatId,
             'permissions' => Utils::toJson($permissions)
         ]);
@@ -1585,7 +1585,7 @@ class Api
         $messageId,
         $disableNotification = null
     ) {
-        return $this->_request('pinChatMessage', [
+        return $this->call('pinChatMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId,
             'disable_notification' => $disableNotification,
@@ -1609,7 +1609,7 @@ class Api
         $chatId,
         $messageId = null
     ) {
-        return $this->_request('unpinChatMessage', [
+        return $this->call('unpinChatMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId
         ]);
@@ -1627,7 +1627,7 @@ class Api
     public function unpinAllChatMessages(
         $chatId
     ) {
-        return $this->_request('unpinAllChatMessages', [
+        return $this->call('unpinAllChatMessages', [
             'chat_id' => $chatId
         ]);
     }
@@ -1644,7 +1644,7 @@ class Api
     public function getChat(
         $chatId
     ) {
-        return new Chat($this->_request('getChat', [
+        return new Chat($this->call('getChat', [
             'chat_id' => $chatId
         ]));
     }
@@ -1663,7 +1663,7 @@ class Api
         $chatId,
         $action
     ) {
-        return $this->_request('sendChatAction', [
+        return $this->call('sendChatAction', [
             'chat_id' => $chatId,
             'action' => $action
         ]);
@@ -1683,7 +1683,7 @@ class Api
         $chatId,
         $userId
     ) {
-        return ChatMember::getConcreteEntity($this->_request('getChatMember', [
+        return ChatMember::getConcreteEntity($this->call('getChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId
         ]));
@@ -1701,7 +1701,7 @@ class Api
     public function getChatAdministrators(
         $chatId
     ) {
-        $data = $this->_request('getChatAdministrators', [
+        $data = $this->call('getChatAdministrators', [
             'chat_id' => $chatId
         ]);
 
@@ -1742,7 +1742,7 @@ class Api
     public function getChatMemberCount(
         $chatId
     ) {
-        return $this->_request('getChatMembersCount', [
+        return $this->call('getChatMembersCount', [
             'chat_id' => $chatId
         ]);
     }
@@ -1759,7 +1759,7 @@ class Api
     public function exportChatInviteLink(
         $chatId
     ) {
-        return $this->_request('exportChatInviteLink', [
+        return $this->call('exportChatInviteLink', [
             'chat_id' => $chatId
         ]);
     }
@@ -1780,7 +1780,7 @@ class Api
         $expireDate = null,
         $memberLimit = null
     ) {
-        return new ChatInviteLink($this->_request('createChatInviteLink', [
+        return new ChatInviteLink($this->call('createChatInviteLink', [
             'chat_id' => $chatId,
             'expire_date' => $expireDate,
             'member_limit' => Utils::checkNum($memberLimit, 1, 99999)
@@ -1805,7 +1805,7 @@ class Api
         $expireDate = null,
         $memberLimit = null
     ) {
-        return new ChatInviteLink($this->_request('editChatInviteLink', [
+        return new ChatInviteLink($this->call('editChatInviteLink', [
             'chat_id' => $chatId,
             'invite_link' => $inviteLink,
             'expire_date' => $expireDate,
@@ -1828,7 +1828,7 @@ class Api
         $chatId,
         $inviteLink
     ) {
-        return new ChatInviteLink($this->_request('revokeChatInviteLink', [
+        return new ChatInviteLink($this->call('revokeChatInviteLink', [
             'chat_id' => $chatId,
             'invite_link' => $inviteLink
         ]));
@@ -1846,7 +1846,7 @@ class Api
     public function leaveChat(
         $chatId
     ) {
-        return $this->_request('leaveChat', [
+        return $this->call('leaveChat', [
             'chat_id' => $chatId
         ]);
     }
@@ -1879,7 +1879,7 @@ class Api
         $containsMasks = null,
         $maskPosition = null
     ) {
-       return $this->_request('createNewStickerSet', [
+       return $this->call('createNewStickerSet', [
            'user_id' => $userId,
            'name' => Utils::checkStr($name, 1, 64, true),
            'title' => Utils::checkStr($title, 1, 64, true),
@@ -1913,7 +1913,7 @@ class Api
         $tgsSticker = null,
         $maskPosition = null
     ) {
-        return $this->_request('addStickerToSet', [
+        return $this->call('addStickerToSet', [
             'user_id' => $userId,
             'name' => $name,
             'png_sticker' => $pngSticker,
@@ -1937,7 +1937,7 @@ class Api
         $sticker,
         $position
     ) {
-        return $this->_request('setStickerPositionInSet', [
+        return $this->call('setStickerPositionInSet', [
             'sticker' => $sticker,
             'position' => $position
         ]) ;
@@ -1959,7 +1959,7 @@ class Api
         $userId,
         $thumb = null
     ) {
-        return $this->_request('setStickerSetThumb', [
+        return $this->call('setStickerSetThumb', [
             'name' => $name,
             'user_id' => $userId,
             'thumb' => $thumb
@@ -1978,7 +1978,7 @@ class Api
     public function deleteStickerFromSet(
         $sticker
     ) {
-        return $this->_request('deleteStickerFromSet', [
+        return $this->call('deleteStickerFromSet', [
             'sticker' => $sticker
         ]);
     }
@@ -1995,7 +1995,7 @@ class Api
     public function getStickerSet(
         $name
     ) {
-        return new StickerSet($this->_request('getStickerSet', [
+        return new StickerSet($this->call('getStickerSet', [
             'name' => $name
         ]));
     }
@@ -2014,7 +2014,7 @@ class Api
         $userId,
         $pngSticker
     ) {
-        return new File($this->_request('uploadStickerFile', [
+        return new File($this->call('uploadStickerFile', [
             'user_id' => $userId,
             'png_sticker' => $pngSticker,
         ]));
@@ -2034,7 +2034,7 @@ class Api
         $chatId,
         $stickerSetName
     ) {
-        return $this->_request('setChatStickerSet', [
+        return $this->call('setChatStickerSet', [
             'chat_id' => $chatId,
             'sticker_set_name' => $stickerSetName
         ]);
@@ -2052,7 +2052,7 @@ class Api
     public function deleteChatStickerSet(
         $chatId
     ) {
-        return $this->_request('deleteChatStickerSet', [
+        return $this->call('deleteChatStickerSet', [
             'chat_id' => $chatId,
         ]);
     }
@@ -2079,7 +2079,7 @@ class Api
         $cacheTime = null,
         $url = null
     ) {
-        return $this->_request('answerCallbackQuery', [
+        return $this->call('answerCallbackQuery', [
             'callback_query_id' => $callbackQueryId,
             'text' => Utils::checkStr($text, 0, 200),
             'show_alert' => $showAlert,
@@ -2112,7 +2112,7 @@ class Api
         $switchPmText = null,
         $switchPmParameter = null
     ) {
-        return $this->_request('answerInlineQuery', [
+        return $this->call('answerInlineQuery', [
             'inline_query_id' => $inlineQueryId,
             'results' => Utils::toJson($results),
             'cache_time' => $cacheTime,
@@ -2139,7 +2139,7 @@ class Api
         $ok,
         $errorMessage = null
     ) {
-        return $this->_request('answerPreCheckoutQuery', [
+        return $this->call('answerPreCheckoutQuery', [
             'pre_checkout_query_id' => $preCheckoutQueryId,
             'ok' => $ok,
             'error_message' => $errorMessage
@@ -2164,7 +2164,7 @@ class Api
         $shippingOptions = null,
         $errorMessage = null
     ) {
-        return $this->_request('answerShippingQuery', [
+        return $this->call('answerShippingQuery', [
             'shipping_query_id' => $shippingQueryId,
             'ok' => $ok,
             'shipping_options' => Utils::toJsonOrNull($shippingOptions),
@@ -2193,7 +2193,7 @@ class Api
         $messageId = null,
         $inlineMessageId = null
     ) {
-        return Utils::makeArray(GameHighScore::class, $this->_request('getGameHighScores', [
+        return Utils::makeArray(GameHighScore::class, $this->call('getGameHighScores', [
             'user_id' => $userId,
             'chat_id' => $chatId,
             'message_id' => $messageId,
@@ -2247,7 +2247,7 @@ class Api
      */
     public function getMe()
     {
-        return new User($this->_request('getMe'));
+        return new User($this->call('getMe'));
     }
 
     /**
@@ -2259,7 +2259,7 @@ class Api
      */
     public function logOut() 
     {
-        return $this->_request('logOut');
+        return $this->call('logOut');
     }
 
     /**
@@ -2271,7 +2271,7 @@ class Api
      */
     public function close()
     {
-        return $this->_request('close');
+        return $this->call('close');
     }
 
     /**
@@ -2290,7 +2290,7 @@ class Api
         $offset = null,
         $limit = null
     ) {
-        return new UserProfilePhotos($this->_request('getUserProfilePhotos', [
+        return new UserProfilePhotos($this->call('getUserProfilePhotos', [
            'user_id' => $userId,
            'offset' => $offset,
            'limit' => Utils::checkNum($limit, 1, 100)
@@ -2311,7 +2311,7 @@ class Api
         $scope = null,
         $languageCode = null
     ) {
-        return Utils::makeArray(BotCommand::class, $this->_request('getMyCommands', [
+        return Utils::makeArray(BotCommand::class, $this->call('getMyCommands', [
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
         ]));
@@ -2339,7 +2339,7 @@ class Api
             }
         }
 
-        return $this->_request('setMyCommands', [
+        return $this->call('setMyCommands', [
             'commands' => Utils::toJson($commands),
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
@@ -2358,7 +2358,7 @@ class Api
         $scope = null,
         $languageCode = null
     ) {
-        return $this->_request('deleteMyCommands', [
+        return $this->call('deleteMyCommands', [
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
         ]);
@@ -2376,7 +2376,7 @@ class Api
     public function getFile(
         $fileId
     ) {
-        return new File($this->_request('getFile', [
+        return new File($this->call('getFile', [
             'file_id' => $fileId
         ]));
     }
@@ -2412,7 +2412,7 @@ class Api
         $userId,
         $errors
     ) {
-        return $this->_request('setPassportDataErrors', [
+        return $this->call('setPassportDataErrors', [
             'user_id,' => $userId,
             'errors' => Utils::toJson($errors)
         ]);
