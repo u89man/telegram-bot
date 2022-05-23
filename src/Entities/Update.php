@@ -28,6 +28,7 @@ use U89Man\TBot\Entities\Poll\PollAnswer;
  * @method         PollAnswer|null getPollAnswer()
  * @method  ChatMemberUpdated|null getMyChatMember()
  * @method  ChatMemberUpdated|null getChatMember()
+ * @method    ChatJoinRequest|null getChatJoinRequest()
  */
 class Update extends Entity
 {
@@ -47,6 +48,7 @@ class Update extends Entity
 	const TYPE_POLL_ANSWER = 'poll_answer';
 	const TYPE_MY_CHAT_MEMBER = 'my_chat_member';
 	const TYPE_CHAT_MEMBER = 'chat_member';
+	const TYPE_CHAT_JOIN_REQUEST = 'chat_join_request';
 
 
     /**
@@ -68,7 +70,8 @@ class Update extends Entity
             'poll' => Poll::class,
             'poll_answer' => PollAnswer::class,
             'my_chat_member' => ChatMemberUpdated::class,
-            'chat_member' => ChatMemberUpdated::class
+            'chat_member' => ChatMemberUpdated::class,
+            'chat_join_request' => ChatJoinRequest::class
         ];
     }
 
@@ -91,7 +94,8 @@ class Update extends Entity
             Update::TYPE_POLL,
             Update::TYPE_POLL_ANSWER,
             Update::TYPE_MY_CHAT_MEMBER,
-            Update::TYPE_CHAT_MEMBER
+            Update::TYPE_CHAT_MEMBER,
+            Update::TYPE_CHAT_JOIN_REQUEST
 		];
 
 		foreach ($types as $type) {
@@ -211,5 +215,13 @@ class Update extends Entity
     public function isChatMember()
     {
         return $this->getType() == Update::TYPE_CHAT_MEMBER;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isChatJoinRequest()
+    {
+        return $this->getType() == Update::TYPE_CHAT_JOIN_REQUEST;
     }
 }
