@@ -7,10 +7,12 @@ namespace U89Man\TBot\Entities;
  *
  * @method   string getInviteLink()
  * @method     User getCreator()
+ * @method     bool getCreatesJoinRequest()
  * @method     bool getIsPrimary()
  * @method     bool getIsRevoked()
  * @method int|null getExpireDate()
  * @method int|null getMemberLimit()
+ * @method int|null getPendingJoinRequestCount()
  */
 class ChatInviteLink extends Entity
 {
