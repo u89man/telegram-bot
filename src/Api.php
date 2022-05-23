@@ -1776,6 +1776,7 @@ class Api
      * @link https://core.telegram.org/bots/api#createchatinvitelink
      *
      * @param int|string $chatId
+     * @param string|null $name
      * @param int|null $expireDate
      * @param int|null $memberLimit
      * @param bool|null $createsJoinRequest
@@ -1784,12 +1785,14 @@ class Api
      */
     public function createChatInviteLink(
         $chatId,
+        $name = null,
         $expireDate = null,
         $memberLimit = null,
         $createsJoinRequest = null
     ) {
         return new ChatInviteLink($this->call('createChatInviteLink', [
             'chat_id' => $chatId,
+            'name' => Utils::checkStr($name, 0, 32),
             'expire_date' => $expireDate,
             'member_limit' => Utils::checkNum($memberLimit, 1, 99999),
             'creates_join_request' => $createsJoinRequest
@@ -1803,6 +1806,7 @@ class Api
      *
      * @param int|string $chatId
      * @param string $inviteLink
+     * @param string|null $name
      * @param int|null $expireDate
      * @param int|null $memberLimit
      * @param bool|null $createsJoinRequest
@@ -1812,12 +1816,14 @@ class Api
     public function editChatInviteLink(
         $chatId,
         $inviteLink,
+        $name = null,
         $expireDate = null,
         $memberLimit = null,
         $createsJoinRequest = null
     ) {
         return new ChatInviteLink($this->call('editChatInviteLink', [
             'chat_id' => $chatId,
+            'name' => Utils::checkStr($name, 0, 32),
             'invite_link' => $inviteLink,
             'expire_date' => $expireDate,
             'member_limit' => Utils::checkNum($memberLimit, 1, 99999),
