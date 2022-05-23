@@ -1873,6 +1873,26 @@ class Api
     }
 
     /**
+     * Используется для отклонения запроса на присоединение пользователя к чату.
+     *
+     * @link https://core.telegram.org/bots/api#declinechatjoinrequest
+     *
+     * @param int|string $chatId
+     * @param int $userId
+     *
+     * @return bool
+     */
+    public function declineChatJoinRequest(
+        $chatId,
+        $userId
+    ) {
+        return $this->call('declineChatJoinRequest', [
+            'chat_id' => $chatId,
+            'user_id' => $userId
+        ]);
+    }
+
+    /**
      * Используется для выхода бота из группы, супергруппы или канала.
      *
      * @link https://core.telegram.org/bots/api#leavechat
