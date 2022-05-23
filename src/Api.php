@@ -1853,6 +1853,26 @@ class Api
     }
 
     /**
+     * Используется для одобрения запроса на присоединение пользователя к чату.
+     *
+     * @link https://core.telegram.org/bots/api#approvechatjoinrequest
+     *
+     * @param int|string $chatId
+     * @param int $userId
+     *
+     * @return bool
+     */
+    public function approveChatJoinRequest(
+        $chatId,
+        $userId
+    ) {
+        return $this->call('approveChatJoinRequest', [
+            'chat_id' => $chatId,
+            'user_id' => $userId
+        ]);
+    }
+
+    /**
      * Используется для выхода бота из группы, супергруппы или канала.
      *
      * @link https://core.telegram.org/bots/api#leavechat
