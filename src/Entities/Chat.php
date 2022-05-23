@@ -43,6 +43,7 @@ class Chat extends Entity
     const ACTION_RECORD_VOICE = 'record_voice';
     const ACTION_UPLOAD_VOICE = 'upload_voice';
     const ACTION_UPLOAD_DOCUMENT = 'upload_document';
+    const ACTION_CHOOSE_STICKER = 'choose_sticker';
 	const ACTION_FIND_LOCATION = 'find_location';
 	const ACTION_RECORD_VIDEO_NOTE = 'record_video_note';
 	const ACTION_UPLOAD_VIDEO_NOTE = 'upload_video_note';
