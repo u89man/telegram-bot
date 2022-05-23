@@ -1,4 +1,4 @@
-## Telegram Bot 0.5.9 ([5.3](https://core.telegram.org/bots/api#june-25-2021))
+## Telegram Bot 0.5.9 ([5.4](https://core.telegram.org/bots/api-changelog#november-5-2021))
 
 ##### Требования
 
@@ -258,6 +258,7 @@ $bot->run();
 + `Update::TYPE_POLL_ANSWER`
 + `Update::TYPE_MY_CHAT_MEMBER`
 + `Update::TYPE_CHAT_MEMBER`
++ `Update::TYPE_CHAT_JOIN_REQUEST`
 
 
 
@@ -277,6 +278,7 @@ $bot->run();
 + `addPollAnswerHandler()`
 + `addMyChatMember()`
 + `addChatMember()`
++ `addChatJoinRequest()`
 
 
 ##### Документация
