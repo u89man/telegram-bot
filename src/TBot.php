@@ -254,6 +254,9 @@ class TBot
             case Update::TYPE_CHAT_MEMBER:
                 $context = $update->getChatMember();
                 break;
+            case Update::TYPE_CHAT_JOIN_REQUEST:
+                $context = $update->getChatJoinRequest();
+                break;
         }
 
         if (! $context) {
@@ -446,5 +449,17 @@ class TBot
     public function addChatMember(Closure $handler)
     {
         $this->addHandler(Update::TYPE_CHAT_MEMBER, $handler);
+    }
+
+    /**
+     * Добавляет обработчик обновления с запросом на вступление в чат.
+     *
+     * @param Closure $handler
+     *
+     * @return void
+     */
+    public function addChatJoinRequest(Closure $handler)
+    {
+        $this->addHandler(Update::TYPE_CHAT_JOIN_REQUEST, $handler);
     }
 }
