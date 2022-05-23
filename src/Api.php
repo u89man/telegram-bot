@@ -1778,18 +1778,21 @@ class Api
      * @param int|string $chatId
      * @param int|null $expireDate
      * @param int|null $memberLimit
+     * @param bool|null $createsJoinRequest
      *
      * @return ChatInviteLink
      */
     public function createChatInviteLink(
         $chatId,
         $expireDate = null,
-        $memberLimit = null
+        $memberLimit = null,
+        $createsJoinRequest = null
     ) {
         return new ChatInviteLink($this->call('createChatInviteLink', [
             'chat_id' => $chatId,
             'expire_date' => $expireDate,
-            'member_limit' => Utils::checkNum($memberLimit, 1, 99999)
+            'member_limit' => Utils::checkNum($memberLimit, 1, 99999),
+            'creates_join_request' => $createsJoinRequest
         ]));
     }
 
@@ -1802,6 +1805,7 @@ class Api
      * @param string $inviteLink
      * @param int|null $expireDate
      * @param int|null $memberLimit
+     * @param bool|null $createsJoinRequest
      *
      * @return ChatInviteLink
      */
@@ -1809,13 +1813,15 @@ class Api
         $chatId,
         $inviteLink,
         $expireDate = null,
-        $memberLimit = null
+        $memberLimit = null,
+        $createsJoinRequest = null
     ) {
         return new ChatInviteLink($this->call('editChatInviteLink', [
             'chat_id' => $chatId,
             'invite_link' => $inviteLink,
             'expire_date' => $expireDate,
-            'member_limit' => Utils::checkNum($memberLimit, 1, 99999)
+            'member_limit' => Utils::checkNum($memberLimit, 1, 99999),
+            'creates_join_request' => $createsJoinRequest
         ]));
     }
 
