@@ -300,6 +300,7 @@ class Api
      * @param string|null $title
      * @param InputFile|string|null $thumb
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -317,6 +318,7 @@ class Api
         $title = null,
         $thumb = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -331,6 +333,7 @@ class Api
             'title' => $title,
             'thumb' => $thumb,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
