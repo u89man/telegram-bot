@@ -24,6 +24,7 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method                        string|null getForwardSignature()
  * @method                        string|null getForwardSenderName()
  * @method                           int|null getForwardDate()
+ * @method                          bool|null getIsAutomaticForward()
  * @method                       Message|null getReplyToMessage()
  * @method                          User|null getViaBot()
  * @method                           int|null getEditDate()
