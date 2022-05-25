@@ -249,6 +249,7 @@ class Api
      * @param MessageEntity[]|null $entities
      * @param bool|null $disableWebPagePreview
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -262,6 +263,7 @@ class Api
         $entities = null,
         $disableWebPagePreview = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -273,6 +275,7 @@ class Api
             'reply_markup' => Utils::toJsonOrNull($replyMarkup),
             'disable_web_page_preview' => $disableWebPagePreview,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_to_message_id' => $replyToMessageId
         ]));
