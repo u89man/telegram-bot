@@ -36,9 +36,9 @@ use U89Man\TBot\Entities\UserProfilePhotos;
 use U89Man\TBot\Entities\WebhookInfo;
 
 /**
- * API: 5.6
+ * API: 5.7
  *
- * @link https://core.telegram.org/bots/api-changelog#december-30-2021
+ * @link https://core.telegram.org/bots/api-changelog#january-31-2022
  */
 class Api
 {

@@ -1,4 +1,4 @@
-## Telegram Bot 0.5.9 ([5.6](https://core.telegram.org/bots/api-changelog#december-30-2021))
+## Telegram Bot 0.5.9 ([5.7](https://core.telegram.org/bots/api-changelog#january-31-2022))
 
 ##### Требования
 
