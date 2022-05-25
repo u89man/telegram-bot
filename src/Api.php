@@ -1046,6 +1046,7 @@ class Api
      * @param int|null $proximityAlertRadius
      * @param InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $replyMarkup
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -1061,6 +1062,7 @@ class Api
         $proximityAlertRadius = null,
         $replyMarkup = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -1073,6 +1075,7 @@ class Api
             'heading' => Utils::checkNum($heading, 1, 360),
             'proximity_alert_radius' => Utils::checkNum($proximityAlertRadius, 1, 100000),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
