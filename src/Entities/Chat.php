@@ -13,6 +13,7 @@ namespace U89Man\TBot\Entities;
  * @method          string|null getLastName()
  * @method       ChatPhoto|null getPhoto()
  * @method          string|null getBio()
+ * @method            bool|null getHasPrivateForwards()
  * @method          string|null getDescription()
  * @method          string|null getInviteLink()
  * @method         Message|null getPinnedMessage()
