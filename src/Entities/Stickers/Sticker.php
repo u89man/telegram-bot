@@ -13,6 +13,7 @@ use U89Man\TBot\Entities\PhotoSize;
  * @method               int getWidth()
  * @method               int getHeight()
  * @method              bool getIsAnimated()
+ * @method              bool getIsVideo()
  * @method    PhotoSize|null getThumb()
  * @method       string|null getEmoji()
  * @method       string|null getSetName()

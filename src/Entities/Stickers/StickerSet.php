@@ -11,6 +11,7 @@ use U89Man\TBot\Entities\PhotoSize;
  * @method    string getName()
  * @method    string getTitle()
  * @method      bool getIsAnimated()
+ * @method      bool getIsVideo()
  * @method      bool getContainsMasks()
  * @method Sticker[] getStickers()
  * @method PhotoSize getThumb()
