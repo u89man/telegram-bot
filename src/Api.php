@@ -138,7 +138,7 @@ class Api
             $allowedUpdates = Utils::toJson(Utils::wrap($allowedUpdates));
         }
 
-        return $this->call('setWebhook', [
+        return (bool) $this->call('setWebhook', [
             'url' => $url,
             'ip_address ' => $ipAddress,
             'certificate' => $certificate,
@@ -160,13 +160,13 @@ class Api
     public function deleteWebhook(
         $dropPendingUpdates = null
     ) {
-        return $this->call('deleteWebhook', [
+        return (bool) $this->call('deleteWebhook', [
             'drop_pending_updates' => $dropPendingUpdates
         ]);
     }
 
     /**
-     * Получает информацию о текущем Webhook.
+     * Получает информацию о текущем статусе Webhook.
      *
      * @link https://core.telegram.org/bots/api#getwebhookinfo
      *
@@ -193,7 +193,8 @@ class Api
     }
 
     /**
-     * Копирует любое сообщение.
+     * Копирует сообщение.
+     *
      * Метод аналогичен методу "forwardMessages", но скопированное сообщение не имеет ссылки на исходное сообщение.
      *
      * @link https://core.telegram.org/bots/api#copymessage
@@ -547,7 +548,7 @@ class Api
     }
 
     /**
-     * Отправляет информацию о месте проведения.
+     * Отправляет информацию о месте встречи.
      *
      * @link https://core.telegram.org/bots/api#sendvenue
      *
@@ -671,7 +672,6 @@ class Api
      * @param bool|null $allowSendingWithoutReply
      *
      * @return Message
-     * @throws Exceptions\ValueException
      */
     public function sendInvoice(
         $chatId,
@@ -778,7 +778,7 @@ class Api
     }
 
     /**
-     * Отправляет простой файл.
+     * Отправляет файл.
      *
      * @link https://core.telegram.org/bots/api#senddocument
      *
@@ -907,7 +907,7 @@ class Api
     }
 
     /**
-     * Отправляет анимированный смайлик, который будет отображать случайное значение.
+     * Отправляет анимированный смайл, который будет отображать случайное значение.
      *
      * @link https://core.telegram.org/bots/api#senddice
      *
@@ -1275,7 +1275,7 @@ class Api
     }
 
     /**
-     * Редактирует текстовое или игровое сообщений.
+     * Редактирует текстовое или игровое сообщение.
      *
      * @link https://core.telegram.org/bots/api#editmessagetext
      *
@@ -1339,7 +1339,7 @@ class Api
     }
     
     /**
-     * Удаляет сообщения, включая служебные.
+     * Удаляет сообщение.
      *
      * @link https://core.telegram.org/bots/api#deletemessage
      *
@@ -1352,7 +1352,7 @@ class Api
         $chatId,
         $messageId
     ) {
-        return $this->call('deleteMessage', [
+        return (bool) $this->call('deleteMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId
         ]);
@@ -1361,7 +1361,7 @@ class Api
     /* ------------------------ Чаты ------------------------ */
 
     /**
-     * Устанавливает название для администратора в супергруппе, продвигаемой ботом.
+     * Устанавливает "название" для администратора в супергруппе, продвигаемой ботом.
      *
      * @link https://core.telegram.org/bots/api#setchatadministratorcustomtitle
      *
@@ -1376,7 +1376,7 @@ class Api
         $userId,
         $customTitle
     ) {
-        return $this->call('setChatAdministratorCustomTitle', [
+        return (bool) $this->call('setChatAdministratorCustomTitle', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'custom_title' => Utils::checkStr($customTitle, 0, 16, true),
@@ -1419,7 +1419,7 @@ class Api
         $canPinMessages = null,
         $canPromoteMembers = null
     ) {
-        return $this->call('promoteChatMember', [
+        return (bool) $this->call('promoteChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'is_anonymous' => $isAnonymous,
@@ -1454,7 +1454,7 @@ class Api
         $permissions,
         $untilDate = null
     ) {
-        return $this->call('restrictChatMember', [
+        return (bool) $this->call('restrictChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'permissions' => Utils::toJson($permissions),
@@ -1464,7 +1464,8 @@ class Api
 
     /**
      * Исключает пользователя из группы, супергруппы или канала.
-     * Переименован в banChatMember(). [5.3]
+     *
+     * [^5.3] Переименован в banChatMember().
      *
      * @deprecated
      *
@@ -1502,7 +1503,7 @@ class Api
         $untilDate = null,
         $revokeMessages = null
     ) {
-        return $this->call('banChatMember', [
+        return (bool) $this->call('banChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'until_date' => $untilDate,
@@ -1512,7 +1513,8 @@ class Api
 
     /**
      * Разблокирует ранее удаленного пользователя в супергруппе или канале.
-     * По умолчанию этот метод гарантирует, что после вызова пользователь не будет является участником чата,
+     *
+     * Этот метод гарантирует, что после вызова пользователь не будет являться участником чата,
      * но сможет присоединиться к нему.
      *
      * @link https://core.telegram.org/bots/api#unbanchatmember
@@ -1528,7 +1530,7 @@ class Api
         $userId,
         $onlyIfBanned = null
     ) {
-        return $this->call('unbanChatMember', [
+        return (bool) $this->call('unbanChatMember', [
             'chat_id' => $chatId,
             'user_id' => $userId,
             'only_if_banned' => $onlyIfBanned
@@ -1536,7 +1538,7 @@ class Api
     }
 
     /**
-     * Используется для блокировки канального чата в супергруппе или на канале.
+     * Блокирует канальный чат в супергруппе или на канале.
      *
      * Пока чат не будет разблокирован, владелец заблокированного чата не сможет отправлять сообщения
      * от имени любого из своих каналов.
@@ -1559,7 +1561,7 @@ class Api
     }
 
     /**
-     * Используется для разблокировки канального чата в супергруппе или на канале.
+     * Разблокирует канальный чат в супергруппе или на канале.
      *
      * @link https://core.telegram.org/bots/api#unbanchatsenderchat
      *
@@ -1592,14 +1594,14 @@ class Api
         $chatId,
         $title
     ) {
-        return $this->call('setChatTitle', [
+        return (bool) $this->call('setChatTitle', [
             'chat_id' => $chatId,
             'title' => Utils::checkStr($title, 1, 255, true),
         ]);
     }
 
     /**
-     * Устанавливает новую фотографию профиля для чата.
+     * Устанавливает фотографию профиля для чата.
      *
      * @link https://core.telegram.org/bots/api#setchatphoto
      *
@@ -1612,7 +1614,7 @@ class Api
         $chatId,
         $photo
     ) {
-        return $this->call('setChatPhoto', [
+        return (bool) $this->call('setChatPhoto', [
             'chat_id' => $chatId,
             'photo' => $photo
         ]);
@@ -1630,7 +1632,7 @@ class Api
     public function deleteChatPhoto(
         $chatId
     ) {
-        return $this->call('deleteChatPhoto', [
+        return (bool) $this->call('deleteChatPhoto', [
             'chat_id' => $chatId
         ]);
     }
@@ -1649,7 +1651,7 @@ class Api
         $chatId,
         $description
     ) {
-        return $this->call('setChatDescription', [
+        return (bool) $this->call('setChatDescription', [
             'chat_id' => $chatId,
             'description' => Utils::checkStr($description, 0, 255)
         ]);
@@ -1669,7 +1671,7 @@ class Api
         $chatId,
         $permissions
     ) {
-        return $this->call('setChatPermissions', [
+        return (bool) $this->call('setChatPermissions', [
             'chat_id' => $chatId,
             'permissions' => Utils::toJson($permissions)
         ]);
@@ -1691,7 +1693,7 @@ class Api
         $messageId,
         $disableNotification = null
     ) {
-        return $this->call('pinChatMessage', [
+        return (bool) $this->call('pinChatMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId,
             'disable_notification' => $disableNotification,
@@ -1715,7 +1717,7 @@ class Api
         $chatId,
         $messageId = null
     ) {
-        return $this->call('unpinChatMessage', [
+        return (bool) $this->call('unpinChatMessage', [
             'chat_id' => $chatId,
             'message_id' => $messageId
         ]);
@@ -1733,7 +1735,7 @@ class Api
     public function unpinAllChatMessages(
         $chatId
     ) {
-        return $this->call('unpinAllChatMessages', [
+        return (bool) $this->call('unpinAllChatMessages', [
             'chat_id' => $chatId
         ]);
     }
@@ -1769,7 +1771,7 @@ class Api
         $chatId,
         $action
     ) {
-        return $this->call('sendChatAction', [
+        return (bool) $this->call('sendChatAction', [
             'chat_id' => $chatId,
             'action' => $action
         ]);
@@ -1811,7 +1813,7 @@ class Api
             'chat_id' => $chatId
         ]);
 
-        $arr = array();
+        $arr = [];
 
         foreach ($data as $d) {
             $arr[] = ChatMember::getConcreteEntity($d);
@@ -1822,7 +1824,8 @@ class Api
 
     /**
      * Получает количество участников чата.
-     * Переименован в getChatMemberCount() [5.3]
+     *
+     * [^5.3] Переименован в getChatMemberCount()
      *
      * @deprecated
      *
@@ -1848,13 +1851,15 @@ class Api
     public function getChatMemberCount(
         $chatId
     ) {
-        return $this->call('getChatMembersCount', [
+        return (int) $this->call('getChatMembersCount', [
             'chat_id' => $chatId
         ]);
     }
 
     /**
-     * Создает новую ссылку для приглашения в чат; любая ранее созданная ссылка аннулируется.
+     * Создает новую ссылку для приглашения в чат
+     *
+     * Любая ранее созданная ссылка аннулируется.
      *
      * @link https://core.telegram.org/bots/api#exportchatinvitelink
      *
@@ -1865,13 +1870,15 @@ class Api
     public function exportChatInviteLink(
         $chatId
     ) {
-        return $this->call('exportChatInviteLink', [
+        return (string) $this->call('exportChatInviteLink', [
             'chat_id' => $chatId
         ]);
     }
 
     /**
-     * Создает дополнительную ссылку для приглашения в чат. Ссылку можно отозвать с помощью метода 'revokeChatInviteLink'.
+     * Создает дополнительную ссылку для приглашения в чат.
+     *
+     * Ссылку можно отозвать с помощью метода 'revokeChatInviteLink'.
      *
      * @link https://core.telegram.org/bots/api#createchatinvitelink
      *
@@ -1933,7 +1940,8 @@ class Api
 
     /**
      * Отзывает пригласительную ссылку, созданную ботом.
-     * Если основная ссылка отозвана, автоматически создается новая ссылка.
+     *
+     * Если отозвана основная ссылка, автоматически создается новая.
      *
      * @link https://core.telegram.org/bots/api#revokechatinvitelink
      *
@@ -1966,7 +1974,7 @@ class Api
         $chatId,
         $userId
     ) {
-        return $this->call('approveChatJoinRequest', [
+        return (bool) $this->call('approveChatJoinRequest', [
             'chat_id' => $chatId,
             'user_id' => $userId
         ]);
@@ -1986,7 +1994,7 @@ class Api
         $chatId,
         $userId
     ) {
-        return $this->call('declineChatJoinRequest', [
+        return (bool) $this->call('declineChatJoinRequest', [
             'chat_id' => $chatId,
             'user_id' => $userId
         ]);
@@ -2004,7 +2012,7 @@ class Api
     public function leaveChat(
         $chatId
     ) {
-        return $this->call('leaveChat', [
+        return (bool) $this->call('leaveChat', [
             'chat_id' => $chatId
         ]);
     }
@@ -2119,7 +2127,7 @@ class Api
         $sticker,
         $position
     ) {
-        return $this->call('setStickerPositionInSet', [
+        return (bool) $this->call('setStickerPositionInSet', [
             'sticker' => $sticker,
             'position' => $position
         ]) ;
@@ -2134,14 +2142,14 @@ class Api
      * @param int $userId
      * @param InputFile|string|null $thumb
      *
-     * @return mixed
+     * @return bool
      */
     public function setStickerSetThumb(
         $name,
         $userId,
         $thumb = null
     ) {
-        return $this->call('setStickerSetThumb', [
+        return (bool) $this->call('setStickerSetThumb', [
             'name' => $name,
             'user_id' => $userId,
             'thumb' => $thumb
@@ -2160,7 +2168,7 @@ class Api
     public function deleteStickerFromSet(
         $sticker
     ) {
-        return $this->call('deleteStickerFromSet', [
+        return (bool) $this->call('deleteStickerFromSet', [
             'sticker' => $sticker
         ]);
     }
@@ -2216,7 +2224,7 @@ class Api
         $chatId,
         $stickerSetName
     ) {
-        return $this->call('setChatStickerSet', [
+        return (bool) $this->call('setChatStickerSet', [
             'chat_id' => $chatId,
             'sticker_set_name' => $stickerSetName
         ]);
@@ -2234,7 +2242,7 @@ class Api
     public function deleteChatStickerSet(
         $chatId
     ) {
-        return $this->call('deleteChatStickerSet', [
+        return (bool) $this->call('deleteChatStickerSet', [
             'chat_id' => $chatId,
         ]);
     }
@@ -2261,7 +2269,7 @@ class Api
         $cacheTime = null,
         $url = null
     ) {
-        return $this->call('answerCallbackQuery', [
+        return (bool) $this->call('answerCallbackQuery', [
             'callback_query_id' => $callbackQueryId,
             'text' => Utils::checkStr($text, 0, 200),
             'show_alert' => $showAlert,
@@ -2294,7 +2302,7 @@ class Api
         $switchPmText = null,
         $switchPmParameter = null
     ) {
-        return $this->call('answerInlineQuery', [
+        return (bool) $this->call('answerInlineQuery', [
             'inline_query_id' => $inlineQueryId,
             'results' => Utils::toJson($results),
             'cache_time' => $cacheTime,
@@ -2307,6 +2315,8 @@ class Api
 
     /**
      * Отправляет ответ на запросы перед оформлением заказа.
+     *
+     * Сервер должен получить ответ в течение 10 секунд после отправки запроса предварительной проверки.
      *
      * @link https://core.telegram.org/bots/api#answerprecheckoutquery
      *
@@ -2321,7 +2331,7 @@ class Api
         $ok,
         $errorMessage = null
     ) {
-        return $this->call('answerPreCheckoutQuery', [
+        return (bool) $this->call('answerPreCheckoutQuery', [
             'pre_checkout_query_id' => $preCheckoutQueryId,
             'ok' => $ok,
             'error_message' => $errorMessage
@@ -2346,7 +2356,7 @@ class Api
         $shippingOptions = null,
         $errorMessage = null
     ) {
-        return $this->call('answerShippingQuery', [
+        return (bool) $this->call('answerShippingQuery', [
             'shipping_query_id' => $shippingQueryId,
             'ok' => $ok,
             'shipping_options' => Utils::toJsonOrNull($shippingOptions),
@@ -2358,7 +2368,8 @@ class Api
 
     /**
      * Получает данные для таблиц рекордов.
-     * Вернет счет указанного пользователя и нескольких его соседей в игре.
+     *
+     * Вернет счет указанного пользователя и нескольких ближайших его соперников в игре.
      *
      * @link https://core.telegram.org/bots/api#getgamehighscores
      *
@@ -2433,7 +2444,7 @@ class Api
     }
 
     /**
-     * Бот выходит с облачного сервера API бота перед локальным запуском бота.
+     * Выходит с облачного сервера API бота перед локальным запуском бота.
      *
      * @link @https://core.telegram.org/bots/api#logout
      *
@@ -2441,7 +2452,7 @@ class Api
      */
     public function logOut() 
     {
-        return $this->call('logOut');
+        return (bool) $this->call('logOut');
     }
 
     /**
@@ -2453,11 +2464,11 @@ class Api
      */
     public function close()
     {
-        return $this->call('close');
+        return (bool) $this->call('close');
     }
 
     /**
-     * Получает список изображений профиля пользователя.
+     * Получает список фотографий профиля пользователя.
      *
      * @link https://core.telegram.org/bots/api#getuserprofilephotos
      *
@@ -2480,7 +2491,7 @@ class Api
     }
 
     /**
-     * Получает текущий список команд бота.
+     * Получает список команд бота.
      *
      * @link https://core.telegram.org/bots/api#getmycommands
      *
@@ -2521,7 +2532,7 @@ class Api
             }
         }
 
-        return $this->call('setMyCommands', [
+        return (bool) $this->call('setMyCommands', [
             'commands' => Utils::toJson($commands),
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
@@ -2540,7 +2551,7 @@ class Api
         $scope = null,
         $languageCode = null
     ) {
-        return $this->call('deleteMyCommands', [
+        return (bool) $this->call('deleteMyCommands', [
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
         ]);
@@ -2564,9 +2575,9 @@ class Api
     }
 
     /**
-     * (*) Получает ссылку на подготовленный файл.
+     * [*] Получает ссылку на подготовленный файл.
      *
-     * Ссылка НЕ предназначена для публичного доступа к файлу, т.к. в ней указан токен бота.
+     * Ссылка НЕ предназначена для публичного доступа к файлу, т.к. в ней указан секретный токен бота.
      *
      * @see getFile
      *
@@ -2594,7 +2605,7 @@ class Api
         $userId,
         $errors
     ) {
-        return $this->call('setPassportDataErrors', [
+        return (bool) $this->call('setPassportDataErrors', [
             'user_id,' => $userId,
             'errors' => Utils::toJson($errors)
         ]);
