@@ -20,6 +20,7 @@ namespace U89Man\TBot\Entities;
  * @method ChatPermissions|null getPermissions()
  * @method             int|null getSlowModeDelay()
  * @method             int|null getMessageAutoDeleteTime()
+ * @method            bool|null getHasProtectedContent()
  * @method          string|null getStickerSetName()
  * @method            bool|null getCanSetStickerSet()
  * @method             int|null getLinkedChatId()

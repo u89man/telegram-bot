@@ -27,6 +27,7 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method                       Message|null getReplyToMessage()
  * @method                          User|null getViaBot()
  * @method                           int|null getEditDate()
+ * @method                          bool|null getHasProtectedContent()
  * @method                        string|null getMediaGroupId()
  * @method                        string|null getAuthorSignature()
  * @method                        string|null getText()
