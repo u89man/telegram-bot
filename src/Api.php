@@ -1219,6 +1219,7 @@ class Api
      * @param int|string $fromChatId
      * @param int $messageId
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      *
      * @return Message
      */
@@ -1226,12 +1227,14 @@ class Api
         $chatId,
         $fromChatId,
         $messageId,
-        $disableNotification = null
+        $disableNotification = null,
+        $protectContent = null
     ) {
         return new Message($this->call('forwardMessage', [
             'chat_id' => $chatId,
             'from_chat_id' => $fromChatId,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'message_id' => $messageId
         ]));
     }
