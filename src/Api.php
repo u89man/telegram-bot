@@ -413,6 +413,7 @@ class Api
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $supportsStreaming
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -431,6 +432,7 @@ class Api
         $captionEntities = null,
         $supportsStreaming = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -446,6 +448,7 @@ class Api
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'supports_streaming' => $supportsStreaming,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
