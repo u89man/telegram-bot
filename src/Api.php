@@ -2022,6 +2022,7 @@ class Api
      * @param string $emojis
      * @param InputFile|string|null $pngSticker
      * @param InputFile|null $tgsSticker
+     * @param InputFile|null $webmSticker
      * @param bool|null $containsMasks
      * @param MaskPosition|null $maskPosition
      *
@@ -2034,19 +2035,30 @@ class Api
         $emojis,
         $pngSticker = null,
         $tgsSticker = null,
+        $webmSticker = null,
         $containsMasks = null,
         $maskPosition = null
     ) {
-       return $this->call('createNewStickerSet', [
-           'user_id' => $userId,
-           'name' => Utils::checkStr($name, 1, 64, true),
-           'title' => Utils::checkStr($title, 1, 64, true),
-           'png_sticker' => $pngSticker,
-           'tgs_sticker' => $pngSticker !== null ? null : $tgsSticker,
-           'emojis' => $emojis,
-           'contains_masks' => $containsMasks,
-           'mask_position' => $maskPosition
-       ]) ;
+        if ($pngSticker) {
+            $tgsSticker = null;
+            $webmSticker = null;
+        } else {
+            if ($tgsSticker) {
+                $webmSticker = null;
+            }
+        }
+
+        return (bool) $this->call('createNewStickerSet', [
+            'user_id' => $userId,
+            'name' => Utils::checkStr($name, 1, 64, true),
+            'title' => Utils::checkStr($title, 1, 64, true),
+            'png_sticker' => $pngSticker,
+            'tgs_sticker' => $tgsSticker,
+            'webm_sticker' => $webmSticker,
+            'emojis' => $emojis,
+            'contains_masks' => $containsMasks,
+            'mask_position' => $maskPosition
+       ]);
     }
 
     /**
@@ -2059,6 +2071,7 @@ class Api
      * @param string $emojis
      * @param InputFile|string|null $pngSticker
      * @param InputFile|null $tgsSticker
+     * @param InputFile|null $webmSticker
      * @param MaskPosition|null $maskPosition
      *
      * @return bool
@@ -2069,13 +2082,24 @@ class Api
         $emojis,
         $pngSticker = null,
         $tgsSticker = null,
+        $webmSticker = null,
         $maskPosition = null
     ) {
-        return $this->call('addStickerToSet', [
+        if ($pngSticker) {
+            $tgsSticker = null;
+            $webmSticker = null;
+        } else {
+            if ($tgsSticker) {
+                $webmSticker = null;
+            }
+        }
+
+        return (bool) $this->call('addStickerToSet', [
             'user_id' => $userId,
             'name' => $name,
             'png_sticker' => $pngSticker,
-            'tgs_sticker' => $pngSticker !== null ? null : $tgsSticker,
+            'tgs_sticker' => $tgsSticker,
+            'webm_sticker' => $webmSticker,
             'emojis' => $emojis,
             'mask_position' => $maskPosition
         ]) ;
