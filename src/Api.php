@@ -1157,6 +1157,7 @@ class Api
      * @param int|string $chatId
      * @param InputMediaPhoto[]|InputMediaVideo[]|InputMediaAudio[]|InputMediaDocument[] $media
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -1166,6 +1167,7 @@ class Api
         $chatId,
         $media,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -1173,6 +1175,7 @@ class Api
             'chat_id' => $chatId,
             'media' => Utils::toJson($media),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply
         ]));
