@@ -17,10 +17,12 @@ class Utils
      */
     public static function makeArray($class, $data)
     {
-        $arr = array();
+        $arr = [];
 
         foreach (self::wrap($data) as $d) {
-            $arr[] = new $class($d);
+            if ($d) {
+                $arr[] = new $class($d);
+            }
         }
 
         return $arr;
