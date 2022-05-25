@@ -666,6 +666,7 @@ class Api
      * @param bool|null $sendEmailToProvider
      * @param bool|null $isFlexible
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -697,6 +698,7 @@ class Api
         $sendEmailToProvider = null,
         $isFlexible = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -724,6 +726,7 @@ class Api
             'send_email_to_provider' => $sendEmailToProvider,
             'is_flexible' => $isFlexible,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
