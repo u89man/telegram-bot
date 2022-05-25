@@ -36,9 +36,9 @@ use U89Man\TBot\Entities\UserProfilePhotos;
 use U89Man\TBot\Entities\WebhookInfo;
 
 /**
- * API: 5.5
+ * API: 5.6
  *
- * @link https://core.telegram.org/bots/api-changelog#december-7-2021
+ * @link https://core.telegram.org/bots/api-changelog#december-30-2021
  */
 class Api
 {
@@ -206,6 +206,7 @@ class Api
      * @param string|null $parseMode
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -220,6 +221,7 @@ class Api
         $parseMode = null,
         $captionEntities = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -231,6 +233,7 @@ class Api
             'parse_mode' => $parseMode,
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -249,6 +252,7 @@ class Api
      * @param MessageEntity[]|null $entities
      * @param bool|null $disableWebPagePreview
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -262,6 +266,7 @@ class Api
         $entities = null,
         $disableWebPagePreview = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -273,6 +278,7 @@ class Api
             'reply_markup' => Utils::toJsonOrNull($replyMarkup),
             'disable_web_page_preview' => $disableWebPagePreview,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_to_message_id' => $replyToMessageId
         ]));
@@ -294,6 +300,7 @@ class Api
      * @param string|null $title
      * @param InputFile|string|null $thumb
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -311,6 +318,7 @@ class Api
         $title = null,
         $thumb = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -325,6 +333,7 @@ class Api
             'title' => $title,
             'thumb' => $thumb,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -347,6 +356,7 @@ class Api
      * @param string|null $parseMode
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -364,6 +374,7 @@ class Api
         $parseMode = null,
         $captionEntities = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -378,6 +389,7 @@ class Api
             'parse_mode' => $parseMode,
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -401,6 +413,7 @@ class Api
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $supportsStreaming
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -419,6 +432,7 @@ class Api
         $captionEntities = null,
         $supportsStreaming = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -434,6 +448,7 @@ class Api
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'supports_streaming' => $supportsStreaming,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -452,6 +467,7 @@ class Api
      * @param int|null $length
      * @param InputFile|string|null $thumb
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -465,6 +481,7 @@ class Api
         $length = null,
         $thumb = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -475,6 +492,7 @@ class Api
             'length' => $length,
             'thumb' => $thumb,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -494,6 +512,7 @@ class Api
      * @param string|null $parseMode
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -508,6 +527,7 @@ class Api
         $parseMode = null,
         $captionEntities = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -519,6 +539,7 @@ class Api
             'parse_mode' => $parseMode,
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -541,6 +562,7 @@ class Api
      * @param string|null $foursquareId
      * @param string|null $foursquareType
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -558,6 +580,7 @@ class Api
         $foursquareId = null,
         $foursquareType = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -572,6 +595,7 @@ class Api
             'google_place_id' => $googlePlaceId,
             'google_place_type' => $googlePlaceType,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -587,6 +611,7 @@ class Api
      * @param InputFile|string $sticker
      * @param InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $replyMarkup
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -597,6 +622,7 @@ class Api
         $sticker,
         $replyMarkup = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -604,6 +630,7 @@ class Api
             'chat_id' => $chatId,
             'sticker' => $sticker,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -639,6 +666,7 @@ class Api
      * @param bool|null $sendEmailToProvider
      * @param bool|null $isFlexible
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -670,6 +698,7 @@ class Api
         $sendEmailToProvider = null,
         $isFlexible = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -697,6 +726,7 @@ class Api
             'send_email_to_provider' => $sendEmailToProvider,
             'is_flexible' => $isFlexible,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -715,6 +745,7 @@ class Api
      * @param string|null $lastName
      * @param string|null $vcard
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -728,6 +759,7 @@ class Api
         $lastName = null,
         $vcard = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -738,6 +770,7 @@ class Api
             'last_name' => $lastName,
             'vcard' => $vcard,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -758,6 +791,7 @@ class Api
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $disableContentTypeDetection
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -773,6 +807,7 @@ class Api
         $captionEntities = null,
         $disableContentTypeDetection = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -785,6 +820,7 @@ class Api
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'disable_content_type_detection' => $disableContentTypeDetection,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -803,6 +839,7 @@ class Api
      * @param string|null $parseMode
      * @param MessageEntity[]|null $captionEntities
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -816,6 +853,7 @@ class Api
         $parseMode = null,
         $captionEntities = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -826,6 +864,7 @@ class Api
             'parse_mode' => $parseMode,
             'caption_entities' => Utils::toJsonOrNull($captionEntities),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -841,6 +880,7 @@ class Api
      * @param string $gameShortName
      * @param InlineKeyboardMarkup|null $replyMarkup
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -851,6 +891,7 @@ class Api
         $gameShortName,
         $replyMarkup = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -858,6 +899,7 @@ class Api
             'chat_id' => $chatId,
             'game_short_name' => $gameShortName,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -873,6 +915,7 @@ class Api
      * @param string|null $emoji
      * @param InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $replyMarkup
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -883,6 +926,7 @@ class Api
         $emoji = null,
         $replyMarkup = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -890,6 +934,7 @@ class Api
             'chat_id' => $chatId,
             'emoji' => $emoji,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -916,6 +961,7 @@ class Api
      * @param int|null $closeDate
      * @param bool|null $isClosed
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -937,6 +983,7 @@ class Api
         $closeDate = null,
         $isClosed = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -955,6 +1002,7 @@ class Api
             'close_date' => $closeDate,
             'is_closed' => $isClosed,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -998,6 +1046,7 @@ class Api
      * @param int|null $proximityAlertRadius
      * @param InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $replyMarkup
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -1013,6 +1062,7 @@ class Api
         $proximityAlertRadius = null,
         $replyMarkup = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -1025,6 +1075,7 @@ class Api
             'heading' => Utils::checkNum($heading, 1, 360),
             'proximity_alert_radius' => Utils::checkNum($proximityAlertRadius, 1, 100000),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
@@ -1106,6 +1157,7 @@ class Api
      * @param int|string $chatId
      * @param InputMediaPhoto[]|InputMediaVideo[]|InputMediaAudio[]|InputMediaDocument[] $media
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -1115,6 +1167,7 @@ class Api
         $chatId,
         $media,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -1122,6 +1175,7 @@ class Api
             'chat_id' => $chatId,
             'media' => Utils::toJson($media),
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply
         ]));
@@ -1165,6 +1219,7 @@ class Api
      * @param int|string $fromChatId
      * @param int $messageId
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      *
      * @return Message
      */
@@ -1172,12 +1227,14 @@ class Api
         $chatId,
         $fromChatId,
         $messageId,
-        $disableNotification = null
+        $disableNotification = null,
+        $protectContent = null
     ) {
         return new Message($this->call('forwardMessage', [
             'chat_id' => $chatId,
             'from_chat_id' => $fromChatId,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'message_id' => $messageId
         ]));
     }

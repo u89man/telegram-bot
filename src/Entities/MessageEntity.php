@@ -32,6 +32,7 @@ class MessageEntity extends Entity
 	const TYPE_ITALIC = 'italic';
 	const TYPE_UNDERLINE = 'underline';
 	const TYPE_STRIKETHROUGH = 'strikethrough';
+    const TYPE_SPOILER = 'spoiler';
 	const TYPE_CODE = 'code';
 	const TYPE_PRE = 'pre';
 	const TYPE_TEXT_LINK = 'text_link';
@@ -162,6 +163,14 @@ class MessageEntity extends Entity
     public function isStrikethrough()
     {
         return $this->getType() == MessageEntity::TYPE_STRIKETHROUGH;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSpoiler()
+    {
+        return $this->getType() == MessageEntity::TYPE_SPOILER;
     }
 
     /**
