@@ -1502,6 +1502,26 @@ class Api
     }
 
     /**
+     * Используется для разблокировки канального чата в супергруппе или на канале.
+     *
+     * @link https://core.telegram.org/bots/api#unbanchatsenderchat
+     *
+     * @param int|string $chatId
+     * @param string $senderChatId
+     *
+     * @return bool
+     */
+    public function unbanChatSenderChat(
+        $chatId,
+        $senderChatId
+    ) {
+        return (bool) $this->call('unbanChatSenderChat', [
+            'chat_id' => $chatId,
+            'sender_chat_id' => $senderChatId
+        ]);
+    }
+
+    /**
      * Изменяет заголовок чата.
      *
      * @link https://core.telegram.org/bots/api#setchattitle
