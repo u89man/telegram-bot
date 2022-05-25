@@ -961,6 +961,7 @@ class Api
      * @param int|null $closeDate
      * @param bool|null $isClosed
      * @param bool|null $disableNotification
+     * @param bool|null $protectContent
      * @param int|null $replyToMessageId
      * @param bool|null $allowSendingWithoutReply
      *
@@ -982,6 +983,7 @@ class Api
         $closeDate = null,
         $isClosed = null,
         $disableNotification = null,
+        $protectContent = null,
         $replyToMessageId = null,
         $allowSendingWithoutReply = null
     ) {
@@ -1000,6 +1002,7 @@ class Api
             'close_date' => $closeDate,
             'is_closed' => $isClosed,
             'disable_notification' => $disableNotification,
+            'protect_content' => $protectContent,
             'reply_to_message_id' => $replyToMessageId,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
