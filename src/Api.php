@@ -1479,6 +1479,29 @@ class Api
     }
 
     /**
+     * Используется для блокировки канального чата в супергруппе или на канале.
+     *
+     * Пока чат не будет разблокирован, владелец заблокированного чата не сможет отправлять сообщения
+     * от имени любого из своих каналов.
+     *
+     * @link https://core.telegram.org/bots/api#banchatsenderchat
+     *
+     * @param int|string $chatId
+     * @param string $senderChatId
+     *
+     * @return bool
+     */
+    public function banChatSenderChat(
+        $chatId,
+        $senderChatId
+    ) {
+        return (bool) $this->call('banChatSenderChat', [
+            'chat_id' => $chatId,
+            'sender_chat_id' => $senderChatId
+        ]);
+    }
+
+    /**
      * Изменяет заголовок чата.
      *
      * @link https://core.telegram.org/bots/api#setchattitle
