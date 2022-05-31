@@ -4,6 +4,7 @@ namespace U89Man\TBot\Entities\Keyboards;
 
 use Exception;
 use U89Man\TBot\Entities\Games\CallbackGame;
+use U89Man\TBot\Entities\WebAppInfo;
 
 /**
  * @link https://core.telegram.org/bots/api#inlinekeyboardbutton
@@ -12,6 +13,7 @@ use U89Man\TBot\Entities\Games\CallbackGame;
  * @method       string|null getUrl()
  * @method     LoginUrl|null getLoginUrl()
  * @method       string|null getCallbackData()
+ * @method   WebAppInfo|null getWebApp()
  * @method       string|null getSwitchInlineQuery()
  * @method       string|null getSwitchInlineQueryCurrentChat()
  * @method CallbackGame|null getCallbackGame()
@@ -23,6 +25,7 @@ class InlineKeyboardButton extends Keyboard
 {
 	const TYPE_LOGIN_URL = 'login_url';
 	const TYPE_CALLBACK_DATA = 'callback_data';
+	const TYPE_WEB_APP = 'web_app';
 	const TYPE_SWITCH_INLINE_QUERY = 'switch_inline_query';
 	const TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT = 'switch_inline_query_current_chat';
 	const TYPE_CALLBACK_GAME = 'callback_game';
@@ -35,6 +38,7 @@ class InlineKeyboardButton extends Keyboard
     protected function subEntities()
     {
         return [
+            'web_app' => WebAppInfo::class,
             'login_url' => LoginUrl::class,
             'callback_game' => CallbackGame::class
         ];
@@ -58,6 +62,16 @@ class InlineKeyboardButton extends Keyboard
     public function setCallbackData($callbackData)
     {
         return $this->setAction(InlineKeyboardButton::TYPE_CALLBACK_DATA, $callbackData);
+    }
+
+    /**
+     * @param WebAppInfo $webApp
+     *
+     * @return $this
+     */
+    public function setWebApp(WebAppInfo $webApp)
+    {
+        return $this->setAction(InlineKeyboardButton::TYPE_WEB_APP, $webApp);
     }
 
     /**
@@ -108,6 +122,7 @@ class InlineKeyboardButton extends Keyboard
         $types = [
             InlineKeyboardButton::TYPE_LOGIN_URL,
             InlineKeyboardButton::TYPE_CALLBACK_DATA,
+            InlineKeyboardButton::TYPE_WEB_APP,
             InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY,
             InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
             InlineKeyboardButton::TYPE_CALLBACK_GAME,
@@ -123,7 +138,7 @@ class InlineKeyboardButton extends Keyboard
 
     /**
      * @param string $type
-     * @param LoginUrl|CallbackGame|string|bool $value
+     * @param WebAppInfo|LoginUrl|CallbackGame|string|bool $value
      *
      * @return $this
      */
@@ -132,6 +147,7 @@ class InlineKeyboardButton extends Keyboard
         $types = [
             InlineKeyboardButton::TYPE_LOGIN_URL,
             InlineKeyboardButton::TYPE_CALLBACK_DATA,
+            InlineKeyboardButton::TYPE_WEB_APP,
             InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY,
             InlineKeyboardButton::TYPE_SWITCH_INLINE_QUERY_CURRENT_CHAT,
             InlineKeyboardButton::TYPE_CALLBACK_GAME,
@@ -150,7 +166,7 @@ class InlineKeyboardButton extends Keyboard
     /**
      * @param string $text
      * @param string|null $type
-     * @param LoginUrl|CallbackGame|string|null $value
+     * @param WebAppInfo|LoginUrl|CallbackGame|string|null $value
      *
      * @return $this
      */
@@ -187,6 +203,17 @@ class InlineKeyboardButton extends Keyboard
     public static function makeCallbackData($text, $callbackData)
     {
         return self::make($text)->setCallbackData($callbackData);
+    }
+
+    /**
+     * @param string $text
+     * @param WebAppInfo $webApp
+     *
+     * @return $this
+     */
+    public static function makeWebApp($text, WebAppInfo $webApp)
+    {
+        return self::make($text)->setWebApp($webApp);
     }
 
     /**
@@ -247,6 +274,14 @@ class InlineKeyboardButton extends Keyboard
     public function isCallbackData()
     {
         return $this->getType() == InlineKeyboardButton::TYPE_CALLBACK_DATA;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWebApp()
+    {
+        return $this->getType() == InlineKeyboardButton::TYPE_WEB_APP;
     }
 
     /**
