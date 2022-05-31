@@ -82,7 +82,7 @@ class MessageEntity extends Entity
      */
     public function isMention()
     {
-        return $this->getType() == MessageEntity::TYPE_MENTION;
+        return $this->getType() == self::TYPE_MENTION;
     }
 
     /**
@@ -90,7 +90,7 @@ class MessageEntity extends Entity
      */
     public function isHashtag()
     {
-        return $this->getType() == MessageEntity::TYPE_HASHTAG;
+        return $this->getType() == self::TYPE_HASHTAG;
     }
 
     /**
@@ -98,7 +98,7 @@ class MessageEntity extends Entity
      */
     public function isCashtag()
     {
-        return $this->getType() == MessageEntity::TYPE_CASHTAG;
+        return $this->getType() == self::TYPE_CASHTAG;
     }
 
     /**
@@ -106,7 +106,7 @@ class MessageEntity extends Entity
      */
     public function isBotCommand()
     {
-        return $this->getType() == MessageEntity::TYPE_BOT_COMMAND;
+        return $this->getType() == self::TYPE_BOT_COMMAND;
     }
 
     /**
@@ -114,7 +114,7 @@ class MessageEntity extends Entity
      */
     public function isUrl()
     {
-        return $this->getType() == MessageEntity::TYPE_URL;
+        return $this->getType() == self::TYPE_URL;
     }
 
     /**
@@ -122,7 +122,7 @@ class MessageEntity extends Entity
      */
     public function isEmail()
     {
-        return $this->getType() == MessageEntity::TYPE_EMAIL;
+        return $this->getType() == self::TYPE_EMAIL;
     }
 
     /**
@@ -130,7 +130,7 @@ class MessageEntity extends Entity
      */
     public function isPhoneNumber()
     {
-        return $this->getType() == MessageEntity::TYPE_PHONE_NUMBER;
+        return $this->getType() == self::TYPE_PHONE_NUMBER;
     }
 
     /**
@@ -138,7 +138,7 @@ class MessageEntity extends Entity
      */
     public function isBold()
     {
-        return $this->getType() == MessageEntity::TYPE_BOLD;
+        return $this->getType() == self::TYPE_BOLD;
     }
 
     /**
@@ -146,7 +146,7 @@ class MessageEntity extends Entity
      */
     public function isItalic()
     {
-        return $this->getType() == MessageEntity::TYPE_ITALIC;
+        return $this->getType() == self::TYPE_ITALIC;
     }
 
     /**
@@ -154,7 +154,7 @@ class MessageEntity extends Entity
      */
     public function isUnderline()
     {
-        return $this->getType() == MessageEntity::TYPE_UNDERLINE;
+        return $this->getType() == self::TYPE_UNDERLINE;
     }
 
     /**
@@ -162,7 +162,7 @@ class MessageEntity extends Entity
      */
     public function isStrikethrough()
     {
-        return $this->getType() == MessageEntity::TYPE_STRIKETHROUGH;
+        return $this->getType() == self::TYPE_STRIKETHROUGH;
     }
 
     /**
@@ -170,7 +170,7 @@ class MessageEntity extends Entity
      */
     public function isSpoiler()
     {
-        return $this->getType() == MessageEntity::TYPE_SPOILER;
+        return $this->getType() == self::TYPE_SPOILER;
     }
 
     /**
@@ -178,7 +178,7 @@ class MessageEntity extends Entity
      */
     public function isCode()
     {
-        return $this->getType() == MessageEntity::TYPE_CODE;
+        return $this->getType() == self::TYPE_CODE;
     }
 
     /**
@@ -186,7 +186,7 @@ class MessageEntity extends Entity
      */
     public function isPre()
     {
-        return $this->getType() == MessageEntity::TYPE_PRE;
+        return $this->getType() == self::TYPE_PRE;
     }
 
     /**
@@ -194,7 +194,7 @@ class MessageEntity extends Entity
      */
     public function isTextLink()
     {
-        return $this->getType() == MessageEntity::TYPE_TEXT_LINK;
+        return $this->getType() == self::TYPE_TEXT_LINK;
     }
 
     /**
@@ -202,6 +202,6 @@ class MessageEntity extends Entity
      */
     public function isTextMention()
     {
-        return $this->getType() == MessageEntity::TYPE_TEXT_MENTION;
+        return $this->getType() == self::TYPE_TEXT_MENTION;
     }
 }
