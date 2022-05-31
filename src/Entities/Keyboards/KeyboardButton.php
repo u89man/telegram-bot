@@ -40,7 +40,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestContact()
     {
-        return $this->setType(KeyboardButton::TYPE_REQUEST_CONTACT, true);
+        return $this->setAction(KeyboardButton::TYPE_REQUEST_CONTACT, true);
     }
 
     /**
@@ -48,7 +48,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestLocation()
     {
-        return $this->setType(KeyboardButton::TYPE_REQUEST_LOCATION, true);
+        return $this->setAction(KeyboardButton::TYPE_REQUEST_LOCATION, true);
     }
 
     /**
@@ -58,7 +58,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestPool(KeyboardButtonPollType $pollType)
     {
-        return $this->setType(KeyboardButton::TYPE_REQUEST_POLL, $pollType);
+        return $this->setAction(KeyboardButton::TYPE_REQUEST_POLL, $pollType);
     }
 
     /**
@@ -68,7 +68,7 @@ class KeyboardButton extends Keyboard
      */
     public function setWebApp(WebAppInfo $webApp)
     {
-        return $this->setType(KeyboardButton::TYPE_WEB_APP, $webApp);
+        return $this->setAction(KeyboardButton::TYPE_WEB_APP, $webApp);
     }
 
     /**
@@ -85,7 +85,7 @@ class KeyboardButton extends Keyboard
 		]);
 
 		if (! is_null($type) && ! is_null($value)) {
-            $button->setType($type, $value);
+            $button->setAction($type, $value);
         }
 
 	    return $button;
@@ -158,7 +158,7 @@ class KeyboardButton extends Keyboard
      *
      * @return $this
      */
-    protected function setType($type, $value)
+    protected function setAction($type, $value)
     {
         $types = [
             KeyboardButton::TYPE_REQUEST_CONTACT,
