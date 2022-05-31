@@ -40,7 +40,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestContact()
     {
-        return $this->setAction(KeyboardButton::TYPE_REQUEST_CONTACT, true);
+        return $this->setAction(self::TYPE_REQUEST_CONTACT, true);
     }
 
     /**
@@ -48,7 +48,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestLocation()
     {
-        return $this->setAction(KeyboardButton::TYPE_REQUEST_LOCATION, true);
+        return $this->setAction(self::TYPE_REQUEST_LOCATION, true);
     }
 
     /**
@@ -58,7 +58,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestPool(KeyboardButtonPollType $pollType)
     {
-        return $this->setAction(KeyboardButton::TYPE_REQUEST_POLL, $pollType);
+        return $this->setAction(self::TYPE_REQUEST_POLL, $pollType);
     }
 
     /**
@@ -68,7 +68,7 @@ class KeyboardButton extends Keyboard
      */
     public function setWebApp(WebAppInfo $webApp)
     {
-        return $this->setAction(KeyboardButton::TYPE_WEB_APP, $webApp);
+        return $this->setAction(self::TYPE_WEB_APP, $webApp);
     }
 
     /**
@@ -139,10 +139,10 @@ class KeyboardButton extends Keyboard
     public function getType()
     {
         $types = [
-            KeyboardButton::TYPE_REQUEST_CONTACT,
-            KeyboardButton::TYPE_REQUEST_LOCATION,
-            KeyboardButton::TYPE_REQUEST_POLL,
-            KeyboardButton::TYPE_WEB_APP
+            self::TYPE_REQUEST_CONTACT,
+            self::TYPE_REQUEST_LOCATION,
+            self::TYPE_REQUEST_POLL,
+            self::TYPE_WEB_APP
         ];
 
         foreach ($types as $type) {
@@ -161,10 +161,10 @@ class KeyboardButton extends Keyboard
     protected function setAction($type, $value)
     {
         $types = [
-            KeyboardButton::TYPE_REQUEST_CONTACT,
-            KeyboardButton::TYPE_REQUEST_LOCATION,
-            KeyboardButton::TYPE_REQUEST_POLL,
-            KeyboardButton::TYPE_WEB_APP
+            self::TYPE_REQUEST_CONTACT,
+            self::TYPE_REQUEST_LOCATION,
+            self::TYPE_REQUEST_POLL,
+            self::TYPE_WEB_APP
         ];
 
         if (! in_array($type, $types)) {
@@ -181,7 +181,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestContact()
     {
-        return $this->getType() == KeyboardButton::TYPE_REQUEST_CONTACT;
+        return $this->getType() == self::TYPE_REQUEST_CONTACT;
     }
 
     /**
@@ -189,7 +189,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestLocation()
     {
-        return $this->getType() == KeyboardButton::TYPE_REQUEST_LOCATION;
+        return $this->getType() == self::TYPE_REQUEST_LOCATION;
     }
 
     /**
@@ -197,7 +197,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestPool()
     {
-        return $this->getType() == KeyboardButton::TYPE_REQUEST_POLL;
+        return $this->getType() == self::TYPE_REQUEST_POLL;
     }
 
     /**
@@ -205,6 +205,6 @@ class KeyboardButton extends Keyboard
      */
     public function isWebApp()
     {
-        return $this->getType() == KeyboardButton::TYPE_WEB_APP;
+        return $this->getType() == self::TYPE_WEB_APP;
     }
 }
