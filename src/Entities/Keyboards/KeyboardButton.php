@@ -52,7 +52,7 @@ class KeyboardButton extends Keyboard
     }
 
     /**
-     * @param string $pollType
+     * @param KeyboardButtonPollType $pollType
      *
      * @return $this
      */
@@ -113,7 +113,7 @@ class KeyboardButton extends Keyboard
 
 	/**
 	 * @param string $text
-	 * @param string $pollType
+	 * @param KeyboardButtonPollType $pollType
      *
 	 * @return $this
 	 */
