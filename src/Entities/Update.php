@@ -81,21 +81,21 @@ class Update extends Entity
 	public function getType()
     {
 		$types = [
-            Update::TYPE_MESSAGE,
-            Update::TYPE_EDITED_MESSAGE,
-            Update::TYPE_CHANNEL_POST,
-            Update::TYPE_EDITED_CHANNEL_POST,
-            Update::TYPE_INLINE_QUERY,
-            Update::TYPE_CHOSEN_INLINE_RESULT,
-            Update::TYPE_CALLBACK_QUERY,
-            Update::TYPE_SHIPPING_QUERY,
-            Update::TYPE_PRE_CHECKOUT_QUERY,
-            Update::TYPE_PASSPORT_DATA,
-            Update::TYPE_POLL,
-            Update::TYPE_POLL_ANSWER,
-            Update::TYPE_MY_CHAT_MEMBER,
-            Update::TYPE_CHAT_MEMBER,
-            Update::TYPE_CHAT_JOIN_REQUEST
+            self::TYPE_MESSAGE,
+            self::TYPE_EDITED_MESSAGE,
+            self::TYPE_CHANNEL_POST,
+            self::TYPE_EDITED_CHANNEL_POST,
+            self::TYPE_INLINE_QUERY,
+            self::TYPE_CHOSEN_INLINE_RESULT,
+            self::TYPE_CALLBACK_QUERY,
+            self::TYPE_SHIPPING_QUERY,
+            self::TYPE_PRE_CHECKOUT_QUERY,
+            self::TYPE_PASSPORT_DATA,
+            self::TYPE_POLL,
+            self::TYPE_POLL_ANSWER,
+            self::TYPE_MY_CHAT_MEMBER,
+            self::TYPE_CHAT_MEMBER,
+            self::TYPE_CHAT_JOIN_REQUEST
 		];
 
 		foreach ($types as $type) {
@@ -110,7 +110,7 @@ class Update extends Entity
      */
     public function isMessage()
     {
-        return $this->getType() == Update::TYPE_MESSAGE;
+        return $this->getType() == self::TYPE_MESSAGE;
     }
 
     /**
@@ -118,7 +118,7 @@ class Update extends Entity
      */
     public function isEditedMessage()
     {
-        return $this->getType() == Update::TYPE_EDITED_MESSAGE;
+        return $this->getType() == self::TYPE_EDITED_MESSAGE;
     }
 
     /**
@@ -126,7 +126,7 @@ class Update extends Entity
      */
     public function isChannelPost()
     {
-        return $this->getType() == Update::TYPE_CHANNEL_POST;
+        return $this->getType() == self::TYPE_CHANNEL_POST;
     }
 
     /**
@@ -134,7 +134,7 @@ class Update extends Entity
      */
     public function isEditedChannelPost()
     {
-        return $this->getType() == Update::TYPE_EDITED_CHANNEL_POST;
+        return $this->getType() == self::TYPE_EDITED_CHANNEL_POST;
     }
 
     /**
@@ -142,7 +142,7 @@ class Update extends Entity
      */
     public function isInlineQuery()
     {
-        return $this->getType() == Update::TYPE_INLINE_QUERY;
+        return $this->getType() == self::TYPE_INLINE_QUERY;
     }
 
     /**
@@ -150,7 +150,7 @@ class Update extends Entity
      */
     public function isChosenInlineResult()
     {
-        return $this->getType() == Update::TYPE_CHOSEN_INLINE_RESULT;
+        return $this->getType() == self::TYPE_CHOSEN_INLINE_RESULT;
     }
 
     /**
@@ -158,7 +158,7 @@ class Update extends Entity
      */
     public function isCallbackQuery()
     {
-        return $this->getType() == Update::TYPE_CALLBACK_QUERY;
+        return $this->getType() == self::TYPE_CALLBACK_QUERY;
     }
 
     /**
@@ -166,7 +166,7 @@ class Update extends Entity
      */
     public function isShippingQuery()
     {
-        return $this->getType() == Update::TYPE_SHIPPING_QUERY;
+        return $this->getType() == self::TYPE_SHIPPING_QUERY;
     }
 
     /**
@@ -174,7 +174,7 @@ class Update extends Entity
      */
     public function isPreCheckoutQuery()
     {
-        return $this->getType() == Update::TYPE_PRE_CHECKOUT_QUERY;
+        return $this->getType() == self::TYPE_PRE_CHECKOUT_QUERY;
     }
 
     /**
@@ -182,7 +182,7 @@ class Update extends Entity
      */
     public function isPassportData()
     {
-        return $this->getType() == Update::TYPE_PASSPORT_DATA;
+        return $this->getType() == self::TYPE_PASSPORT_DATA;
     }
 
     /**
@@ -190,7 +190,7 @@ class Update extends Entity
      */
     public function isPoll()
     {
-        return $this->getType() == Update::TYPE_POLL;
+        return $this->getType() == self::TYPE_POLL;
     }
 
     /**
@@ -198,7 +198,7 @@ class Update extends Entity
      */
     public function isPollAnswer()
     {
-        return $this->getType() == Update::TYPE_POLL_ANSWER;
+        return $this->getType() == self::TYPE_POLL_ANSWER;
     }
 
     /**
@@ -206,7 +206,7 @@ class Update extends Entity
      */
     public function isMyChatMember()
     {
-        return $this->getType() == Update::TYPE_MY_CHAT_MEMBER;
+        return $this->getType() == self::TYPE_MY_CHAT_MEMBER;
     }
 
     /**
@@ -214,7 +214,7 @@ class Update extends Entity
      */
     public function isChatMember()
     {
-        return $this->getType() == Update::TYPE_CHAT_MEMBER;
+        return $this->getType() == self::TYPE_CHAT_MEMBER;
     }
 
     /**
@@ -222,6 +222,6 @@ class Update extends Entity
      */
     public function isChatJoinRequest()
     {
-        return $this->getType() == Update::TYPE_CHAT_JOIN_REQUEST;
+        return $this->getType() == self::TYPE_CHAT_JOIN_REQUEST;
     }
 }
