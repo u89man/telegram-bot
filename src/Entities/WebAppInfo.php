@@ -9,5 +9,15 @@ namespace U89Man\TBot\Entities;
  */
 class WebAppInfo extends Entity
 {
-    //
+    /**
+     * @param string $url
+     *
+     * @return $this
+     */
+    public static function make($url)
+    {
+        return new static([
+            'url' => $url
+        ]);
+    }
 }
