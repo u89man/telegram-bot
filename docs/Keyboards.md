@@ -56,12 +56,12 @@ $keyboard = RKeyboard::make([
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
-use U89Man\TBot\Entities\Poll\Poll;
+use U89Man\TBot\Entities\Keyboards\KeyboardButtonPollType as PollType;
 
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makePoll('Текст_кнопки', Poll::TYPE_QUIZ)]
+    [Button::makePoll('Текст_кнопки', PollType::makeQuiz())]
 ]);
 ```
 
@@ -70,12 +70,12 @@ $keyboard = RKeyboard::make([
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
-use U89Man\TBot\Entities\Poll\Poll;
+use U89Man\TBot\Entities\Keyboards\KeyboardButtonPollType as PollType;
 
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makePoll('Текст_кнопки', Poll::TYPE_REGULAR)]
+    [Button::makePoll('Текст_кнопки', PollType::makeRegular()]
 ]);
 ```
 
