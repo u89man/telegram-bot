@@ -11,6 +11,10 @@ namespace U89Man\TBot\Entities\Keyboards;
  */
 class KeyboardButtonPollType extends Keyboard
 {
+    const TYPE_QUIZ = 'quiz';
+    const TYPE_REGULAR = 'regular';
+
+
 	/**
 	 * @param string|null $type
      *
@@ -22,4 +26,20 @@ class KeyboardButtonPollType extends Keyboard
 	    	'type' => $type
 		]);
 	}
+
+    /**
+     * @return $this
+     */
+    public static function makeQuiz()
+    {
+        return self::make(self::TYPE_QUIZ);
+    }
+
+    /**
+     * @return $this
+     */
+    public static function makeRegular()
+    {
+        return self::make(self::TYPE_REGULAR);
+    }
 }
