@@ -3,6 +3,7 @@
 namespace U89Man\TBot\Entities\Keyboards;
 
 use Exception;
+use U89Man\TBot\Entities\WebAppInfo;
 
 /**
  * @link https://core.telegram.org/bots/api#keyboardbutton
@@ -11,6 +12,7 @@ use Exception;
  * @method                   bool|null getRequestContact()
  * @method                   bool|null getRequestLocation()
  * @method KeyboardButtonPollType|null getRequestPoll()
+ * @method             WebAppInfo|null getWebApp()
  *
  * @method                       $this setText(string $text)
  */
@@ -19,6 +21,7 @@ class KeyboardButton extends Keyboard
 	const REQUEST_CONTACT = 'request_contact';
 	const REQUEST_LOCATION = 'request_location';
 	const REQUEST_POLL = 'request_poll';
+	const WEB_APP = 'web_app';
 
 
     /**
@@ -27,7 +30,8 @@ class KeyboardButton extends Keyboard
     protected function subEntities()
     {
         return [
-            'request_poll' => KeyboardButtonPollType::class
+            'request_poll' => KeyboardButtonPollType::class,
+            'web_app' => WebAppInfo::class
         ];
     }
 
@@ -58,9 +62,19 @@ class KeyboardButton extends Keyboard
     }
 
     /**
+     * @param WebAppInfo $webApp
+     *
+     * @return $this
+     */
+    public function setWebApp($webApp)
+    {
+        return $this->setRequest(KeyboardButton::WEB_APP, $webApp);
+    }
+
+    /**
      * @param string $text
      * @param string|null $request
-     * @param KeyboardButtonPollType|bool|null $value
+     * @param WebAppInfo|KeyboardButtonPollType|bool|null $value
      *
      * @return $this
      */
@@ -108,6 +122,17 @@ class KeyboardButton extends Keyboard
 	    return static::make($text)->setRequestPool($pollType);
 	}
 
+	/**
+	 * @param string $text
+	 * @param WebAppInfo $webApp
+     *
+	 * @return $this
+	 */
+	public static function makeWebApp($text, $webApp)
+    {
+	    return static::make($text)->setWebApp($webApp);
+	}
+
     /**
      * @return string|null
      */
@@ -116,7 +141,8 @@ class KeyboardButton extends Keyboard
         $requests = [
             KeyboardButton::REQUEST_CONTACT,
             KeyboardButton::REQUEST_LOCATION,
-            KeyboardButton::REQUEST_POLL
+            KeyboardButton::REQUEST_POLL,
+            KeyboardButton::WEB_APP
         ];
 
         foreach ($requests as $request) {
@@ -128,7 +154,7 @@ class KeyboardButton extends Keyboard
 
     /**
      * @param string $request
-     * @param KeyboardButtonPollType|bool $value
+     * @param WebAppInfo|KeyboardButtonPollType|bool $value
      *
      * @return $this
      */
@@ -137,7 +163,8 @@ class KeyboardButton extends Keyboard
         $requests = [
             KeyboardButton::REQUEST_CONTACT,
             KeyboardButton::REQUEST_LOCATION,
-            KeyboardButton::REQUEST_POLL
+            KeyboardButton::REQUEST_POLL,
+            KeyboardButton::WEB_APP
         ];
 
         if (! in_array($request, $requests)) {
@@ -171,5 +198,13 @@ class KeyboardButton extends Keyboard
     public function isRequestPool()
     {
         return $this->getRequest() == KeyboardButton::REQUEST_POLL;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWebApp()
+    {
+        return $this->getRequest() == KeyboardButton::WEB_APP;
     }
 }
