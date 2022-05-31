@@ -44,7 +44,7 @@ class Poll extends Entity
      */
     public function isQuiz()
     {
-        return $this->getType() == Poll::TYPE_QUIZ;
+        return $this->getType() == self::TYPE_QUIZ;
     }
 
     /**
@@ -52,6 +52,6 @@ class Poll extends Entity
      */
     public function isRegular()
     {
-        return $this->getType() == Poll::TYPE_REGULAR;
+        return $this->getType() == self::TYPE_REGULAR;
     }
 }
