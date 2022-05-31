@@ -39,20 +39,20 @@ class ChatMember extends Entity
     public static function getConcreteEntity($data)
     {
         switch ($data['status']) {
-            case ChatMember::STATUS_CREATOR:
+            case self::STATUS_CREATOR:
                 return new ChatMemberOwner($data);
-            case ChatMember::STATUS_ADMINISTRATOR:
+            case self::STATUS_ADMINISTRATOR:
                 return new ChatMemberAdministrator($data);
-            case ChatMember::STATUS_MEMBER:
+            case self::STATUS_MEMBER:
                 return new ChatMemberMember($data);
-            case ChatMember::STATUS_RESTRICTED:
+            case self::STATUS_RESTRICTED:
                 return new ChatMemberRestricted($data);
-            case ChatMember::STATUS_LEFT:
+            case self::STATUS_LEFT:
                 return new ChatMemberLeft($data);
-            case ChatMember::STATUS_KICKED:
+            case self::STATUS_KICKED:
                 return new ChatMemberBanned($data);
             default:
-                return new ChatMember($data);
+                return new static($data);
         }
     }
 
@@ -63,7 +63,7 @@ class ChatMember extends Entity
      */
     public function isCreator()
     {
-        return $this->getStatus() == ChatMember::STATUS_CREATOR;
+        return $this->getStatus() == self::STATUS_CREATOR;
     }
 
     /**
@@ -71,7 +71,7 @@ class ChatMember extends Entity
      */
     public function isOwner()
     {
-        return $this->getStatus() == ChatMember::STATUS_CREATOR;
+        return $this->getStatus() == self::STATUS_CREATOR;
     }
 
     /**
@@ -79,7 +79,7 @@ class ChatMember extends Entity
      */
     public function isAdministrator()
     {
-        return $this->getStatus() == ChatMember::STATUS_ADMINISTRATOR;
+        return $this->getStatus() == self::STATUS_ADMINISTRATOR;
     }
 
     /**
@@ -87,7 +87,7 @@ class ChatMember extends Entity
      */
     public function isMember()
     {
-        return $this->getStatus() == ChatMember::STATUS_MEMBER;
+        return $this->getStatus() == self::STATUS_MEMBER;
     }
 
     /**
@@ -95,7 +95,7 @@ class ChatMember extends Entity
      */
     public function isRestricted()
     {
-        return $this->getStatus() == ChatMember::STATUS_RESTRICTED;
+        return $this->getStatus() == self::STATUS_RESTRICTED;
     }
 
     /**
@@ -103,7 +103,7 @@ class ChatMember extends Entity
      */
     public function isLeft()
     {
-        return $this->getStatus() == ChatMember::STATUS_LEFT;
+        return $this->getStatus() == self::STATUS_LEFT;
     }
 
     /**
@@ -113,7 +113,7 @@ class ChatMember extends Entity
      */
     public function isKicked()
     {
-        return $this->getStatus() == ChatMember::STATUS_KICKED;
+        return $this->getStatus() == self::STATUS_KICKED;
     }
 
     /**
@@ -121,6 +121,6 @@ class ChatMember extends Entity
      */
     public function isBanned()
     {
-        return $this->getStatus() == ChatMember::STATUS_KICKED;
+        return $this->getStatus() == self::STATUS_KICKED;
     }
 }
