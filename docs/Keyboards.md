@@ -89,7 +89,7 @@ use U89Man\TBot\Entities\WebAppInfo;
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makeWebApp('Текст_кнопки', WebAppInfo::make('https://exaple.com')]
+    [Button::makeWebApp('Текст_кнопки', WebAppInfo::make('https://exaple.com/webapp')]
 ]);
 ```
 
@@ -143,7 +143,21 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [10] Клавиатура с кнопкой переключения бота на встраиваемый запрос в выбираемый чат.
+// [10] Клавиатура с кнопкой для запуска приложения WebApp.
+
+use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
+use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
+use U89Man\TBot\Entities\WebAppInfo;
+
+// ...
+
+$keyboard = IKeyboard::make([
+    [IButton::makeWebApp('Текст_кнопки', WebAppInfo::make('https://exaple.com/webapp')]
+]);
+```
+
+```php
+// [11] Клавиатура с кнопкой переключения бота на встраиваемый запрос в выбираемый чат.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -156,7 +170,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [11] Клавиатура с кнопкой переключения бота на встраиваемый запрос в текущий чат.
+// [12] Клавиатура с кнопкой переключения бота на встраиваемый запрос в текущий чат.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -169,7 +183,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [12] Клавиатура с кнопкой содержащей описание игры.
+// [13] Клавиатура с кнопкой содержащей описание игры.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -186,7 +200,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [13] Клавиатура с кнопкой оплаты.
+// [14] Клавиатура с кнопкой оплаты.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
