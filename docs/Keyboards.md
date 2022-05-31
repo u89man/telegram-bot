@@ -26,7 +26,7 @@ $keyboard = RKeyboard::make([
 ```
 
 ```php
-// [2] Клавиатура с кнопкой отправки боту контакта пользователя.
+// [2] Клавиатура с кнопкой предложения отправить боту контакта пользователя.
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
@@ -34,12 +34,12 @@ use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makeContact('Текст_кнопки')]
+    [Button::makeRequestContact('Текст_кнопки')]
 ]);
 ```
 
 ```php
-// [3] Клавиатура с кнопой отправки боту местоположения пользователя. 
+// [3] Клавиатура с кнопой предложения отправить боту местоположения пользователя. 
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
@@ -47,26 +47,12 @@ use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makeLocation('Текст_кнопки')]
+    [Button::makeRequestLocation('Текст_кнопки')]
 ]);
 ```
 
 ```php
-// [4.1] Клавиатура с кнопкой отправки боту опроса в виде викторины.
-
-use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
-use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
-use U89Man\TBot\Entities\Keyboards\KeyboardButtonPollType as PollType;
-
-// ...
-
-$keyboard = RKeyboard::make([
-    [Button::makePoll('Текст_кнопки', PollType::makeQuiz())]
-]);
-```
-
-```php
-// [4.2] Клавиатура с кнопкой отправки боту простого опроса.
+// [4.1] Клавиатура с кнопкой предложения отправить боту опрос в виде викторины.
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
@@ -75,12 +61,40 @@ use U89Man\TBot\Entities\Keyboards\KeyboardButtonPollType as PollType;
 // ...
 
 $keyboard = RKeyboard::make([
-    [Button::makePoll('Текст_кнопки', PollType::makeRegular()]
+    [Button::makeRequestPoll('Текст_кнопки', PollType::makeQuiz())]
 ]);
 ```
 
 ```php
-// [5] Клавиатура (команда) для отображения интерфейса ответа пользователю.
+// [4.2] Клавиатура с кнопкой предложения отправить боту простой опрос.
+
+use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
+use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
+use U89Man\TBot\Entities\Keyboards\KeyboardButtonPollType as PollType;
+
+// ...
+
+$keyboard = RKeyboard::make([
+    [Button::makeRequestPoll('Текст_кнопки', PollType::makeRegular()]
+]);
+```
+
+```php
+// [5] Клавиатура с кнопкой запуска приложения WebApp.
+
+use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
+use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
+use U89Man\TBot\Entities\WebAppInfo;
+
+// ...
+
+$keyboard = RKeyboard::make([
+    [Button::makeWebApp('Текст_кнопки', WebAppInfo::make('https://exaple.com')]
+]);
+```
+
+```php
+// [6] Клавиатура (команда) для отображения интерфейса ответа пользователю.
 
 use U89Man\TBot\Entities\Keyboards\ForceReply;
 
@@ -90,7 +104,7 @@ $keyboard = ForceReply::make();
 ```
 
 ```php
-// [6] Клавиатура (команда) для удаления утановленной ранее клавиатуры. 
+// [7] Клавиатура (команда) для удаления утановленной ранее клавиатуры. 
 
 use U89Man\TBot\Entities\Keyboards\ReplyKeyboardRemove as KeyboardRemove;
 
@@ -102,7 +116,7 @@ $keyboard = KeyboardRemove::make();
 #### [Встраиваемые](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)
 
 ```php
-// [7] Клавиатура с кнопкой авторизации пользователя на сайте.
+// [8] Клавиатура с кнопкой авторизации пользователя на сайте.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -116,7 +130,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [8] Клавиатура с кнопкой отправки боту данных в запросе обратного вызова.
+// [9] Клавиатура с кнопкой отправки боту данных в запросе обратного вызова.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -129,7 +143,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [9] Клавиатура с кнопкой переключения бота на встраиваемый запрос в выбираемый чат.
+// [10] Клавиатура с кнопкой переключения бота на встраиваемый запрос в выбираемый чат.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -142,7 +156,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [10] Клавиатура с кнопкой переключения бота на встраиваемый запрос в текущий чат.
+// [11] Клавиатура с кнопкой переключения бота на встраиваемый запрос в текущий чат.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -155,7 +169,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [11] Клавиатура с кнопкой содержащей описание игры.
+// [12] Клавиатура с кнопкой содержащей описание игры.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
@@ -172,7 +186,7 @@ $keyboard = IKeyboard::make([
 ```
 
 ```php
-// [12] Клавиатура с кнопкой оплаты.
+// [13] Клавиатура с кнопкой оплаты.
 
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
