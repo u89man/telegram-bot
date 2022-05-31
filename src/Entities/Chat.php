@@ -69,7 +69,7 @@ class Chat extends Entity
      */
     public function isPrivate()
     {
-        return $this->getType() == Chat::TYPE_PRIVATE;
+        return $this->getType() == self::TYPE_PRIVATE;
     }
 
     /**
@@ -77,7 +77,7 @@ class Chat extends Entity
      */
     public function isGroup()
     {
-        return $this->getType() == Chat::TYPE_GROUP;
+        return $this->getType() == self::TYPE_GROUP;
     }
 
     /**
@@ -85,7 +85,7 @@ class Chat extends Entity
      */
     public function isSupergroup()
     {
-        return $this->getType() == Chat::TYPE_SUPERGROUP;
+        return $this->getType() == self::TYPE_SUPERGROUP;
     }
 
     /**
@@ -93,6 +93,6 @@ class Chat extends Entity
      */
     public function isChannel()
     {
-        return $this->getType() == Chat::TYPE_CHANNEL;
+        return $this->getType() == self::TYPE_CHANNEL;
     }
 }
