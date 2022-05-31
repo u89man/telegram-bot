@@ -40,7 +40,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestContact()
     {
-        return $this->setRequest(KeyboardButton::TYPE_REQUEST_CONTACT, true);
+        return $this->setType(KeyboardButton::TYPE_REQUEST_CONTACT, true);
     }
 
     /**
@@ -48,7 +48,7 @@ class KeyboardButton extends Keyboard
      */
     public function setRequestLocation()
     {
-        return $this->setRequest(KeyboardButton::TYPE_REQUEST_LOCATION, true);
+        return $this->setType(KeyboardButton::TYPE_REQUEST_LOCATION, true);
     }
 
     /**
@@ -56,9 +56,9 @@ class KeyboardButton extends Keyboard
      *
      * @return $this
      */
-    public function setRequestPool($pollType)
+    public function setRequestPool(KeyboardButtonPollType $pollType)
     {
-        return $this->setRequest(KeyboardButton::TYPE_REQUEST_POLL, $pollType);
+        return $this->setType(KeyboardButton::TYPE_REQUEST_POLL, $pollType);
     }
 
     /**
@@ -66,29 +66,29 @@ class KeyboardButton extends Keyboard
      *
      * @return $this
      */
-    public function setWebApp($webApp)
+    public function setWebApp(WebAppInfo $webApp)
     {
-        return $this->setRequest(KeyboardButton::TYPE_WEB_APP, $webApp);
+        return $this->setType(KeyboardButton::TYPE_WEB_APP, $webApp);
     }
 
     /**
      * @param string $text
-     * @param string|null $request
+     * @param string|null $type
      * @param WebAppInfo|KeyboardButtonPollType|bool|null $value
      *
      * @return $this
      */
-	public static function make($text, $request = null, $value= null)
+	public static function make($text, $type = null, $value= null)
     {
-		$entity = new static([
+		$button = new static([
 			'text' => $text
 		]);
 
-		if (! is_null($request) && ! is_null($value)) {
-            $entity->setRequest($request, $value);
+		if (! is_null($type) && ! is_null($value)) {
+            $button->setType($type, $value);
         }
 
-	    return $entity;
+	    return $button;
 	}
 
 	/**
@@ -96,7 +96,7 @@ class KeyboardButton extends Keyboard
      *
 	 * @return $this
 	 */
-	public static function makeContact($text)
+	public static function makeRequestContact($text)
     {
 	    return static::make($text)->setRequestContact();
 	}
@@ -106,7 +106,7 @@ class KeyboardButton extends Keyboard
      *
 	 * @return $this
 	 */
-	public static function makeLocation($text)
+	public static function makeRequestLocation($text)
     {
 	    return static::make($text)->setRequestLocation();
 	}
@@ -117,7 +117,7 @@ class KeyboardButton extends Keyboard
      *
 	 * @return $this
 	 */
-	public static function makePoll($text, $pollType)
+	public static function makeRequestPoll($text, KeyboardButtonPollType $pollType)
     {
 	    return static::make($text)->setRequestPool($pollType);
 	}
@@ -128,7 +128,7 @@ class KeyboardButton extends Keyboard
      *
 	 * @return $this
 	 */
-	public static function makeWebApp($text, $webApp)
+	public static function makeWebApp($text, WebAppInfo $webApp)
     {
 	    return static::make($text)->setWebApp($webApp);
 	}
@@ -136,44 +136,44 @@ class KeyboardButton extends Keyboard
     /**
      * @return string|null
      */
-    public function getRequest()
+    public function getType()
     {
-        $requests = [
+        $types = [
             KeyboardButton::TYPE_REQUEST_CONTACT,
             KeyboardButton::TYPE_REQUEST_LOCATION,
             KeyboardButton::TYPE_REQUEST_POLL,
             KeyboardButton::TYPE_WEB_APP
         ];
 
-        foreach ($requests as $request) {
-            if ($this->has($request)) return $request;
+        foreach ($types as $type) {
+            if ($this->has($type)) return $type;
         }
 
         return null;
     }
 
     /**
-     * @param string $request
+     * @param string $type
      * @param WebAppInfo|KeyboardButtonPollType|bool $value
      *
      * @return $this
      */
-    public function setRequest($request, $value)
+    protected function setType($type, $value)
     {
-        $requests = [
+        $types = [
             KeyboardButton::TYPE_REQUEST_CONTACT,
             KeyboardButton::TYPE_REQUEST_LOCATION,
             KeyboardButton::TYPE_REQUEST_POLL,
             KeyboardButton::TYPE_WEB_APP
         ];
 
-        if (! in_array($request, $requests)) {
+        if (! in_array($type, $types)) {
             throw new Exception('Не корректный запрос кнопки');
         }
 
-        array_map(array($this, 'remove'), $requests);
+        array_map(array($this, 'remove'), $types);
 
-        return $this->set($request, $value);
+        return $this->set($type, $value);
     }
 
     /**
@@ -181,7 +181,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestContact()
     {
-        return $this->getRequest() == KeyboardButton::TYPE_REQUEST_CONTACT;
+        return $this->getType() == KeyboardButton::TYPE_REQUEST_CONTACT;
     }
 
     /**
@@ -189,7 +189,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestLocation()
     {
-        return $this->getRequest() == KeyboardButton::TYPE_REQUEST_LOCATION;
+        return $this->getType() == KeyboardButton::TYPE_REQUEST_LOCATION;
     }
 
     /**
@@ -197,7 +197,7 @@ class KeyboardButton extends Keyboard
      */
     public function isRequestPool()
     {
-        return $this->getRequest() == KeyboardButton::TYPE_REQUEST_POLL;
+        return $this->getType() == KeyboardButton::TYPE_REQUEST_POLL;
     }
 
     /**
@@ -205,6 +205,6 @@ class KeyboardButton extends Keyboard
      */
     public function isWebApp()
     {
-        return $this->getRequest() == KeyboardButton::TYPE_WEB_APP;
+        return $this->getType() == KeyboardButton::TYPE_WEB_APP;
     }
 }
