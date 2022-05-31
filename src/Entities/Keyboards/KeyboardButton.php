@@ -3,7 +3,6 @@
 namespace U89Man\TBot\Entities\Keyboards;
 
 use Exception;
-use U89Man\TBot\Entities\WebAppInfo;
 
 /**
  * @link https://core.telegram.org/bots/api#keyboardbutton

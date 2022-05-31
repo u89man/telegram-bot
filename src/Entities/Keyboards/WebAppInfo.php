@@ -1,6 +1,8 @@
 <?php
 
-namespace U89Man\TBot\Entities;
+namespace U89Man\TBot\Entities\Keyboards;
+
+use U89Man\TBot\Entities\Entity;
 
 /**
  * @link https://core.telegram.org/bots/api#webappinfo

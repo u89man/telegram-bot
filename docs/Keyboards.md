@@ -82,9 +82,9 @@ $keyboard = RKeyboard::make([
 ```php
 // [5] Клавиатура с кнопкой запуска приложения WebApp.
 
-use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
 use U89Man\TBot\Entities\Keyboards\KeyboardButton as Button;
-use U89Man\TBot\Entities\WebAppInfo;
+use U89Man\TBot\Entities\Keyboards\ReplyKeyboardMarkup as RKeyboard;
+use U89Man\TBot\Entities\Keyboards\WebAppInfo;
 
 // ...
 
@@ -145,9 +145,9 @@ $keyboard = IKeyboard::make([
 ```php
 // [10] Клавиатура с кнопкой для запуска приложения WebApp.
 
-use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
 use U89Man\TBot\Entities\Keyboards\InlineKeyboardButton as IButton;
-use U89Man\TBot\Entities\WebAppInfo;
+use U89Man\TBot\Entities\Keyboards\InlineKeyboardMarkup as IKeyboard;
+use U89Man\TBot\Entities\Keyboards\WebAppInfo;
 
 // ...
 
