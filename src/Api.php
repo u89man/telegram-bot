@@ -45,12 +45,12 @@ class Api
     /**
      * @var string
      */
-    const URL = 'https://api.telegram.org/bot';
+    const REQUEST_URL = 'https://api.telegram.org/bot';
 
     /**
      * @var string
      */
-    const FILE_URL = 'https://api.telegram.org/file/bot';
+    const REQUEST_URL_FILE = 'https://api.telegram.org/file/bot';
 
 
     /**
@@ -75,7 +75,7 @@ class Api
      */
     protected function call($method, array $data = array())
     {
-        $request = new Request(self::URL.$this->token.'/'.$method, $data);
+        $request = new Request(self::REQUEST_URL.$this->token.'/'.$method, $data);
 
         return $request->send()->getResult();
     }
@@ -2588,7 +2588,7 @@ class Api
     public function getFileUrl(
         $filePath
     ) {
-        return self::FILE_URL.$this->token.'/'.$filePath;
+        return self::REQUEST_URL_FILE.$this->token.'/'.$filePath;
     }
 
     /**
