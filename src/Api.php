@@ -28,6 +28,7 @@ use U89Man\TBot\Entities\Passport\Elements\Errors\PassportElementError;
 use U89Man\TBot\Entities\Payments\LabeledPrice;
 use U89Man\TBot\Entities\Payments\ShippingOption;
 use U89Man\TBot\Entities\Poll\Poll;
+use U89Man\TBot\Entities\SentWebAppMessage;
 use U89Man\TBot\Entities\Stickers\MaskPosition;
 use U89Man\TBot\Entities\Stickers\StickerSet;
 use U89Man\TBot\Entities\Update;
@@ -1238,7 +1239,7 @@ class Api
             'message_id' => $messageId
         ]));
     }
-    
+
     /**
      * Редактирует подпись сообщения.
      *
@@ -1337,7 +1338,7 @@ class Api
             'reply_markup' => Utils::toJsonOrNull($replyMarkup)
         ]);
     }
-    
+
     /**
      * Удаляет сообщение.
      *
@@ -1357,7 +1358,7 @@ class Api
             'message_id' => $messageId
         ]);
     }
-    
+
     /* ------------------------ Чаты ------------------------ */
 
     /**
@@ -2311,6 +2312,26 @@ class Api
             'switch_pm_text' => $switchPmText,
             'switch_pm_parameter' => Utils::checkStr($switchPmParameter, 1, 64)
         ]);
+    }
+
+    /**
+     * Отправляет сообщение о результате взаимодействия с веб-приложением от имени пользователя в чат.
+     *
+     * @link https://core.telegram.org/bots/api#answerwebappquery
+     *
+     * @param string $webAppQueryId
+     * @param InlineQueryResult $result
+     *
+     * @return SentWebAppMessage
+     */
+    public function answerWebAppQuery(
+        $webAppQueryId,
+        InlineQueryResult $result
+    ) {
+        return new SentWebAppMessage($this->call('answerWebAppQuery', [
+            'web_app_query_id' => $webAppQueryId,
+            'result' => Utils::toJson($result)
+        ]));
     }
 
     /**
