@@ -1,6 +1,6 @@
 <?php
 
-namespace U89Man\TBot\Entities\BotCommands;
+namespace U89Man\TBot\Entities\Bot\Commands\Scope;
 
 /**
  * @link https://core.telegram.org/bots/api#botcommandscopeallprivatechats

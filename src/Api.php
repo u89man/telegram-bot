@@ -2,8 +2,8 @@
 
 namespace U89Man\TBot;
 
-use U89Man\TBot\Entities\BotCommand;
-use U89Man\TBot\Entities\BotCommands\BotCommandScope;
+use U89Man\TBot\Entities\Bot\Commands\BotCommand;
+use U89Man\TBot\Entities\Bot\Commands\Scope\BotCommandScope;
 use U89Man\TBot\Entities\Chat;
 use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatPermissions;

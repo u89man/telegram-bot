@@ -4,7 +4,7 @@ namespace U89Man\TBot\Entities;
 
 use Exception;
 use ReflectionObject;
-use U89Man\TBot\Entities\BotCommands\BotCommandScope;
+use U89Man\TBot\Entities\Bot\BotEntity;
 use U89Man\TBot\Entities\Inline\Content\InputMessageContent;
 use U89Man\TBot\Entities\Inline\QueryResult\InlineQueryResult;
 use U89Man\TBot\Entities\Keyboards\Keyboard;
@@ -217,8 +217,7 @@ abstract class Entity
                 }
                 break;
             case 'set':
-                if ($this instanceof BotCommand ||
-                    $this instanceof BotCommandScope ||
+                if ($this instanceof BotEntity ||
                     $this instanceof ChatPermissions ||
                     $this instanceof LabeledPrice ||
                     $this instanceof InlineQueryResult ||

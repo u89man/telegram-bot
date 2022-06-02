@@ -1,6 +1,8 @@
 <?php
 
-namespace U89Man\TBot\Entities;
+namespace U89Man\TBot\Entities\Bot\Commands;
+
+use U89Man\TBot\Entities\Bot\BotEntity;
 
 /**
  * @link https://core.telegram.org/bots/api#botcommand
@@ -11,7 +13,7 @@ namespace U89Man\TBot\Entities;
  * @method  $this setCommand(string $command)
  * @method  $this setDescription(string $description)
  */
-class BotCommand extends Entity
+class BotCommand extends BotEntity
 {
 	/**
 	 * @param string $command

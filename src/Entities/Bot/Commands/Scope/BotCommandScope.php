@@ -1,13 +1,13 @@
 <?php
 
-namespace U89Man\TBot\Entities\BotCommands;
+namespace U89Man\TBot\Entities\Bot\Commands\Scope;
 
-use U89Man\TBot\Entities\Entity;
+use U89Man\TBot\Entities\Bot\BotEntity;
 
 /**
  * @link https://core.telegram.org/bots/api#botcommandscope
  */
-abstract class BotCommandScope extends Entity
+abstract class BotCommandScope extends BotEntity
 {
     const TYPE_DEFAULT = 'default';
     const TYPE_ALL_PRIVATE_CHATS = 'all_private_chats';
