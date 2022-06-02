@@ -70,6 +70,7 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method              VoiceChatStarted|null getVoiceChatStarted()
  * @method                VoiceChatEnded|null getVoiceChatEnded()
  * @method  VoiceChatParticipantsInvited|null getVoiceChatParticipantsInvited()
+ * @method                    WebAppData|null getWebAppData()
  * @method          InlineKeyboardMarkup|null getReplyMarkup()
  */
 class Message extends Entity
@@ -108,6 +109,7 @@ class Message extends Entity
     const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
     const TYPE_VOICE_CHAT_ENDED = 'voice_chat_ended';
     const TYPE_VOICE_CHAT_PARTICIPANTS_INVITED = 'voice_chat_participants_invited';
+    const TYPE_WEB_APP_DATA = 'web_app_data';
 	const TYPE_UNKNOWN = 'unknown';
 
 
@@ -153,6 +155,7 @@ class Message extends Entity
             'voice_chat_started' => VoiceChatStarted::class,
             'voice_chat_ended' => VoiceChatEnded::class,
             'voice_chat_participants_invited' => VoiceChatParticipantsInvited::class,
+            'web_app_data' => WebAppData::class,
             'reply_markup' => InlineKeyboardMarkup::class
         ];
     }
@@ -196,7 +199,8 @@ class Message extends Entity
             self::TYPE_VOICE_CHAT_SCHEDULED,
             self::TYPE_VOICE_CHAT_STARTED,
             self::TYPE_VOICE_CHAT_ENDED,
-            self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED
+            self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED,
+            self::TYPE_WEB_APP_DATA
 		];
 
 		foreach ($types as $type) {
@@ -503,5 +507,13 @@ class Message extends Entity
     public function isVoiceChatParticipantsInvited()
     {
         return $this->getType() == self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWebAppData()
+    {
+        return $this->getType() == self::TYPE_WEB_APP_DATA;
     }
 }
