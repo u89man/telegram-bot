@@ -15,7 +15,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  * @method       $this setBotUsername(string $botUsername)
  * @method       $this setRequestWriteAccess(bool $requestWriteAccess)
  */
-class LoginUrl extends Keyboard
+class LoginUrl extends KeyboardEntity
 {
 	/**
 	 * @param string $url

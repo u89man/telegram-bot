@@ -16,7 +16,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  * @method       $this setInputFieldPlaceholder(string $inputFieldPlaceholder)
  * @method       $this setSelective(bool $selective)
  */
-class ReplyKeyboardMarkup extends Keyboard
+class ReplyKeyboardMarkup extends KeyboardEntity
 {
     /**
      * @return KeyboardButton[][]|string[][]

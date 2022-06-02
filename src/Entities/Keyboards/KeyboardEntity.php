@@ -7,7 +7,7 @@ use U89Man\TBot\Entities\Entity;
 /**
  * @link https://core.telegram.org/bots#keyboards
  */
-abstract class Keyboard extends Entity
+abstract class KeyboardEntity extends Entity
 {
     //
 }

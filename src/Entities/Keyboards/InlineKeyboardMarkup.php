@@ -7,7 +7,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  *
  * @method $this setInlineKeyboard(array $inlineKeyboard)
  */
-class InlineKeyboardMarkup extends Keyboard
+class InlineKeyboardMarkup extends KeyboardEntity
 {
     /**
      * @return InlineKeyboardButton[][]

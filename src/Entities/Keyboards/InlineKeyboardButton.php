@@ -20,7 +20,7 @@ use U89Man\TBot\Entities\Games\CallbackGame;
  *
  * @method             $this setText(string $text)
  */
-class InlineKeyboardButton extends Keyboard
+class InlineKeyboardButton extends KeyboardEntity
 {
 	const TYPE_LOGIN_URL = 'login_url';
 	const TYPE_CALLBACK_DATA = 'callback_data';

@@ -9,7 +9,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  *
  * @method  $this setUrl(string $url)
  */
-class WebAppInfo extends Keyboard
+class WebAppInfo extends KeyboardEntity
 {
     /**
      * @param string $url

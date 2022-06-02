@@ -7,7 +7,7 @@ use ReflectionObject;
 use U89Man\TBot\Entities\Bot\BotEntity;
 use U89Man\TBot\Entities\Inline\Content\InputMessageContent;
 use U89Man\TBot\Entities\Inline\QueryResult\InlineQueryResult;
-use U89Man\TBot\Entities\Keyboards\Keyboard;
+use U89Man\TBot\Entities\Keyboards\KeyboardEntity;
 use U89Man\TBot\Entities\Media\InputMedia;
 use U89Man\TBot\Entities\Passport\Elements\Errors\PassportElementError;
 use U89Man\TBot\Entities\Payments\LabeledPrice;
@@ -218,12 +218,12 @@ abstract class Entity
                 break;
             case 'set':
                 if ($this instanceof BotEntity ||
+                    $this instanceof KeyboardEntity ||
                     $this instanceof ChatPermissions ||
                     $this instanceof LabeledPrice ||
                     $this instanceof InlineQueryResult ||
                     $this instanceof InputMessageContent ||
                     $this instanceof InputMedia ||
-                    $this instanceof Keyboard ||
                     $this instanceof MessageEntity ||
                     $this instanceof PassportElementError ||
                     $this instanceof User

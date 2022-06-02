@@ -11,7 +11,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  * @method     $this setRemoveKeyboard(bool $removeKeyboard)
  * @method     $this setSelective(bool $selective)
  */
-class ReplyKeyboardRemove extends Keyboard
+class ReplyKeyboardRemove extends KeyboardEntity
 {
 	/**
 	 * @param bool|null $selective

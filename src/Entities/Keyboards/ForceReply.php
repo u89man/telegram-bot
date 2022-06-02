@@ -13,7 +13,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  * @method       $this setInputFieldPlaceholder(string $inputFieldPlaceholder)
  * @method       $this setSelective(bool $selective)
  */
-class ForceReply extends Keyboard
+class ForceReply extends KeyboardEntity
 {
 	/**
 	 * @param bool|null $selective

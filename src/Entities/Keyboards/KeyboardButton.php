@@ -15,7 +15,7 @@ use Exception;
  *
  * @method                       $this setText(string $text)
  */
-class KeyboardButton extends Keyboard
+class KeyboardButton extends KeyboardEntity
 {
 	const TYPE_REQUEST_CONTACT = 'request_contact';
 	const TYPE_REQUEST_LOCATION = 'request_location';

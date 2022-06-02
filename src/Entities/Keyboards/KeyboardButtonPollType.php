@@ -9,7 +9,7 @@ namespace U89Man\TBot\Entities\Keyboards;
  *
  * @method       $this setType(string $type)
  */
-class KeyboardButtonPollType extends Keyboard
+class KeyboardButtonPollType extends KeyboardEntity
 {
     const TYPE_QUIZ = 'quiz';
     const TYPE_REGULAR = 'regular';
