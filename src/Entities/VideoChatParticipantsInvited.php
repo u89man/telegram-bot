@@ -3,11 +3,11 @@
 namespace U89Man\TBot\Entities;
 
 /**
- * @link https://core.telegram.org/bots/api#voicechatparticipantsinvited
+ * @link https://core.telegram.org/bots/api#videochatparticipantsinvited
  *
  * @method User[]|null getUsers()
  */
-class VoiceChatParticipantsInvited extends Entity
+class VideoChatParticipantsInvited extends Entity
 {
     /**
      * @return array

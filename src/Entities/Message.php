@@ -66,10 +66,10 @@ use U89Man\TBot\Entities\Stickers\Sticker;
  * @method                        string|null getConnectedWebsite()
  * @method                  PassportData|null getPassportData()
  * @method       ProximityAlertTriggered|null getProximityAlertTriggered()
- * @method            VoiceChatScheduled|null getVoiceChatScheduled()
- * @method              VoiceChatStarted|null getVoiceChatStarted()
- * @method                VoiceChatEnded|null getVoiceChatEnded()
- * @method  VoiceChatParticipantsInvited|null getVoiceChatParticipantsInvited()
+ * @method            VideoChatScheduled|null getVideoChatScheduled()
+ * @method              VideoChatStarted|null getVideoChatStarted()
+ * @method                VideoChatEnded|null getVideoChatEnded()
+ * @method  VideoChatParticipantsInvited|null getVideoChatParticipantsInvited()
  * @method                    WebAppData|null getWebAppData()
  * @method          InlineKeyboardMarkup|null getReplyMarkup()
  */
@@ -105,10 +105,10 @@ class Message extends Entity
 	const TYPE_INVOICE = 'invoice';
 	const TYPE_SUCCESSFUL_PAYMENT = 'successful_payment';
     const TYPE_PROXIMITY_ALERT_TRIGGERED = 'proximity_alert_triggered';
-    const TYPE_VOICE_CHAT_SCHEDULED = 'voice_chat_scheduled';
-    const TYPE_VOICE_CHAT_STARTED = 'voice_chat_started';
-    const TYPE_VOICE_CHAT_ENDED = 'voice_chat_ended';
-    const TYPE_VOICE_CHAT_PARTICIPANTS_INVITED = 'voice_chat_participants_invited';
+    const TYPE_VIDEO_CHAT_SCHEDULED = 'video_chat_scheduled';
+    const TYPE_VIDEO_CHAT_STARTED = 'video_chat_started';
+    const TYPE_VIDEO_CHAT_ENDED = 'video_chat_ended';
+    const TYPE_VIDEO_CHAT_PARTICIPANTS_INVITED = 'video_chat_participants_invited';
     const TYPE_WEB_APP_DATA = 'web_app_data';
 	const TYPE_UNKNOWN = 'unknown';
 
@@ -151,10 +151,10 @@ class Message extends Entity
             'successful_payment' => SuccessfulPayment::class,
             'passport_data' => PassportData::class,
             'proximity_alert_triggered' => ProximityAlertTriggered::class,
-            'voice_chat_scheduled' => VoiceChatScheduled::class,
-            'voice_chat_started' => VoiceChatStarted::class,
-            'voice_chat_ended' => VoiceChatEnded::class,
-            'voice_chat_participants_invited' => VoiceChatParticipantsInvited::class,
+            'video_chat_scheduled' => VideoChatScheduled::class,
+            'video_chat_started' => VideoChatStarted::class,
+            'video_chat_ended' => VideoChatEnded::class,
+            'video_chat_participants_invited' => VideoChatParticipantsInvited::class,
             'web_app_data' => WebAppData::class,
             'reply_markup' => InlineKeyboardMarkup::class
         ];
@@ -196,10 +196,10 @@ class Message extends Entity
             self::TYPE_INVOICE,
             self::TYPE_SUCCESSFUL_PAYMENT,
             self::TYPE_PROXIMITY_ALERT_TRIGGERED,
-            self::TYPE_VOICE_CHAT_SCHEDULED,
-            self::TYPE_VOICE_CHAT_STARTED,
-            self::TYPE_VOICE_CHAT_ENDED,
-            self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED,
+            self::TYPE_VIDEO_CHAT_SCHEDULED,
+            self::TYPE_VIDEO_CHAT_STARTED,
+            self::TYPE_VIDEO_CHAT_ENDED,
+            self::TYPE_VIDEO_CHAT_PARTICIPANTS_INVITED,
             self::TYPE_WEB_APP_DATA
 		];
 
@@ -482,7 +482,7 @@ class Message extends Entity
      */
     public function isVoiceChatScheduled()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_SCHEDULED;
+        return $this->getType() == self::TYPE_VIDEO_CHAT_SCHEDULED;
     }
 
     /**
@@ -490,7 +490,7 @@ class Message extends Entity
      */
     public function isVoiceChatStarted()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_STARTED;
+        return $this->getType() == self::TYPE_VIDEO_CHAT_STARTED;
     }
 
     /**
@@ -498,7 +498,7 @@ class Message extends Entity
      */
     public function isVoiceChatEnded()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_ENDED;
+        return $this->getType() == self::TYPE_VIDEO_CHAT_ENDED;
     }
 
     /**
@@ -506,7 +506,7 @@ class Message extends Entity
      */
     public function isVoiceChatParticipantsInvited()
     {
-        return $this->getType() == self::TYPE_VOICE_CHAT_PARTICIPANTS_INVITED;
+        return $this->getType() == self::TYPE_VIDEO_CHAT_PARTICIPANTS_INVITED;
     }
 
     /**
