@@ -1,4 +1,4 @@
-## Список доступных методов ([6.0](https://core.telegram.org/bots/api-changelog#april-16-2022))
+## Список доступных методов ([6.0](https://core.telegram.org/bots/api#april-16-2022))
 
 (*) - Методы отмеченные звездочкой, отсутствуют в нативном API Telegram.
 
