@@ -2646,6 +2646,27 @@ class Api
     }
 
     /**
+     * Измениняет права администратора по умолчанию,
+     * запрашиваемые ботом, когда он добавляется в качестве администратора в группы или каналы.
+     *
+     * @link https://core.telegram.org/bots/api#setmydefaultadministratorrights
+     *
+     * @param ChatAdministratorRights|null $rights
+     * @param bool|null $forChannels
+     *
+     * @return bool
+     */
+    public function setMyDefaultAdministratorRights(
+        ChatAdministratorRights $rights = null,
+        $forChannels = null
+    ) {
+        return (bool) $this->call('setMyDefaultAdministratorRights', [
+            'rights' => Utils::toJsonOrNull($rights),
+            'for_channels' => $forChannels
+        ]);
+    }
+
+    /**
      * Получает основную информацию о файле и подготовливает его к загрузке.
      *
      * @link https://core.telegram.org/bots/api#getfile
