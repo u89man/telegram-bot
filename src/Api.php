@@ -2563,8 +2563,8 @@ class Api
      *
      * @link https://core.telegram.org/bots/api#getmycommands
      *
-     * @param BotCommandScope $scope
-     * @param string $languageCode
+     * @param BotCommandScope|null $scope
+     * @param string|null $languageCode
      *
      * @return BotCommand[]
      */
@@ -2584,8 +2584,8 @@ class Api
      * @link https://core.telegram.org/bots/api#setmycommands
      *
      * @param BotCommand[]|string[][] $commands
-     * @param BotCommandScope $scope
-     * @param string $languageCode
+     * @param BotCommandScope|null $scope
+     * @param string|null $languageCode
      *
      * @return bool
      */
@@ -2610,8 +2610,10 @@ class Api
     /**
      * Удаляет список команд бота.
      *
-     * @param BotCommandScope $scope
-     * @param string $languageCode
+     * @link https://core.telegram.org/bots/api#deletemycommands
+     *
+     * @param BotCommandScope|null $scope
+     * @param string|null $languageCode
      *
      * @return bool
      */
