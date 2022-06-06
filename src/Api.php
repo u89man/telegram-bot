@@ -5,6 +5,9 @@ namespace U89Man\TBot;
 use U89Man\TBot\Entities\Bot\Commands\BotCommand;
 use U89Man\TBot\Entities\Bot\Commands\Scope\BotCommandScope;
 use U89Man\TBot\Entities\Bot\Menu\MenuButton;
+use U89Man\TBot\Entities\Bot\Menu\MenuButtonCommands;
+use U89Man\TBot\Entities\Bot\Menu\MenuButtonDefault;
+use U89Man\TBot\Entities\Bot\Menu\MenuButtonWebApp;
 use U89Man\TBot\Entities\Chat;
 use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatPermissions;
@@ -1703,6 +1706,23 @@ class Api
             'chat_id' => $chatId,
             'menu_button' => Utils::toJsonOrNull($menuButton)
         ]);
+    }
+
+    /**
+     * Получает текущее значение кнопки меню бота в приватном чате или кнопку меню по умолчанию.
+     *
+     * @link https://core.telegram.org/bots/api#getchatmenubutton
+     *
+     * @param int|string|null $chatId
+     *
+     * @return MenuButtonDefault|MenuButtonCommands|MenuButtonWebApp
+     */
+    public function getChatMenuButton(
+        $chatId = null
+    ) {
+        return MenuButton::getConcreteEntity($this->call('getChatMenuButton', [
+            'chat_id' => $chatId
+        ]));
     }
 
     /**
