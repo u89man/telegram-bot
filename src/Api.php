@@ -1408,7 +1408,7 @@ class Api
      * @param bool|null $canPostMessages
      * @param bool|null $canEditMessages
      * @param bool|null $canDeleteMessages
-     * @param bool|null $canManageVoiceChats
+     * @param bool|null $canManageVideoChats
      * @param bool|null $canInviteUsers
      * @param bool|null $canRestrictMembers
      * @param bool|null $canPinMessages
@@ -1425,7 +1425,7 @@ class Api
         $canPostMessages = null,
         $canEditMessages = null,
         $canDeleteMessages = null,
-        $canManageVoiceChats = null,
+        $canManageVideoChats = null,
         $canInviteUsers = null,
         $canRestrictMembers = null,
         $canPinMessages = null,
@@ -1440,7 +1440,7 @@ class Api
             'can_post_messages' => $canPostMessages,
             'can_edit_messages' => $canEditMessages,
             'can_delete_messages' => $canDeleteMessages,
-            'can_manage_voice_chats' => $canManageVoiceChats,
+            'can_manage_video_chats' => $canManageVideoChats,
             'can_invite_users' => $canInviteUsers,
             'can_restrict_members' => $canRestrictMembers,
             'can_pin_messages' => $canPinMessages,
