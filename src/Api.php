@@ -22,6 +22,12 @@ use U89Man\TBot\Entities\Media\InputMediaDocument;
 use U89Man\TBot\Entities\Media\InputMediaPhoto;
 use U89Man\TBot\Entities\Media\InputMediaVideo;
 use U89Man\TBot\Entities\Members\ChatMember;
+use U89Man\TBot\Entities\Members\ChatMemberAdministrator;
+use U89Man\TBot\Entities\Members\ChatMemberBanned;
+use U89Man\TBot\Entities\Members\ChatMemberLeft;
+use U89Man\TBot\Entities\Members\ChatMemberMember;
+use U89Man\TBot\Entities\Members\ChatMemberOwner;
+use U89Man\TBot\Entities\Members\ChatMemberRestricted;
 use U89Man\TBot\Entities\Message;
 use U89Man\TBot\Entities\MessageEntity;
 use U89Man\TBot\Entities\MessageId;
@@ -1807,7 +1813,7 @@ class Api
      * @param int|string $chatId
      * @param int $userId
      *
-     * @return ChatMember
+     * @return ChatMemberOwner|ChatMemberAdministrator|ChatMemberMember|ChatMemberRestricted|ChatMemberLeft|ChatMemberBanned
      */
     public function getChatMember(
         $chatId,

@@ -11,7 +11,7 @@ use U89Man\TBot\Entities\User;
  * @method string getStatus()
  * @method   User getUser()
  */
-class ChatMember extends Entity
+abstract class ChatMember extends Entity
 {
 	const STATUS_CREATOR = 'creator';
 	const STATUS_ADMINISTRATOR = 'administrator';
@@ -34,9 +34,9 @@ class ChatMember extends Entity
     /**
      * @param array $data
      *
-     * @return ChatMember
+     * @return ChatMemberOwner|ChatMemberAdministrator|ChatMemberMember|ChatMemberRestricted|ChatMemberLeft|ChatMemberBanned|null
      */
-    public static function getConcreteEntity($data)
+    public static function getConcreteEntity(array $data)
     {
         switch ($data['status']) {
             case self::STATUS_CREATOR:
@@ -52,7 +52,7 @@ class ChatMember extends Entity
             case self::STATUS_KICKED:
                 return new ChatMemberBanned($data);
             default:
-                return new static($data);
+                return null;
         }
     }
 
