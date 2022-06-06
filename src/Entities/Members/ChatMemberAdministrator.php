@@ -9,7 +9,7 @@ namespace U89Man\TBot\Entities\Members;
  * @method        bool getIsAnonymous()
  * @method        bool getCanManageChat()
  * @method        bool getCanDeleteMessages()
- * @method        bool getCanManageVoiceChats()
+ * @method        bool getCanManageVideoChats()
  * @method        bool getCanRestrictMembers()
  * @method        bool getCanPromoteMembers()
  * @method        bool getCanChangeInfo()
