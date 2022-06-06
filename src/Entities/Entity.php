@@ -226,7 +226,8 @@ abstract class Entity
                     $this instanceof InputMedia ||
                     $this instanceof MessageEntity ||
                     $this instanceof PassportElementError ||
-                    $this instanceof User
+                    $this instanceof User ||
+                    $this instanceof ChatAdministratorRights
                 ) {
                     if (! isset($params[0])) {
                         throw new Exception(sprintf('Отсутствуют параметры метода %s::%s()', get_class($this), $method));
