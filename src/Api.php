@@ -4,6 +4,7 @@ namespace U89Man\TBot;
 
 use U89Man\TBot\Entities\Bot\Commands\BotCommand;
 use U89Man\TBot\Entities\Bot\Commands\Scope\BotCommandScope;
+use U89Man\TBot\Entities\Bot\Menu\MenuButton;
 use U89Man\TBot\Entities\Chat;
 use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatPermissions;
@@ -1675,6 +1676,26 @@ class Api
         return (bool) $this->call('setChatPermissions', [
             'chat_id' => $chatId,
             'permissions' => Utils::toJson($permissions)
+        ]);
+    }
+
+    /**
+     * Изменяет кнопку меню бота в приватном чате или кнопку меню по умолчанию.
+     *
+     * @link https://core.telegram.org/bots/api#setchatmenubutton
+     *
+     * @param int|string|null $chatId
+     * @param MenuButton|null $menuButton
+     *
+     * @return bool
+     */
+    public function setChatMenuButton(
+        $chatId = null,
+        MenuButton $menuButton = null
+    ) {
+        return (bool) $this->call('setChatMenuButton', [
+            'chat_id' => $chatId,
+            'menu_button' => Utils::toJsonOrNull($menuButton)
         ]);
     }
 
