@@ -11,6 +11,7 @@ namespace U89Man\TBot\Entities;
  * @method   string|null getIpAddress()
  * @method      int|null getLastErrorDate()
  * @method   string|null getLastErrorMessage()
+ * @method      int|null getLastSynchronizationErrorDate()
  * @method      int|null getMaxConnections()
  * @method string[]|null getAllowedUpdates()
  */
