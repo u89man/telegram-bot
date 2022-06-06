@@ -9,6 +9,7 @@ use U89Man\TBot\Entities\Bot\Menu\MenuButtonCommands;
 use U89Man\TBot\Entities\Bot\Menu\MenuButtonDefault;
 use U89Man\TBot\Entities\Bot\Menu\MenuButtonWebApp;
 use U89Man\TBot\Entities\Chat;
+use U89Man\TBot\Entities\ChatAdministratorRights;
 use U89Man\TBot\Entities\ChatInviteLink;
 use U89Man\TBot\Entities\ChatPermissions;
 use U89Man\TBot\Entities\File;
@@ -2625,6 +2626,23 @@ class Api
             'scope' => Utils::toJsonOrNull($scope),
             'language_code' => $languageCode
         ]);
+    }
+
+    /**
+     * Получает текущие права администратора по умолчанию для бота.
+     *
+     * @link https://core.telegram.org/bots/api#getmydefaultadministratorrights
+     *
+     * @param bool|null $forChannels
+     *
+     * @return ChatAdministratorRights
+     */
+    public function getMyDefaultAdministratorRights(
+        $forChannels = null
+    ) {
+        return new ChatAdministratorRights($this->call('getMyDefaultAdministratorRights', [
+            'for_channels' => $forChannels
+        ]));
     }
 
     /**
